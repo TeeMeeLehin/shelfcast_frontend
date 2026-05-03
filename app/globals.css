@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+:root {
+  --sc-amber: #E8A205;
+  --sc-amber-text: #1a1100;
+  --sc-green-deep: #0f3d10;
+  --sc-green-bg: #0d3a10;
+  --sc-green-mid: #176d20;
+  --sc-green-bright: #178A00;
+  --sc-warning-bg: #E7FFE2;
+  --sc-warning-border: #178A00;
+  --sc-border: #CDCDCD;
+  --sc-text: #0a0a0a;
+  --sc-white: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--sc-text);
+  background: #fff;
+}
+
+/* ── responsive section padding ── */
+.sc-section  { padding: 120px 100px; }
+.sc-section-dark { padding: 110px 100px; }
+.sc-container { max-width: 1280px; margin: 0 auto; padding: 0 100px; }
+
+@media (max-width: 1024px) {
+  .sc-section  { padding: 80px 48px; }
+  .sc-section-dark { padding: 80px 48px; }
+  .sc-container { padding: 0 48px; }
+}
+
+@media (max-width: 768px) {
+  .sc-section  { padding: 60px 20px; }
+  .sc-section-dark { padding: 60px 20px; }
+  .sc-container { padding: 0 20px; }
+}
+
+/* ── nav mobile drawer ── */
+.sc-nav-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  background: #fff;
+  z-index: 40;
+  flex-direction: column;
+  padding: 32px 24px;
+  gap: 24px;
+  border-top: 1px solid #ececec;
+}
+.sc-nav-drawer.open { display: flex; }
+
+/* ── hero responsive ── */
+.sc-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 60px;
+  height: 100%;
+  padding: 80px 100px;
+}
+@media (max-width: 1024px) {
+  .sc-hero-grid { grid-template-columns: 1fr; padding: 60px 48px; height: auto; }
+  .sc-hero-features { display: none !important; }
+}
+@media (max-width: 768px) {
+  .sc-hero-grid { padding: 48px 20px; }
+}
+
+/* ── features grid ── */
+.sc-features-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.sc-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) {
+  .sc-features-header { grid-template-columns: 1fr; gap: 24px; }
+  .sc-features-grid   { grid-template-columns: 1fr; }
+}
+
+/* ── how it works ── */
+.sc-hiw-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+.sc-hiw-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 900px) {
+  .sc-hiw-header { grid-template-columns: 1fr; gap: 24px; }
+  .sc-hiw-steps  { grid-template-columns: 1fr; }
+}
+
+/* ── metrics band ── */
+.sc-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+@media (max-width: 900px) {
+  .sc-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .sc-metrics-grid { grid-template-columns: 1fr; }
+}
+
+/* ── pricing ── */
+.sc-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .sc-pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+}
+
+/* ── CTA ── */
+.sc-cta-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .sc-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ── footer ── */
+.sc-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 60px;
+  margin-bottom: 64px;
+}
+@media (max-width: 1024px) {
+  .sc-footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .sc-footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ── auth ── */
+.sc-auth-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .sc-auth-layout {
+    flex-direction: column;
+    padding: 48px 24px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 36px;
+  }
+}
+
+/* ── waitlist ── */
+.sc-waitlist-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .sc-waitlist-inner { grid-template-columns: 1fr; gap: 36px; }
+}
