@@ -26,11 +26,6 @@ ShelfCast.html
 # duplicate / misplaced logo
 /logo.jpeg
 
-# production images (add to hosting platform directly)
-public/*.png
-public/*.jpeg
-public/*.jpg
-public/*.svg
 
 # OS
 .DS_Store
