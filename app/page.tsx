@@ -2,7 +2,6 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
-import MetricsBand from "./components/MetricsBand";
 import Pricing from "./components/Pricing";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
@@ -14,7 +13,6 @@ export default function HomePage() {
       <section id="home"><Hero /></section>
       <section id="about"><Features /></section>
       <HowItWorks />
-      <MetricsBand />
       <section id="pricing"><Pricing /></section>
       <section id="contact"><CTASection /></section>
       <Footer />

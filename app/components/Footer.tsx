@@ -17,7 +17,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#0a2a0a", color: "#fff", marginTop: 0, borderTop: "8px solid #0a2a0a" }} className="px-5 md:px-16 lg:px-24 pt-16 md:pt-20 pb-10">
+    <footer style={{ background: "#0a2a0a", color: "#fff", marginTop: 0, borderTop: "8px solid #0a2a0a", padding: "80px 96px 60px" }}>
       <div className="sc-footer-grid">
         <div>
           <Image src="/logo.jpeg" alt="ShelfCast" width={140} height={32} style={{ height: 32, width: "auto", display: "block" }} />
