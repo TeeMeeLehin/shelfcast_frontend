@@ -34,6 +34,7 @@ type TableRow = {
   stock: number;
   advice: string;
   insight: string;
+  unitPrice: number;
 };
 
 function deriveAlert(item: InventoryItem, alertedSkus: Set<string>): string {
@@ -136,6 +137,7 @@ export default function CommandCenter() {
         trend: deriveTrend(item, alertedSkus),
         alert: deriveAlert(item, alertedSkus),
         stock: item.current_stock,
+        unitPrice: item.unit_price_ghs,
         advice: deriveScore(item, alertedSkus) >= 70
           ? "Increase current stock to meet demand"
           : item.current_stock > 120
@@ -143,7 +145,6 @@ export default function CommandCenter() {
             : "Monitor stock levels closely",
         insight: signals.composite_demand_alerts.find(a => a.affected_skus.includes(item.sku))?.description ?? "",
       }));
-      // Sort: demand spike first, then low stock, then by score desc
       allRows.sort((a, b) => {
         const priority = (r: TableRow) => r.alert === "Demand Spike" ? 0 : r.alert === "Low Stock" ? 1 : 2;
         return priority(a) - priority(b) || b.score - a.score;
@@ -165,12 +166,13 @@ export default function CommandCenter() {
       && (filterAlert === "All" || row.alert === filterAlert);
   }), [rows, search, filterCategory, filterAlert]);
 
-  // KPIs
-  const alertCount     = rows.filter(r => r.alert === "Demand Spike" || r.alert === "Low Stock").length;
-  const highSignal     = rows.filter(r => r.score >= 70).length;
-  const capitalAtRisk  = inventory
+  const alertCount    = rows.filter(r => r.alert === "Demand Spike" || r.alert === "Low Stock").length;
+  const highSignal    = rows.filter(r => r.score >= 70).length;
+  const capitalAtRisk = inventory
     .filter(i => rows.find(r => r.sku === i.sku && (r.alert === "Demand Spike" || r.alert === "Low Stock")))
     .reduce((s, i) => s + i.unit_price_ghs * i.current_stock, 0);
+
+  const revenueChange = 20500;
 
   const selectStyle: React.CSSProperties = {
     border: `1px solid ${C.border}`, borderRadius: 6, padding: "8px 12px",
@@ -213,8 +215,8 @@ export default function CommandCenter() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 18 }}>
         <KpiCard title="Active Alerts"        value={String(alertCount)}            label={`${rows.filter(r=>r.alert==="Demand Spike").length} demand spikes`} accent={C.red} />
         <KpiCard title="High Signal Products" value={String(highSignal)}            label="Score above 70"            accent={C.green} />
-        <KpiCard title="Products Tracked"     value={inventory.length.toLocaleString()} label={`Across ${new Set(inventory.map(i=>i.category)).size} categories`} accent={C.ink} />
-        <KpiCard title="Capital at Risk"      value={`GHS ${capitalAtRisk.toLocaleString("en-GH", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} accent={C.red} compact />
+        <KpiCard title="Revenue Change"       value={`GHS ${revenueChange.toLocaleString("en-GH")}`} label="vs. previous period" accent={C.green} compact />
+        <KpiCard title="Capital at Risk"      value={`GHS ${capitalAtRisk.toLocaleString("en-GH", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} label="Current inventory exposure" accent={C.red} compact />
       </div>
 
       {/* Alert banners */}
@@ -257,19 +259,20 @@ export default function CommandCenter() {
 
       <table style={{ width: "100%", borderCollapse: "collapse", background: C.white, borderRadius: 6, border: `1px solid ${C.border}`, tableLayout: "fixed" }}>
         <colgroup>
-          <col style={{ width: "22%" }} />
+          <col style={{ width: "20%" }} />
           <col style={{ width: "8%" }} />
           <col style={{ width: "6%" }} />
           <col style={{ width: "7%" }} />
           <col style={{ width: "11%" }} />
+          <col style={{ width: "7%" }} />
+          <col style={{ width: "17%" }} />
+          <col style={{ width: "16%" }} />
           <col style={{ width: "8%" }} />
-          <col style={{ width: "19%" }} />
-          <col style={{ width: "19%" }} />
         </colgroup>
         <thead>
           <tr>
-            {["Product", "Category", "Score", "Trend", "Alert", "Stock", "Recommended Advice", "Market Insight"].map((h, i) => (
-              <th key={h} style={{
+            {["Product", "Category", "Score", "Trend", "Alert", "Stock", "Recommended Advice", "Market Insight", ""].map((h, i) => (
+              <th key={h + i} style={{
                 background: C.tint, borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`,
                 padding: "9px 12px", textAlign: i === 2 || i === 3 ? "center" : "left",
                 fontSize: 12, fontWeight: 700, color: C.sub, textTransform: "uppercase" as const,
@@ -280,7 +283,7 @@ export default function CommandCenter() {
         </thead>
         <tbody>
           {filtered.slice(0, 10).length === 0 ? (
-            <tr><td colSpan={8} style={{ padding: 24, textAlign: "center", color: C.sub, fontSize: 13, fontFamily: "Gilroy, system-ui, sans-serif" }}>No products match your filters.</td></tr>
+            <tr><td colSpan={9} style={{ padding: 24, textAlign: "center", color: C.sub, fontSize: 13, fontFamily: "Gilroy, system-ui, sans-serif" }}>No products match your filters.</td></tr>
           ) : filtered.slice(0, 10).map((row, i) => (
             <tr key={row.sku} style={{ background: i % 2 === 0 ? C.white : "#faf7f2" }}>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 13, fontWeight: 600, color: C.ink, fontFamily: "Gilroy, system-ui, sans-serif" }}>
@@ -292,7 +295,20 @@ export default function CommandCenter() {
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px" }}><AlertPill label={row.alert} /></td>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 13, fontWeight: 600, color: row.stock < 20 ? C.red : C.ink, fontFamily: "Gilroy, system-ui, sans-serif" }}>{row.stock} pcs</td>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 12.5, color: C.sub, fontFamily: "Gilroy, system-ui, sans-serif", lineHeight: 1.5, wordBreak: "break-word" as const }}>{row.advice}</td>
-              <td style={{ borderBottom: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 12.5, color: C.sub, fontFamily: "Gilroy, system-ui, sans-serif", lineHeight: 1.5, wordBreak: "break-word" as const }}>{row.insight || "—"}</td>
+              <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 12.5, color: C.sub, fontFamily: "Gilroy, system-ui, sans-serif", lineHeight: 1.5, wordBreak: "break-word" as const }}>{row.insight || "—"}</td>
+              <td style={{ borderBottom: `1px solid ${C.border}`, padding: "10px 12px", textAlign: "center" }}>
+                <button
+                  onClick={() => router.push(`/dashboard/product/${encodeURIComponent(row.sku)}`)}
+                  style={{
+                    background: C.white, color: C.ink, border: `1px solid ${C.border}`,
+                    borderRadius: 6, padding: "5px 12px", fontSize: 12, fontWeight: 600,
+                    cursor: "pointer", fontFamily: "Gilroy, system-ui, sans-serif",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  View →
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

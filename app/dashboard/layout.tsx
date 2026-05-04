@@ -10,6 +10,7 @@ import {
   SignOut,
   Gear,
   UploadSimple,
+  ChartLine,
 } from "@phosphor-icons/react";
 import { DEMO_MODE } from "@/lib/config";
 
@@ -25,6 +26,7 @@ const navItems = [
   { label: "Register Data",  href: "/dashboard/register",        Icon: UploadSimple },
   { label: "Command Center", href: "/dashboard",                 Icon: SquaresFour  },
   { label: "Catalogue",      href: "/dashboard/catalogue",       Icon: Cube         },
+  { label: "Demand Trends",  href: "/dashboard/demand-trends",   Icon: ChartLine    },
   { label: "Opportunities",  href: "/dashboard/opportunities",   Icon: Lightbulb    },
 ];
 
@@ -78,7 +80,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt="Makafui Gley"
             style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover" }}
           />

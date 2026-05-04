@@ -1,388 +1,266 @@
 "use client";
-import { useMemo, useState } from "react";
-import salesRaw from "@/public/sales_history.json";
-import demandRaw from "@/public/demand_signals.json";
-import inventoryRaw from "@/public/inventory.json";
+import { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
+import { ChartLine, ArrowRight } from "@phosphor-icons/react";
+import Button from "../components/Button";
+import {
+  fetchInventory,
+  fetchSalesHistory,
+  fetchDemandSignals,
+  hasAnyActiveBatch,
+  type InventoryItem,
+  type SaleRecord,
+  type DemandSignals,
+} from "@/lib/store";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 
 const C = {
   green:  "#17931f",
+  amber:  "#b45309",
   red:    "#c0392b",
-  amber:  "#d97706",
   ink:    "#1a1a1a",
   sub:    "#6b6560",
-  bg:     "#f3ebda",
   white:  "#ffffff",
   border: "#e8e0d0",
   tint:   "#eef6ee",
-  chartLine: "#17931f",
-  chartArea: "rgba(23,147,31,0.08)",
-  projLine:  "#d97706",
-  projArea:  "rgba(217,119,6,0.06)",
 };
 
-// ─── Data Processing ────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-type SaleRow = { transaction_id: string; timestamp: string; sku: string; quantity: number; unit_price: number; total_price: number };
-type Signal  = { signal_id: string; source: string; post_date: string; content: string; affected_categories: string[]; demand_direction: string; estimated_lift: number; geo_relevance: string; platform_engagement?: { likes: number; retweets?: number }; sentiment: string; demand_intent: string };
-type InvItem = { sku: string; product_name: string; category: string; unit_price_ghs: number; current_stock: number };
+type SocialSignal = {
+  signal_id: string;
+  source: string;
+  post_date: string;
+  content: string;
+  affected_categories: string[];
+  demand_direction: string;
+  estimated_lift: number;
+  geo_relevance: string;
+  platform_engagement?: { likes: number; retweets?: number };
+  sentiment: string;
+  demand_intent: string;
+};
 
-const sales     = salesRaw as SaleRow[];
-const signals   = (demandRaw as { social_signals: Signal[] }).social_signals;
-const inventory = inventoryRaw as InvItem[];
+type BlogSignal = {
+  signal_id: string;
+  source: string;
+  blog_name: string;
+  title: string;
+  excerpt: string;
+  affected_categories: string[];
+  estimated_lift?: number;
+  demand_direction?: string;
+};
 
-function buildDailyTotals() {
-  const map: Record<string, { qty: number; revenue: number }> = {};
+type EventSignal = {
+  event_id: string;
+  event_name: string;
+  event_type: string;
+  start_date: string;
+  expected_demand_impact: string;
+  affected_categories: string[];
+  days_until_event_from_scrape: number;
+};
+
+type DailyPoint = { date: string; qty: number };
+
+type CategoryData = {
+  name: string;
+  daily: DailyPoint[];
+  totalUnits: number;
+  signals: SocialSignal[];
+  blogs: BlogSignal[];
+  events: EventSignal[];
+};
+
+// ─── Data helpers ─────────────────────────────────────────────────────────────
+
+function buildCategoryData(
+  sales: SaleRecord[],
+  inv: InventoryItem[],
+  signals: DemandSignals,
+): CategoryData[] {
+  const skuCat = new Map(inv.map(i => [i.sku, i.category]));
+  const dailyByCat = new Map<string, Map<string, number>>();
+
   for (const row of sales) {
+    const cat = skuCat.get(row.sku) ?? "Other";
+    if (!dailyByCat.has(cat)) dailyByCat.set(cat, new Map());
+    const byDate = dailyByCat.get(cat)!;
     const d = row.timestamp.slice(0, 10);
-    if (!map[d]) map[d] = { qty: 0, revenue: 0 };
-    map[d].qty += row.quantity;
-    map[d].revenue += row.total_price;
+    byDate.set(d, (byDate.get(d) ?? 0) + row.quantity);
   }
-  return Object.entries(map).sort((a, b) => a[0].localeCompare(b[0])).map(([date, v]) => ({ date, ...v }));
+
+  const soc  = signals.social_signals as SocialSignal[];
+  const blogs = signals.blog_signals  as BlogSignal[];
+  const evts  = signals.event_calendar as EventSignal[];
+
+  return Array.from(dailyByCat.entries())
+    .map(([name, byDate]) => {
+      const daily = Array.from(byDate.entries())
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([date, qty]) => ({ date, qty }));
+      const totalUnits = daily.reduce((s, d) => s + d.qty, 0);
+
+      const catSignals = soc.filter(s => s.affected_categories.includes(name));
+      const catBlogs   = blogs.filter(b => b.affected_categories?.includes(name));
+      const catEvents  = evts.filter(e => e.affected_categories?.includes(name));
+
+      return { name, daily, totalUnits, signals: catSignals, blogs: catBlogs, events: catEvents };
+    })
+    .sort((a, b) => b.totalUnits - a.totalUnits);
 }
 
-function buildWeeklyTotals(daily: ReturnType<typeof buildDailyTotals>) {
-  const weeks: { label: string; qty: number; revenue: number }[] = [];
-  let i = 0;
-  while (i < daily.length) {
-    const chunk = daily.slice(i, i + 7);
-    const label = `${chunk[0].date.slice(5)} – ${chunk[chunk.length - 1].date.slice(5)}`;
-    weeks.push({ label, qty: chunk.reduce((s, d) => s + d.qty, 0), revenue: chunk.reduce((s, d) => s + d.revenue, 0) });
-    i += 7;
-  }
-  return weeks;
-}
-
-function buildCategoryRevenue() {
-  const skuCat: Record<string, string> = {};
-  for (const inv of inventory) skuCat[inv.sku] = inv.category;
-  const map: Record<string, number> = {};
-  for (const row of sales) {
-    const cat = skuCat[row.sku] ?? "Other";
-    map[cat] = (map[cat] ?? 0) + row.total_price;
-  }
-  return Object.entries(map).sort((a, b) => b[1] - a[1]);
-}
-
-// Simple linear regression for projection
-function linearProject(points: number[], steps: number): number[] {
+// Simple linear regression projection
+function project(points: number[], steps: number): number[] {
   const n = points.length;
+  if (n === 0) return [];
   const xMean = (n - 1) / 2;
   const yMean = points.reduce((s, v) => s + v, 0) / n;
   let num = 0, den = 0;
   for (let i = 0; i < n; i++) { num += (i - xMean) * (points[i] - yMean); den += (i - xMean) ** 2; }
   const slope = den === 0 ? 0 : num / den;
   const intercept = yMean - slope * xMean;
-  return Array.from({ length: steps }, (_, j) => Math.max(0, intercept + slope * (n + j)));
+  return Array.from({ length: steps }, (_, j) => Math.max(0, Math.round(intercept + slope * (n + j))));
 }
 
-// ─── Chart Components ────────────────────────────────────────────────────────
+// ─── Chart ────────────────────────────────────────────────────────────────────
 
-function SparkChart({ data, projData, width = 680, height = 180, yLabel = "Revenue (GHS)" }: {
-  data: { label: string; value: number }[];
-  projData?: number[];
-  width?: number;
-  height?: number;
-  yLabel?: string;
-}) {
-  const pad = { t: 16, r: 20, b: 48, l: 70 };
-  const W = width - pad.l - pad.r;
-  const H = height - pad.t - pad.b;
+function TrendChart({ daily, proj }: { daily: DailyPoint[]; proj: number[] }) {
+  const W = 620, H = 160;
+  const pad = { t: 12, r: 16, b: 38, l: 48 };
+  const cW = W - pad.l - pad.r;
+  const cH = H - pad.t - pad.b;
 
-  const allVals = [...data.map(d => d.value), ...(projData ?? [])];
-  const maxVal = Math.max(...allVals) * 1.15;
-  const minVal = 0;
+  const allVals = [...daily.map(d => d.qty), ...proj];
+  const maxVal  = Math.max(...allVals, 1) * 1.2;
 
-  const xStep = W / Math.max(data.length - 1, 1);
-  const toY = (v: number) => H - ((v - minVal) / (maxVal - minVal)) * H;
-  const toX = (i: number) => i * xStep;
+  const toX = (i: number, total: number) => (i / Math.max(total - 1, 1)) * cW;
+  const toY = (v: number) => cH - (v / maxVal) * cH;
 
-  const histPoints = data.map((d, i) => `${toX(i)},${toY(d.value)}`).join(" ");
-  const histArea   = `${toX(0)},${H} ${histPoints} ${toX(data.length - 1)},${H}`;
+  const histPts = daily.map((d, i) => `${toX(i, daily.length + proj.length - 1)},${toY(d.qty)}`).join(" ");
+  const histArea = `${toX(0, daily.length + proj.length - 1)},${cH} ${histPts} ${toX(daily.length - 1, daily.length + proj.length - 1)},${cH}`;
 
-  const projOffset = data.length - 1;
-  const projPoints = projData ? [data[data.length - 1].value, ...projData].map((v, i) => `${toX(projOffset + i)},${toY(v)}`).join(" ") : "";
-  const projArea   = projData ? `${toX(projOffset)},${H} ${projPoints} ${toX(projOffset + projData.length)},${H}` : "";
+  const projOffset = daily.length - 1;
+  const projAllPts = [daily[daily.length - 1].qty, ...proj];
+  const projPts = projAllPts.map((v, i) => `${toX(projOffset + i, daily.length + proj.length - 1)},${toY(v)}`).join(" ");
+  const projArea = `${toX(projOffset, daily.length + proj.length - 1)},${cH} ${projPts} ${toX(projOffset + proj.length, daily.length + proj.length - 1)},${cH}`;
 
-  const yTicks = 4;
-  const tickStep = maxVal / yTicks;
+  const yTicks = [0, Math.round(maxVal * 0.25), Math.round(maxVal * 0.5), Math.round(maxVal * 0.75), Math.round(maxVal)];
 
-  // Show every other label on x axis if crowded
-  const showEvery = data.length > 6 ? 2 : 1;
+  // Show x labels every ~7 days
+  const labelEvery = Math.max(1, Math.floor(daily.length / 5));
 
   return (
-    <svg width="100%" viewBox={`0 0 ${width} ${height}`} style={{ display: "block" }}>
+    <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{ display: "block" }}>
       <g transform={`translate(${pad.l},${pad.t})`}>
-        {/* Grid lines */}
-        {Array.from({ length: yTicks + 1 }, (_, i) => {
-          const v = tickStep * i;
-          const y = toY(v);
-          return (
-            <g key={i}>
-              <line x1={0} y1={y} x2={W} y2={y} stroke={C.border} strokeWidth={1} />
-              <text x={-8} y={y + 4} textAnchor="end" fontSize={10} fill={C.sub} fontFamily="Gilroy, system-ui, sans-serif">
-                {v >= 1000 ? `${Math.round(v / 1000)}k` : Math.round(v)}
-              </text>
-            </g>
-          );
-        })}
+        {yTicks.map(v => (
+          <g key={v}>
+            <line x1={0} y1={toY(v)} x2={cW} y2={toY(v)} stroke={C.border} strokeWidth={1} />
+            <text x={-6} y={toY(v) + 4} textAnchor="end" fontSize={9} fill={C.sub} fontFamily="Gilroy,system-ui,sans-serif">{v}</text>
+          </g>
+        ))}
 
-        {/* Y axis label */}
-        <text x={-52} y={H / 2} textAnchor="middle" fontSize={10} fill={C.sub} fontFamily="Gilroy, system-ui, sans-serif" transform={`rotate(-90,-52,${H / 2})`}>
-          {yLabel}
-        </text>
+        <polygon points={histArea} fill="rgba(23,147,31,0.07)" />
+        <polyline points={histPts} fill="none" stroke={C.green} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
 
-        {/* Historical area + line */}
-        <polygon points={histArea} fill={C.chartArea} />
-        <polyline points={histPoints} fill="none" stroke={C.chartLine} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
-
-        {/* Projection area + line */}
-        {projData && projData.length > 0 && (
+        {proj.length > 0 && (
           <>
-            <polygon points={projArea} fill={C.projArea} />
-            <polyline points={projPoints} fill="none" stroke={C.projLine} strokeWidth={2} strokeDasharray="5 4" strokeLinejoin="round" strokeLinecap="round" />
+            <polygon points={projArea} fill="rgba(179,92,9,0.07)" />
+            <polyline points={projPts} fill="none" stroke="#b45309" strokeWidth={2} strokeDasharray="5 4" strokeLinejoin="round" strokeLinecap="round" />
+            <line
+              x1={toX(projOffset, daily.length + proj.length - 1)}
+              y1={0}
+              x2={toX(projOffset, daily.length + proj.length - 1)}
+              y2={cH}
+              stroke="#b45309" strokeWidth={1} strokeDasharray="3 3" opacity={0.4}
+            />
           </>
         )}
 
-        {/* Data points */}
-        {data.map((d, i) => (
-          <circle key={i} cx={toX(i)} cy={toY(d.value)} r={3} fill={C.chartLine} />
+        {daily.map((d, i) => i % labelEvery === 0 && (
+          <text key={d.date} x={toX(i, daily.length + proj.length - 1)} y={cH + 14} textAnchor="middle" fontSize={9} fill={C.sub} fontFamily="Gilroy,system-ui,sans-serif">
+            {d.date.slice(5)}
+          </text>
         ))}
-
-        {/* Divider between actual and projection */}
-        {projData && projData.length > 0 && (
-          <line x1={toX(projOffset)} y1={0} x2={toX(projOffset)} y2={H} stroke={C.projLine} strokeWidth={1} strokeDasharray="3 3" opacity={0.5} />
-        )}
-
-        {/* X axis labels */}
-        {data.map((d, i) => (
-          i % showEvery === 0 && (
-            <text key={i} x={toX(i)} y={H + 16} textAnchor="middle" fontSize={9.5} fill={C.sub} fontFamily="Gilroy, system-ui, sans-serif">
-              {d.label}
-            </text>
-          )
+        {proj.map((_, i) => i === proj.length - 1 && (
+          <text key={`p${i}`} x={toX(projOffset + i + 1, daily.length + proj.length - 1)} y={cH + 14} textAnchor="middle" fontSize={9} fill="#b45309" fontFamily="Gilroy,system-ui,sans-serif">
+            +7d proj
+          </text>
         ))}
-        {projData && projData.map((_, i) => {
-          const idx = projOffset + i + 1;
-          return i % showEvery === 0 && (
-            <text key={`p${i}`} x={toX(idx)} y={H + 16} textAnchor="middle" fontSize={9.5} fill={C.projLine} fontFamily="Gilroy, system-ui, sans-serif">
-              proj
-            </text>
-          );
-        })}
       </g>
     </svg>
   );
 }
 
-function CategoryBar({ label, value, max, color }: { label: string; value: number; max: number; color: string }) {
-  const pct = (value / max) * 100;
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function TabBtn({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
-    <div style={{ marginBottom: 10 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
-        <span style={{ fontSize: 12, fontWeight: 600, color: C.ink, ...gilroy }}>{label}</span>
-        <span style={{ fontSize: 12, color: C.sub, ...gilroy }}>GHS {value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value.toFixed(0)}</span>
-      </div>
-      <div style={{ height: 6, background: C.border, borderRadius: 999 }}>
-        <div style={{ height: 6, width: `${pct}%`, background: color, borderRadius: 999, transition: "width 0.6s ease" }} />
-      </div>
-    </div>
+    <button onClick={onClick} style={{
+      padding: "10px 16px", fontSize: 13, fontWeight: 600,
+      fontFamily: "Gilroy, system-ui, sans-serif", border: "none",
+      borderBottom: `2px solid ${active ? C.green : "transparent"}`,
+      background: "none", color: active ? C.green : C.sub, cursor: "pointer",
+      marginBottom: -1, whiteSpace: "nowrap",
+    }}>{label}</button>
   );
 }
 
-function SignalCard({ signal }: { signal: Signal }) {
-  const isUp = signal.demand_direction === "up";
-  const lift = `${isUp ? "+" : "-"}${Math.round(signal.estimated_lift * 100)}%`;
-  const intentLabels: Record<string, string> = {
-    purchase_planning: "Purchase Planning",
-    panic_buying_risk: "Panic Buying Risk",
-    event_driven_footfall: "Event Footfall",
-    weather_driven_stocking: "Weather Stocking",
-    price_sensitivity: "Price Sensitivity",
-    health_trend: "Health Trend",
-    brand_buzz: "Brand Buzz",
-    trade_disruption: "Trade Disruption",
-    product_recommendation: "Product Rec",
-    regulatory_impact: "Regulatory Impact",
-  };
-  const intent = intentLabels[signal.demand_intent] ?? signal.demand_intent;
+const INTENT_LABELS: Record<string, string> = {
+  purchase_planning:      "Purchase Planning",
+  panic_buying_risk:      "Panic Buying Risk",
+  event_driven_footfall:  "Event Footfall",
+  weather_driven_stocking:"Weather Stocking",
+  price_sensitivity:      "Price Sensitivity",
+  health_scare_response:  "Health Scare",
+  compensatory_purchase:  "Compensatory Purchase",
+  promotional_response:   "Promotional Response",
+  restocking_awareness:   "Restocking Awareness",
+};
 
+function SignalCard({ signal }: { signal: SocialSignal }) {
+  const isUp  = signal.demand_direction === "up";
+  const lift  = `${isUp ? "+" : "-"}${Math.round(signal.estimated_lift * 100)}%`;
+  const intent = INTENT_LABELS[signal.demand_intent] ?? signal.demand_intent;
   return (
-    <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "12px 14px", display: "flex", flexDirection: "column", gap: 6 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "space-between" }}>
-        <span style={{ fontSize: 11, fontWeight: 700, color: C.sub, ...gilroy, textTransform: "uppercase", letterSpacing: "0.04em" }}>{intent}</span>
+    <div style={{ background: "#f9f6f1", border: `1px solid ${C.border}`, borderRadius: 8, padding: "12px 14px" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+        <span style={{ fontSize: 10, fontWeight: 700, color: C.sub, textTransform: "uppercase", letterSpacing: "0.05em", ...gilroy }}>{intent}</span>
         <span style={{ fontSize: 12, fontWeight: 800, color: isUp ? C.green : C.red, ...gilroy }}>{lift} lift</span>
       </div>
-      <p style={{ fontSize: 12.5, color: C.ink, lineHeight: 1.55, margin: 0, ...gilroy }}>{signal.content}</p>
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" as const }}>
-        {signal.affected_categories.map(c => (
-          <span key={c} style={{ fontSize: 10.5, background: C.tint, color: C.green, border: `1px solid #c6e6c8`, borderRadius: 999, padding: "1px 8px", fontWeight: 600, ...gilroy }}>{c}</span>
-        ))}
-        <span style={{ fontSize: 10.5, color: C.sub, marginLeft: "auto", ...gilroy }}>{signal.geo_relevance}</span>
-      </div>
+      <p style={{ fontSize: 12.5, color: C.ink, lineHeight: 1.55, margin: "0 0 8px", ...gilroy }}>{signal.content}</p>
+      <p style={{ fontSize: 11, color: C.sub, margin: 0, ...gilroy }}>{signal.geo_relevance}</p>
     </div>
   );
 }
 
-// ─── Main Page ───────────────────────────────────────────────────────────────
-
-export default function DemandTrendsPage() {
-  const [view, setView] = useState<"daily" | "weekly">("daily");
-  const [metric, setMetric] = useState<"revenue" | "qty">("revenue");
-
-  const daily   = useMemo(() => buildDailyTotals(), []);
-  const weekly  = useMemo(() => buildWeeklyTotals(daily), [daily]);
-  const catRev  = useMemo(() => buildCategoryRevenue(), []);
-
-  const chartData = view === "daily"
-    ? daily.map(d => ({ label: d.date.slice(5), value: metric === "revenue" ? d.revenue : d.qty }))
-    : weekly.map(d => ({ label: d.label, value: metric === "revenue" ? d.revenue : d.qty }));
-
-  const histValues  = chartData.map(d => d.value);
-  const projValues  = linearProject(histValues.slice(-10), 7);
-
-  const totalRevenue = daily.reduce((s, d) => s + d.revenue, 0);
-  const totalQty     = daily.reduce((s, d) => s + d.qty, 0);
-  const avgDaily     = totalRevenue / daily.length;
-  const lastWeekRev  = daily.slice(-7).reduce((s, d) => s + d.revenue, 0);
-  const prevWeekRev  = daily.slice(-14, -7).reduce((s, d) => s + d.revenue, 0);
-  const weekChange   = prevWeekRev === 0 ? 0 : ((lastWeekRev - prevWeekRev) / prevWeekRev) * 100;
-  const projNext7    = projValues.reduce((s, v) => s + v, 0);
-
-  const catMax = catRev[0]?.[1] ?? 1;
-  const catColors = [C.green, "#2563eb", "#d97706", "#7c3aed", "#db2777", "#0891b2"];
-
-  // Market signals — sort by lift desc, take top 6
-  const topSignals = [...signals].sort((a, b) => b.estimated_lift - a.estimated_lift).slice(0, 6);
-
-  const btnStyle = (active: boolean): React.CSSProperties => ({
-    border: `1px solid ${active ? C.green : C.border}`,
-    background: active ? C.tint : C.white,
-    color: active ? C.green : C.sub,
-    borderRadius: 6,
-    padding: "5px 14px",
-    fontSize: 12,
-    fontWeight: 700,
-    cursor: "pointer",
-    ...gilroy,
-  });
-
+function BlogCard({ blog }: { blog: BlogSignal }) {
   return (
-    <div style={{ padding: "24px 32px", width: "100%", boxSizing: "border-box", ...gilroy }}>
+    <div style={{ background: "#f9f6f1", border: `1px solid ${C.border}`, borderRadius: 8, padding: "12px 14px" }}>
+      <p style={{ fontSize: 10, fontWeight: 700, color: C.sub, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 5px", ...gilroy }}>{blog.blog_name}</p>
+      <p style={{ fontSize: 12.5, fontWeight: 700, color: C.ink, margin: "0 0 6px", lineHeight: 1.4, ...gilroy }}>{blog.title}</p>
+      <p style={{ fontSize: 12, color: C.sub, margin: 0, lineHeight: 1.5, ...gilroy }}>{blog.excerpt?.slice(0, 120)}{blog.excerpt?.length > 120 ? "…" : ""}</p>
+    </div>
+  );
+}
 
-      {/* Page header */}
-      <div style={{ marginBottom: 20 }}>
-        <h1 style={{ fontSize: 20, fontWeight: 800, color: C.ink, margin: 0, ...gilroy }}>Demand Trends</h1>
-        <p style={{ fontSize: 13, color: C.sub, margin: "4px 0 0", ...gilroy }}>
-          April 4 – May 4, 2026 · Melcom, Tema Branch · Sales history + market signal projections
-        </p>
+function EventCard({ event }: { event: EventSignal }) {
+  const impactColor = event.expected_demand_impact === "high" ? C.red : event.expected_demand_impact === "medium" ? C.amber : C.green;
+  const upcoming = event.days_until_event_from_scrape > 0;
+  return (
+    <div style={{ background: "#f9f6f1", border: `1px solid ${C.border}`, borderRadius: 8, padding: "12px 14px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
+        <p style={{ fontSize: 13, fontWeight: 700, color: C.ink, margin: 0, ...gilroy }}>{event.event_name}</p>
+        <span style={{ fontSize: 11, fontWeight: 700, color: impactColor, background: impactColor + "18", border: `1px solid ${impactColor}40`, borderRadius: 999, padding: "2px 8px", whiteSpace: "nowrap", marginLeft: 8, ...gilroy }}>
+          {event.expected_demand_impact} impact
+        </span>
       </div>
-
-      {/* KPI row */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 20 }}>
-        <KpiTile label="30-Day Revenue" value={`GHS ${(totalRevenue / 1000).toFixed(1)}k`} sub="Total sales this period" accent={C.green} />
-        <KpiTile label="Units Sold" value={totalQty.toLocaleString()} sub="Across all SKUs" accent={C.ink} />
-        <KpiTile label="Avg Daily Revenue" value={`GHS ${Math.round(avgDaily).toLocaleString()}`} sub="Daily average" accent={C.ink} />
-        <KpiTile
-          label="Week-on-Week"
-          value={`${weekChange >= 0 ? "+" : ""}${weekChange.toFixed(1)}%`}
-          sub="vs prior 7 days"
-          accent={weekChange >= 0 ? C.green : C.red}
-        />
-      </div>
-
-      {/* Main chart + signals */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 16, marginBottom: 20 }}>
-
-        {/* Chart card */}
-        <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "18px 20px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-            <div>
-              <h2 style={{ fontSize: 13, fontWeight: 700, color: C.ink, margin: 0, ...gilroy }}>Sales Trend &amp; 7-Day Projection</h2>
-              <p style={{ fontSize: 11.5, color: C.sub, margin: "3px 0 0", ...gilroy }}>
-                Dashed line shows linear forecast based on last 10 data points
-              </p>
-            </div>
-            <div style={{ display: "flex", gap: 6 }}>
-              <button style={btnStyle(view === "daily")}   onClick={() => setView("daily")}>Daily</button>
-              <button style={btnStyle(view === "weekly")}  onClick={() => setView("weekly")}>Weekly</button>
-              <div style={{ width: 1, background: C.border, margin: "0 4px" }} />
-              <button style={btnStyle(metric === "revenue")} onClick={() => setMetric("revenue")}>Revenue</button>
-              <button style={btnStyle(metric === "qty")}    onClick={() => setMetric("qty")}>Units</button>
-            </div>
-          </div>
-
-          <SparkChart
-            data={chartData}
-            projData={projValues}
-            yLabel={metric === "revenue" ? "Revenue (GHS)" : "Units Sold"}
-            width={680}
-            height={210}
-          />
-
-          {/* Legend */}
-          <div style={{ display: "flex", gap: 18, marginTop: 10 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 20, height: 2, background: C.chartLine, borderRadius: 1 }} />
-              <span style={{ fontSize: 11, color: C.sub, ...gilroy }}>Actual</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 20, height: 2, background: C.projLine, borderRadius: 1, borderTop: "2px dashed " + C.projLine }} />
-              <span style={{ fontSize: 11, color: C.sub, ...gilroy }}>Projection (7 days)</span>
-            </div>
-          </div>
-
-          {/* Projection callout */}
-          <div style={{ marginTop: 12, background: "#fffbeb", border: `1px solid #fde68a`, borderRadius: 6, padding: "8px 12px" }}>
-            <span style={{ fontSize: 12, color: C.amber, fontWeight: 700, ...gilroy }}>
-              Projected next 7 days: GHS {Math.round(projNext7).toLocaleString()}
-            </span>
-            <span style={{ fontSize: 12, color: C.sub, ...gilroy }}>
-              {" "}— based on current trajectory. Market signals may shift this.
-            </span>
-          </div>
-        </div>
-
-        {/* Category breakdown */}
-        <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "18px 20px" }}>
-          <h2 style={{ fontSize: 13, fontWeight: 700, color: C.ink, margin: "0 0 14px", ...gilroy }}>Revenue by Category</h2>
-          {catRev.map(([cat, rev], i) => (
-            <CategoryBar key={cat} label={cat} value={rev} max={catMax} color={catColors[i % catColors.length]} />
-          ))}
-          <p style={{ fontSize: 11, color: C.sub, marginTop: 14, lineHeight: 1.5, ...gilroy }}>
-            Top category accounts for {Math.round((catRev[0]?.[1] ?? 0) / totalRevenue * 100)}% of total revenue this period.
-          </p>
-        </div>
-      </div>
-
-      {/* Market signals section */}
-      <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "18px 20px" }}>
-        <div style={{ marginBottom: 14 }}>
-          <h2 style={{ fontSize: 13, fontWeight: 700, color: C.ink, margin: 0, ...gilroy }}>Market Signals Driving Demand</h2>
-          <p style={{ fontSize: 11.5, color: C.sub, margin: "3px 0 0", ...gilroy }}>
-            Social media, news, and event data sourced from Ghana market intelligence — ranked by demand impact
-          </p>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
-          {topSignals.map(s => <SignalCard key={s.signal_id} signal={s} />)}
-        </div>
-
-        {/* Interpretation panel */}
-        <div style={{ marginTop: 16, padding: "14px 16px", background: C.tint, borderRadius: 8, border: `1px solid #c6e6c8` }}>
-          <h3 style={{ fontSize: 12, fontWeight: 700, color: C.green, margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.04em", ...gilroy }}>
-            What this means for your inventory
-          </h3>
-          <p style={{ fontSize: 12.5, color: C.ink, margin: 0, lineHeight: 1.65, ...gilroy }}>
-            Sallah season, heavy rains (May 3–7), and a major football event at Tema Stadium are converging this week —
-            driving elevated demand across <strong>Food, Beverages, and Household</strong> categories.
-            Panic-buying signals around tomato paste and price-sensitive SKUs suggest front-loading reorders.
-            Your projected revenue of <strong>GHS {Math.round(projNext7).toLocaleString()}</strong> over the next 7 days assumes current stock levels hold;
-            stockouts in high-lift SKUs would reduce that figure.
-          </p>
-        </div>
-      </div>
+      <p style={{ fontSize: 12, color: C.sub, margin: "0 0 4px", ...gilroy }}>
+        {event.start_date} · {upcoming ? `In ${event.days_until_event_from_scrape} days` : "Completed"}
+      </p>
+      <p style={{ fontSize: 11, color: C.sub, margin: 0, ...gilroy }}>{event.event_type.replace(/_/g, " ")}</p>
     </div>
   );
 }
@@ -393,10 +271,240 @@ function KpiTile({ label, value, sub, accent }: { label: string; value: string; 
       <div style={{ borderBottom: `2px solid ${accent}`, padding: "8px 14px 7px" }}>
         <span style={{ fontSize: 11, fontWeight: 700, color: C.sub, textTransform: "uppercase", letterSpacing: "0.04em", ...gilroy }}>{label}</span>
       </div>
-      <div style={{ padding: "12px 14px 14px" }}>
-        <div style={{ fontSize: 28, fontWeight: 800, color: accent === C.ink ? C.ink : accent, lineHeight: 1, letterSpacing: -0.5, ...gilroy }}>{value}</div>
+      <div style={{ padding: "11px 14px 13px" }}>
+        <div style={{ fontSize: 26, fontWeight: 800, color: C.ink, lineHeight: 1, letterSpacing: -0.5, ...gilroy }}>{value}</div>
         <div style={{ fontSize: 11, color: C.sub, marginTop: 4, ...gilroy }}>{sub}</div>
       </div>
+    </div>
+  );
+}
+
+// ─── Main Page ────────────────────────────────────────────────────────────────
+
+export default function DemandTrendsPage() {
+  const [categories,    setCategories]    = useState<CategoryData[]>([]);
+  const [loading,       setLoading]       = useState(true);
+  const [noBatch,       setNoBatch]       = useState(false);
+  const [selectedCat,   setSelectedCat]   = useState<string>("");
+  const [signalTab,     setSignalTab]     = useState<"social" | "blogs" | "events">("social");
+
+  useEffect(() => {
+    if (!hasAnyActiveBatch()) { setNoBatch(true); setLoading(false); return; }
+    Promise.all([fetchInventory(), fetchSalesHistory(), fetchDemandSignals()])
+      .then(([inv, sales, signals]) => {
+        const cats = buildCategoryData(sales, inv, signals);
+        setCategories(cats);
+        if (cats.length > 0) setSelectedCat(cats[0].name);
+        setLoading(false);
+      });
+  }, []);
+
+  const selected = useMemo(() => categories.find(c => c.name === selectedCat), [categories, selectedCat]);
+
+  const proj = useMemo(() => {
+    if (!selected) return [];
+    return project(selected.daily.slice(-10).map(d => d.qty), 7);
+  }, [selected]);
+
+  const totalUnits  = useMemo(() => categories.reduce((s, c) => s + c.totalUnits, 0), [categories]);
+  const topCategory = categories[0];
+  const topLift     = useMemo(() => {
+    if (!topCategory) return 0;
+    return Math.round(Math.max(...(topCategory.signals.map(s => s.estimated_lift)), 0) * 100);
+  }, [topCategory]);
+
+  const weekOnWeek = useMemo(() => {
+    if (!selected || selected.daily.length < 14) return null;
+    const last7  = selected.daily.slice(-7).reduce((s, d) => s + d.qty, 0);
+    const prev7  = selected.daily.slice(-14, -7).reduce((s, d) => s + d.qty, 0);
+    if (prev7 === 0) return null;
+    return Math.round(((last7 - prev7) / prev7) * 100);
+  }, [selected]);
+
+  const projTotal = proj.reduce((s, v) => s + v, 0);
+
+  if (loading) return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1, color: C.sub, fontSize: 14, ...gilroy }}>
+      Loading demand trends…
+    </div>
+  );
+
+  if (noBatch) return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flex: 1, gap: 16, ...gilroy }}>
+      <ChartLine size={52} color="#c8bfaf" weight="thin" />
+      <div style={{ fontSize: 18, fontWeight: 700, color: C.ink }}>No demand data yet</div>
+      <div style={{ fontSize: 14, color: C.sub, textAlign: "center", maxWidth: 360, lineHeight: 1.6 }}>
+        Upload your inventory and sales history to see demand trends and market signals.
+      </div>
+      <Link href="/dashboard/register" style={{ textDecoration: "none" }}>
+        <Button variant="yellow" style={{ gap: 8 }}>
+          Upload your first batch <ArrowRight size={15} weight="bold" />
+        </Button>
+      </Link>
+    </div>
+  );
+
+  return (
+    <div style={{ padding: "24px 32px", width: "100%", boxSizing: "border-box", ...gilroy }}>
+
+      {/* Page header */}
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 22 }}>
+        <div>
+          <h1 style={{ fontSize: 18, fontWeight: 800, color: C.ink, margin: 0 }}>Demand Trends</h1>
+          <p style={{ fontSize: 13, color: C.sub, margin: "4px 0 0" }}>
+            30-day unit sales history per category — with market signals and 7-day projections.
+          </p>
+        </div>
+        <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "10px 18px", textAlign: "center" }}>
+            <p style={{ fontSize: 10, fontWeight: 700, color: C.sub, margin: "0 0 2px", textTransform: "uppercase", letterSpacing: "0.05em", ...gilroy }}>Total Units</p>
+            <p style={{ fontSize: 22, fontWeight: 800, color: C.ink, margin: 0, ...gilroy }}>{totalUnits.toLocaleString()}</p>
+          </div>
+          <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "10px 18px", textAlign: "center" }}>
+            <p style={{ fontSize: 10, fontWeight: 700, color: C.sub, margin: "0 0 2px", textTransform: "uppercase", letterSpacing: "0.05em", ...gilroy }}>Top Category</p>
+            <p style={{ fontSize: 22, fontWeight: 800, color: C.green, margin: 0, ...gilroy }}>{topCategory?.name ?? "—"}</p>
+          </div>
+          {topLift > 0 && (
+            <div style={{ background: C.tint, border: `1px solid #c6e6c8`, borderRadius: 8, padding: "10px 18px", textAlign: "center" }}>
+              <p style={{ fontSize: 10, fontWeight: 700, color: C.sub, margin: "0 0 2px", textTransform: "uppercase", letterSpacing: "0.05em", ...gilroy }}>Peak Signal Lift</p>
+              <p style={{ fontSize: 22, fontWeight: 800, color: C.green, margin: 0, ...gilroy }}>+{topLift}%</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Category tabs */}
+      <div style={{ display: "flex", borderBottom: `1px solid ${C.border}`, marginBottom: 20, overflowX: "auto" }}>
+        {categories.map(cat => (
+          <TabBtn
+            key={cat.name}
+            label={`${cat.name} (${cat.totalUnits})`}
+            active={selectedCat === cat.name}
+            onClick={() => setSelectedCat(cat.name)}
+          />
+        ))}
+      </div>
+
+      {selected && (
+        <>
+          {/* KPIs for selected category */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 20 }}>
+            <KpiTile
+              label="Units Sold (30d)"
+              value={selected.totalUnits.toLocaleString()}
+              sub="Total this period"
+              accent={C.green}
+            />
+            <KpiTile
+              label="Week-on-Week"
+              value={weekOnWeek !== null ? `${weekOnWeek >= 0 ? "+" : ""}${weekOnWeek}%` : "—"}
+              sub="vs prior 7 days"
+              accent={weekOnWeek !== null && weekOnWeek >= 0 ? C.green : C.red}
+            />
+            <KpiTile
+              label="Active Signals"
+              value={String(selected.signals.length + selected.blogs.length + selected.events.length)}
+              sub="Social, blog & event signals"
+              accent={C.amber}
+            />
+            <KpiTile
+              label="7-Day Projection"
+              value={`~${projTotal} units`}
+              sub="Linear forecast"
+              accent={C.ink}
+            />
+          </div>
+
+          {/* Chart */}
+          <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "18px 20px", marginBottom: 20 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
+              <div>
+                <h2 style={{ fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>{selected.name} — Daily Units Sold</h2>
+                <p style={{ fontSize: 12, color: C.sub, margin: "3px 0 0" }}>April 4 – May 4, 2026 · Dashed = 7-day linear projection</p>
+              </div>
+              <div style={{ display: "flex", gap: 16 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ width: 20, height: 2, background: C.green, borderRadius: 1 }} />
+                  <span style={{ fontSize: 11, color: C.sub, ...gilroy }}>Actual</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ width: 20, height: 0, borderTop: `2px dashed ${C.amber}` }} />
+                  <span style={{ fontSize: 11, color: C.sub, ...gilroy }}>Projected</span>
+                </div>
+              </div>
+            </div>
+            <TrendChart daily={selected.daily} proj={proj} />
+            {projTotal > 0 && (
+              <div style={{ marginTop: 12, background: "#fffbeb", border: `1px solid #fde68a`, borderRadius: 6, padding: "8px 12px" }}>
+                <span style={{ fontSize: 12.5, color: C.amber, fontWeight: 700, ...gilroy }}>
+                  Projected next 7 days: ~{projTotal} units
+                </span>
+                <span style={{ fontSize: 12.5, color: C.sub, ...gilroy }}>
+                  {" "}— based on the last 10 days of sales velocity. Market signals below may shift this.
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Market signals */}
+          <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "18px 20px" }}>
+            <div style={{ marginBottom: 4 }}>
+              <h2 style={{ fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>Why is {selected.name} trending like this?</h2>
+              <p style={{ fontSize: 12, color: C.sub, margin: "3px 0 0" }}>Market signals — social media, blogs, and events — driving demand in this category</p>
+            </div>
+
+            {/* Signal type tabs */}
+            <div style={{ display: "flex", borderBottom: `1px solid ${C.border}`, marginBottom: 16 }}>
+              <TabBtn
+                label={`Social (${selected.signals.length})`}
+                active={signalTab === "social"}
+                onClick={() => setSignalTab("social")}
+              />
+              <TabBtn
+                label={`Blogs (${selected.blogs.length})`}
+                active={signalTab === "blogs"}
+                onClick={() => setSignalTab("blogs")}
+              />
+              <TabBtn
+                label={`Events (${selected.events.length})`}
+                active={signalTab === "events"}
+                onClick={() => setSignalTab("events")}
+              />
+            </div>
+
+            {signalTab === "social" && (
+              selected.signals.length === 0 ? (
+                <p style={{ fontSize: 13, color: C.sub, margin: 0, ...gilroy }}>No social signals detected for {selected.name} in this period.</p>
+              ) : (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+                  {selected.signals.map(s => <SignalCard key={s.signal_id} signal={s} />)}
+                </div>
+              )
+            )}
+
+            {signalTab === "blogs" && (
+              selected.blogs.length === 0 ? (
+                <p style={{ fontSize: 13, color: C.sub, margin: 0, ...gilroy }}>No blog signals detected for {selected.name} in this period.</p>
+              ) : (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+                  {selected.blogs.map(b => <BlogCard key={b.signal_id} blog={b} />)}
+                </div>
+              )
+            )}
+
+            {signalTab === "events" && (
+              selected.events.length === 0 ? (
+                <p style={{ fontSize: 13, color: C.sub, margin: 0, ...gilroy }}>No events affecting {selected.name} in this period.</p>
+              ) : (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+                  {selected.events.map(e => <EventCard key={e.event_id} event={e} />)}
+                </div>
+              )
+            )}
+
+          </div>
+        </>
+      )}
     </div>
   );
 }
