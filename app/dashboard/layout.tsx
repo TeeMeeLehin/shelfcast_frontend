@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import {
   SquaresFour,
   Cube,
-  ChartBar,
   Lightbulb,
   SignOut,
   Gear,
+  UploadSimple,
 } from "@phosphor-icons/react";
 import { DEMO_MODE } from "@/lib/config";
 
@@ -22,10 +22,10 @@ function logout() {
 }
 
 const navItems = [
-  { label: "Command Center", href: "/dashboard",              Icon: SquaresFour },
-  { label: "Catalogue",      href: "/dashboard/catalogue",    Icon: Cube        },
-  { label: "Product Demand", href: "/dashboard/demand",       Icon: ChartBar    },
-  { label: "Opportunities",  href: "/dashboard/opportunities", Icon: Lightbulb  },
+  { label: "Register Data",  href: "/dashboard/register",        Icon: UploadSimple },
+  { label: "Command Center", href: "/dashboard",                 Icon: SquaresFour  },
+  { label: "Catalogue",      href: "/dashboard/catalogue",       Icon: Cube         },
+  { label: "Opportunities",  href: "/dashboard/opportunities",   Icon: Lightbulb    },
 ];
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };

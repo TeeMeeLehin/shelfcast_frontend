@@ -515,7 +515,7 @@ function SignIn({ onSwitch }: { onSwitch: () => void }) {
       setError("Please enter your email and password.");
       return;
     }
-    if (DEMO_MODE) { window.location.href = "/dashboard"; return; }
+    if (DEMO_MODE) { window.location.href = "/dashboard/register"; return; }
     setLoading(true);
     try {
       const res = await fetch(`${API_BASE}/api/v1/auth/login`, {
@@ -531,7 +531,7 @@ function SignIn({ onSwitch }: { onSwitch: () => void }) {
       }
       const { access_token } = await res.json();
       localStorage.setItem("sc_token", access_token);
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard/register";
     } catch (err) {
       console.error("Sign in network error:", err);
       setError("We couldn't reach the server. Kindly check your connection and try again.");

@@ -1,0 +1,702 @@
+[
+  {
+    "sku": "SKU-LITE-001",
+    "product_name": "Gino Digestive Biscuits 5kg",
+    "category": "Food",
+    "unit_price_ghs": 65.62,
+    "current_stock": 77
+  },
+  {
+    "sku": "SKU-LITE-002",
+    "product_name": "Tasty Tom Evaporated Milk Pack of 6",
+    "category": "Food",
+    "unit_price_ghs": 163.73,
+    "current_stock": 60
+  },
+  {
+    "sku": "SKU-LITE-003",
+    "product_name": "Ideal Instant Noodles 500g",
+    "category": "Food",
+    "unit_price_ghs": 173.15,
+    "current_stock": 11
+  },
+  {
+    "sku": "SKU-LITE-004",
+    "product_name": "Obaasima Seasoning Cubes Pack of 6",
+    "category": "Food",
+    "unit_price_ghs": 149.15,
+    "current_stock": 110
+  },
+  {
+    "sku": "SKU-LITE-005",
+    "product_name": "Mcvities Digestive Biscuits 1kg",
+    "category": "Food",
+    "unit_price_ghs": 153.02,
+    "current_stock": 162
+  },
+  {
+    "sku": "SKU-LITE-006",
+    "product_name": "Indomie Evaporated Milk 180g",
+    "category": "Food",
+    "unit_price_ghs": 59.32,
+    "current_stock": 126
+  },
+  {
+    "sku": "SKU-LITE-007",
+    "product_name": "Mcvities Chocolate Drink 1kg",
+    "category": "Food",
+    "unit_price_ghs": 386.97,
+    "current_stock": 139
+  },
+  {
+    "sku": "SKU-LITE-008",
+    "product_name": "Obaasima Rice Pack of 6",
+    "category": "Food",
+    "unit_price_ghs": 209.1,
+    "current_stock": 13
+  },
+  {
+    "sku": "SKU-LITE-009",
+    "product_name": "Indomie Rice 400g",
+    "category": "Food",
+    "unit_price_ghs": 368.58,
+    "current_stock": 131
+  },
+  {
+    "sku": "SKU-LITE-010",
+    "product_name": "Mcvities Rice 500g",
+    "category": "Food",
+    "unit_price_ghs": 413.79,
+    "current_stock": 157
+  },
+  {
+    "sku": "SKU-LITE-011",
+    "product_name": "Ideal Instant Noodles 500g",
+    "category": "Food",
+    "unit_price_ghs": 45.44,
+    "current_stock": 177
+  },
+  {
+    "sku": "SKU-LITE-012",
+    "product_name": "Tasty Tom Seasoning Cubes 180g",
+    "category": "Food",
+    "unit_price_ghs": 440.29,
+    "current_stock": 188
+  },
+  {
+    "sku": "SKU-LITE-013",
+    "product_name": "Lele Instant Noodles 1kg",
+    "category": "Food",
+    "unit_price_ghs": 12.58,
+    "current_stock": 57
+  },
+  {
+    "sku": "SKU-LITE-014",
+    "product_name": "Obaasima Tomato Paste 5kg",
+    "category": "Food",
+    "unit_price_ghs": 228.22,
+    "current_stock": 163
+  },
+  {
+    "sku": "SKU-LITE-015",
+    "product_name": "Maggi Evaporated Milk 400g",
+    "category": "Food",
+    "unit_price_ghs": 21.09,
+    "current_stock": 97
+  },
+  {
+    "sku": "SKU-LITE-016",
+    "product_name": "Mcvities Tomato Paste 1kg",
+    "category": "Food",
+    "unit_price_ghs": 421.16,
+    "current_stock": 47
+  },
+  {
+    "sku": "SKU-LITE-017",
+    "product_name": "Ideal Digestive Biscuits 1kg",
+    "category": "Food",
+    "unit_price_ghs": 191.97,
+    "current_stock": 86
+  },
+  {
+    "sku": "SKU-LITE-018",
+    "product_name": "Tasty Tom Rice 180g",
+    "category": "Food",
+    "unit_price_ghs": 268.58,
+    "current_stock": 100
+  },
+  {
+    "sku": "SKU-LITE-019",
+    "product_name": "Milo Tomato Paste Pack of 6",
+    "category": "Food",
+    "unit_price_ghs": 79.97,
+    "current_stock": 116
+  },
+  {
+    "sku": "SKU-LITE-020",
+    "product_name": "Bel Aqua Mineral Water Bottle",
+    "category": "Beverages",
+    "unit_price_ghs": 181.4,
+    "current_stock": 44
+  },
+  {
+    "sku": "SKU-LITE-021",
+    "product_name": "Club Beer Stout 500ml",
+    "category": "Beverages",
+    "unit_price_ghs": 145.71,
+    "current_stock": 109
+  },
+  {
+    "sku": "SKU-LITE-022",
+    "product_name": "Club Beer Mineral Water 330ml",
+    "category": "Beverages",
+    "unit_price_ghs": 221.24,
+    "current_stock": 153
+  },
+  {
+    "sku": "SKU-LITE-023",
+    "product_name": "Voltic Soft Drink Bottle",
+    "category": "Beverages",
+    "unit_price_ghs": 152.9,
+    "current_stock": 58
+  },
+  {
+    "sku": "SKU-LITE-024",
+    "product_name": "Club Beer Mineral Water 500ml",
+    "category": "Beverages",
+    "unit_price_ghs": 225.87,
+    "current_stock": 86
+  },
+  {
+    "sku": "SKU-LITE-025",
+    "product_name": "Club Beer Stout Can",
+    "category": "Beverages",
+    "unit_price_ghs": 51.56,
+    "current_stock": 53
+  },
+  {
+    "sku": "SKU-LITE-026",
+    "product_name": "Malta Guinness Stout Bottle",
+    "category": "Beverages",
+    "unit_price_ghs": 131.86,
+    "current_stock": 191
+  },
+  {
+    "sku": "SKU-LITE-027",
+    "product_name": "Star Beer Mineral Water 330ml",
+    "category": "Beverages",
+    "unit_price_ghs": 54.78,
+    "current_stock": 181
+  },
+  {
+    "sku": "SKU-LITE-028",
+    "product_name": "Tampico Soft Drink Can",
+    "category": "Beverages",
+    "unit_price_ghs": 128.21,
+    "current_stock": 19
+  },
+  {
+    "sku": "SKU-LITE-029",
+    "product_name": "Malta Guinness Mineral Water Can",
+    "category": "Beverages",
+    "unit_price_ghs": 175.55,
+    "current_stock": 60
+  },
+  {
+    "sku": "SKU-LITE-030",
+    "product_name": "Voltic Lager Can",
+    "category": "Beverages",
+    "unit_price_ghs": 25.27,
+    "current_stock": 29
+  },
+  {
+    "sku": "SKU-LITE-031",
+    "product_name": "Tampico Stout 500ml",
+    "category": "Beverages",
+    "unit_price_ghs": 81.12,
+    "current_stock": 191
+  },
+  {
+    "sku": "SKU-LITE-032",
+    "product_name": "Star Beer Soft Drink Bottle",
+    "category": "Beverages",
+    "unit_price_ghs": 142.31,
+    "current_stock": 14
+  },
+  {
+    "sku": "SKU-LITE-033",
+    "product_name": "Voltic Soft Drink 1.5l",
+    "category": "Beverages",
+    "unit_price_ghs": 167.08,
+    "current_stock": 128
+  },
+  {
+    "sku": "SKU-LITE-034",
+    "product_name": "Tampico Stout Bottle",
+    "category": "Beverages",
+    "unit_price_ghs": 167.25,
+    "current_stock": 67
+  },
+  {
+    "sku": "SKU-LITE-035",
+    "product_name": "Pepsodent Body Lotion 400ml",
+    "category": "Personal care",
+    "unit_price_ghs": 56.04,
+    "current_stock": 151
+  },
+  {
+    "sku": "SKU-LITE-036",
+    "product_name": "Geisha Body Lotion 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 156.67,
+    "current_stock": 63
+  },
+  {
+    "sku": "SKU-LITE-037",
+    "product_name": "Geisha Toothpaste 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 155.2,
+    "current_stock": 25
+  },
+  {
+    "sku": "SKU-LITE-038",
+    "product_name": "Pepsodent Bath Soap 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 14.19,
+    "current_stock": 164
+  },
+  {
+    "sku": "SKU-LITE-039",
+    "product_name": "Camel Antiseptic Liquid 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 125.42,
+    "current_stock": 144
+  },
+  {
+    "sku": "SKU-LITE-040",
+    "product_name": "Camel Toothpaste 250ml",
+    "category": "Personal care",
+    "unit_price_ghs": 135.8,
+    "current_stock": 100
+  },
+  {
+    "sku": "SKU-LITE-041",
+    "product_name": "Dove Toothpaste 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 154.33,
+    "current_stock": 124
+  },
+  {
+    "sku": "SKU-LITE-042",
+    "product_name": "Nivea Toothpaste 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 157.19,
+    "current_stock": 18
+  },
+  {
+    "sku": "SKU-LITE-043",
+    "product_name": "Rexona Antiseptic Liquid 100g",
+    "category": "Personal care",
+    "unit_price_ghs": 170.12,
+    "current_stock": 110
+  },
+  {
+    "sku": "SKU-LITE-044",
+    "product_name": "Dettol Toothpaste 400ml",
+    "category": "Personal care",
+    "unit_price_ghs": 50.83,
+    "current_stock": 77
+  },
+  {
+    "sku": "SKU-LITE-045",
+    "product_name": "Pepsodent Roll-on Deodorant 250ml",
+    "category": "Personal care",
+    "unit_price_ghs": 126.54,
+    "current_stock": 135
+  },
+  {
+    "sku": "SKU-LITE-046",
+    "product_name": "Dove Body Lotion 75ml",
+    "category": "Personal care",
+    "unit_price_ghs": 9.38,
+    "current_stock": 198
+  },
+  {
+    "sku": "SKU-LITE-047",
+    "product_name": "Nivea Toothpaste 250ml",
+    "category": "Personal care",
+    "unit_price_ghs": 117.61,
+    "current_stock": 174
+  },
+  {
+    "sku": "SKU-LITE-048",
+    "product_name": "Dettol Bath Soap 250ml",
+    "category": "Personal care",
+    "unit_price_ghs": 116.28,
+    "current_stock": 57
+  },
+  {
+    "sku": "SKU-LITE-049",
+    "product_name": "Woodin Fabric Print XL",
+    "category": "Clothing",
+    "unit_price_ghs": 286.61,
+    "current_stock": 190
+  },
+  {
+    "sku": "SKU-LITE-050",
+    "product_name": "GTP Fabric Print L",
+    "category": "Clothing",
+    "unit_price_ghs": 245.49,
+    "current_stock": 29
+  },
+  {
+    "sku": "SKU-LITE-051",
+    "product_name": "Woodin Fabric Print L",
+    "category": "Clothing",
+    "unit_price_ghs": 234.93,
+    "current_stock": 116
+  },
+  {
+    "sku": "SKU-LITE-052",
+    "product_name": "Giordano Mens Shorts S",
+    "category": "Clothing",
+    "unit_price_ghs": 298.81,
+    "current_stock": 77
+  },
+  {
+    "sku": "SKU-LITE-053",
+    "product_name": "Woodin Golf Polo XL",
+    "category": "Clothing",
+    "unit_price_ghs": 344.83,
+    "current_stock": 98
+  },
+  {
+    "sku": "SKU-LITE-054",
+    "product_name": "Woodin Polo Shirt M",
+    "category": "Clothing",
+    "unit_price_ghs": 329.17,
+    "current_stock": 194
+  },
+  {
+    "sku": "SKU-LITE-055",
+    "product_name": "Giordano Mens Shorts 6 Yards",
+    "category": "Clothing",
+    "unit_price_ghs": 452.28,
+    "current_stock": 192
+  },
+  {
+    "sku": "SKU-LITE-056",
+    "product_name": "Dzire Polo Shirt M",
+    "category": "Clothing",
+    "unit_price_ghs": 268.59,
+    "current_stock": 35
+  },
+  {
+    "sku": "SKU-LITE-057",
+    "product_name": "Woodin Fabric Print XL",
+    "category": "Clothing",
+    "unit_price_ghs": 378.01,
+    "current_stock": 135
+  },
+  {
+    "sku": "SKU-LITE-058",
+    "product_name": "Giordano Fabric Print M",
+    "category": "Clothing",
+    "unit_price_ghs": 311.25,
+    "current_stock": 136
+  },
+  {
+    "sku": "SKU-LITE-059",
+    "product_name": "Dzire Golf Polo L",
+    "category": "Clothing",
+    "unit_price_ghs": 147.53,
+    "current_stock": 174
+  },
+  {
+    "sku": "SKU-LITE-060",
+    "product_name": "Dzire Mens Shorts S",
+    "category": "Clothing",
+    "unit_price_ghs": 330.4,
+    "current_stock": 82
+  },
+  {
+    "sku": "SKU-LITE-061",
+    "product_name": "Vim Scouring Powder 1kg",
+    "category": "Household",
+    "unit_price_ghs": 109.17,
+    "current_stock": 104
+  },
+  {
+    "sku": "SKU-LITE-062",
+    "product_name": "Yazz Liquid Detergent 500ml",
+    "category": "Household",
+    "unit_price_ghs": 50.09,
+    "current_stock": 59
+  },
+  {
+    "sku": "SKU-LITE-063",
+    "product_name": "Yazz Washing Powder 1kg",
+    "category": "Household",
+    "unit_price_ghs": 116.93,
+    "current_stock": 64
+  },
+  {
+    "sku": "SKU-LITE-064",
+    "product_name": "Yazz Dishwashing Liquid 200g",
+    "category": "Household",
+    "unit_price_ghs": 50.85,
+    "current_stock": 168
+  },
+  {
+    "sku": "SKU-LITE-065",
+    "product_name": "Yazz Scouring Powder 1kg",
+    "category": "Household",
+    "unit_price_ghs": 114.4,
+    "current_stock": 144
+  },
+  {
+    "sku": "SKU-LITE-066",
+    "product_name": "Ariel Liquid Detergent 1kg",
+    "category": "Household",
+    "unit_price_ghs": 55.3,
+    "current_stock": 89
+  },
+  {
+    "sku": "SKU-LITE-067",
+    "product_name": "So Klin Washing Powder 500g",
+    "category": "Household",
+    "unit_price_ghs": 109.9,
+    "current_stock": 55
+  },
+  {
+    "sku": "SKU-LITE-068",
+    "product_name": "Omo Bleach 500g",
+    "category": "Household",
+    "unit_price_ghs": 103.43,
+    "current_stock": 22
+  },
+  {
+    "sku": "SKU-LITE-069",
+    "product_name": "Ariel Liquid Detergent 500g",
+    "category": "Household",
+    "unit_price_ghs": 50.92,
+    "current_stock": 60
+  },
+  {
+    "sku": "SKU-LITE-070",
+    "product_name": "Yazz Bleach 500ml",
+    "category": "Household",
+    "unit_price_ghs": 36.73,
+    "current_stock": 170
+  },
+  {
+    "sku": "SKU-LITE-071",
+    "product_name": "Vim Scouring Powder 200g",
+    "category": "Household",
+    "unit_price_ghs": 109.74,
+    "current_stock": 176
+  },
+  {
+    "sku": "SKU-LITE-072",
+    "product_name": "Binatone Electric Kettle 32 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 1829.11,
+    "current_stock": 19
+  },
+  {
+    "sku": "SKU-LITE-073",
+    "product_name": "Samsung Standing Fan 32 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 6769.83,
+    "current_stock": 90
+  },
+  {
+    "sku": "SKU-LITE-074",
+    "product_name": "Akai Standing Fan 32 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 3106.45,
+    "current_stock": 132
+  },
+  {
+    "sku": "SKU-LITE-075",
+    "product_name": "Akai Standing Fan 43 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 7122.27,
+    "current_stock": 51
+  },
+  {
+    "sku": "SKU-LITE-076",
+    "product_name": "Nasco Dry Iron 18 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 6638.78,
+    "current_stock": 105
+  },
+  {
+    "sku": "SKU-LITE-077",
+    "product_name": "Nasco Smart TV 18 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 2070.81,
+    "current_stock": 50
+  },
+  {
+    "sku": "SKU-LITE-078",
+    "product_name": "Akai Blender 18 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 2806.72,
+    "current_stock": 180
+  },
+  {
+    "sku": "SKU-LITE-079",
+    "product_name": "Nasco Electric Kettle 32 inch",
+    "category": "Electronics",
+    "unit_price_ghs": 2393.5,
+    "current_stock": 78
+  },
+  {
+    "sku": "SKU-LITE-080",
+    "product_name": "Ashfoam Pillow Queen",
+    "category": "Home decor",
+    "unit_price_ghs": 296.55,
+    "current_stock": 158
+  },
+  {
+    "sku": "SKU-LITE-081",
+    "product_name": "Vitafoam Bedsheet Set Queen",
+    "category": "Home decor",
+    "unit_price_ghs": 620.33,
+    "current_stock": 45
+  },
+  {
+    "sku": "SKU-LITE-082",
+    "product_name": "Royal Wall Clock Standard",
+    "category": "Home decor",
+    "unit_price_ghs": 89.07,
+    "current_stock": 165
+  },
+  {
+    "sku": "SKU-LITE-083",
+    "product_name": "Vitafoam Wall Clock Standard",
+    "category": "Home decor",
+    "unit_price_ghs": 437.19,
+    "current_stock": 170
+  },
+  {
+    "sku": "SKU-LITE-084",
+    "product_name": "Royal Wall Clock Standard",
+    "category": "Home decor",
+    "unit_price_ghs": 417.34,
+    "current_stock": 143
+  },
+  {
+    "sku": "SKU-LITE-085",
+    "product_name": "Vitafoam Pillow King",
+    "category": "Home decor",
+    "unit_price_ghs": 204.53,
+    "current_stock": 20
+  },
+  {
+    "sku": "SKU-LITE-086",
+    "product_name": "Ashfoam Curtain Pair Queen",
+    "category": "Home decor",
+    "unit_price_ghs": 474.42,
+    "current_stock": 102
+  },
+  {
+    "sku": "SKU-LITE-087",
+    "product_name": "Ashfoam Bedsheet Set Standard",
+    "category": "Home decor",
+    "unit_price_ghs": 621.08,
+    "current_stock": 153
+  },
+  {
+    "sku": "SKU-LITE-088",
+    "product_name": "Tefal Non-stick Frying Pan 12pcs",
+    "category": "Kitchenware",
+    "unit_price_ghs": 1151.35,
+    "current_stock": 142
+  },
+  {
+    "sku": "SKU-LITE-089",
+    "product_name": "Tramontina Non-stick Frying Pan 12pcs",
+    "category": "Kitchenware",
+    "unit_price_ghs": 1630.46,
+    "current_stock": 172
+  },
+  {
+    "sku": "SKU-LITE-090",
+    "product_name": "Tefal Pressure Cooker 6L",
+    "category": "Kitchenware",
+    "unit_price_ghs": 785.95,
+    "current_stock": 151
+  },
+  {
+    "sku": "SKU-LITE-091",
+    "product_name": "Tower Non-stick Frying Pan 6L",
+    "category": "Kitchenware",
+    "unit_price_ghs": 671.11,
+    "current_stock": 124
+  },
+  {
+    "sku": "SKU-LITE-092",
+    "product_name": "Tramontina Pressure Cooker 24cm",
+    "category": "Kitchenware",
+    "unit_price_ghs": 493.63,
+    "current_stock": 62
+  },
+  {
+    "sku": "SKU-LITE-093",
+    "product_name": "Tower Pressure Cooker 24cm",
+    "category": "Kitchenware",
+    "unit_price_ghs": 407.88,
+    "current_stock": 91
+  },
+  {
+    "sku": "SKU-LITE-094",
+    "product_name": "Tefal Stainless Steel Pot 24cm",
+    "category": "Kitchenware",
+    "unit_price_ghs": 238.39,
+    "current_stock": 17
+  },
+  {
+    "sku": "SKU-LITE-095",
+    "product_name": "Huggies Disposable Diapers 200ml",
+    "category": "Baby",
+    "unit_price_ghs": 375.63,
+    "current_stock": 168
+  },
+  {
+    "sku": "SKU-LITE-096",
+    "product_name": "Lactogen Infant Cereal 400g",
+    "category": "Baby",
+    "unit_price_ghs": 352.89,
+    "current_stock": 200
+  },
+  {
+    "sku": "SKU-LITE-097",
+    "product_name": "Huggies Baby Wipes 200ml",
+    "category": "Baby",
+    "unit_price_ghs": 64.2,
+    "current_stock": 171
+  },
+  {
+    "sku": "SKU-LITE-098",
+    "product_name": "Huggies Disposable Diapers 200ml",
+    "category": "Baby",
+    "unit_price_ghs": 245.35,
+    "current_stock": 130
+  },
+  {
+    "sku": "SKU-LITE-099",
+    "product_name": "Cerelac Baby Oil Pack of 50",
+    "category": "Baby",
+    "unit_price_ghs": 57.16,
+    "current_stock": 106
+  },
+  {
+    "sku": "SKU-LITE-100",
+    "product_name": "Orca Plastic Chair Wood",
+    "category": "Furniture",
+    "unit_price_ghs": 1595.75,
+    "current_stock": 116
+  }
+]
