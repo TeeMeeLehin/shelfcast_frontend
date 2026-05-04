@@ -95,7 +95,7 @@ const UploadZone = ({
       }`}
     >
       <input
-        ref={(el) => (fileInputRefs.current[id] = el)}
+        ref={(el) => { fileInputRefs.current[id] = el; }}
         type="file"
         accept="application/pdf"
         className="hidden"
