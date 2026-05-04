@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 
 /* ── shared layout ───────────────────────────────────────────────── */
@@ -313,12 +314,12 @@ function Step3({ onBack }: { onBack: () => void }) {
             </p>
           </div>
 
-          <button style={BTN}>
+          <Link href="/dashboard" style={{ ...BTN, textDecoration: "none" }}>
             <span>Start Free Trial</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M5 3l16 9-16 9z" fill="currentColor"/>
             </svg>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
