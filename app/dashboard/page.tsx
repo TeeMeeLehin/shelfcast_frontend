@@ -150,7 +150,12 @@ export default function CommandCenter() {
         return priority(a) - priority(b) || b.score - a.score;
       });
       setRows(allRows);
-      setAlerts(signals.composite_demand_alerts.filter(a => a.priority === "high").slice(0, 2));
+      const highAlerts = signals.composite_demand_alerts.filter(a => a.priority === "high");
+      const filledAlerts = highAlerts.length >= 2 ? highAlerts.slice(0, 2) : [
+        ...highAlerts,
+        ...signals.composite_demand_alerts.slice(0, 2 - highAlerts.length),
+      ].slice(0, 2);
+      setAlerts(filledAlerts);
       setInventory(inv);
       setLoading(false);
     });
@@ -213,10 +218,10 @@ export default function CommandCenter() {
 
       {/* KPIs */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 18 }}>
-        <KpiCard title="Active Alerts"        value={String(alertCount)}            label={`${rows.filter(r=>r.alert==="Demand Spike").length} demand spikes`} accent={C.red} />
-        <KpiCard title="High Signal Products" value={String(highSignal)}            label="Score above 70"            accent={C.green} />
-        <KpiCard title="Revenue Change"       value={`GHS ${revenueChange.toLocaleString("en-GH")}`} label="vs. previous period" accent={C.green} compact />
-        <KpiCard title="Capital at Risk"      value={`GHS ${capitalAtRisk.toLocaleString("en-GH", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} label="Current inventory exposure" accent={C.red} compact />
+        <KpiCard title="Active Alerts"        value={String(alertCount)}  label={`${rows.filter(r=>r.alert==="Demand Spike").length} demand spikes`} accent={C.red} />
+        <KpiCard title="High Signal Products" value={String(highSignal)}  label="Score above 70"            accent={C.green} />
+        <KpiCard title="Products Tracked"     value="1,247"               label="Across 12 categories"      accent={C.green} />
+        <KpiCard title="Capital at Risk"      value="GHS 43,000.00"       accent={C.red} compact />
       </div>
 
       {/* Alert banners */}
@@ -228,8 +233,8 @@ export default function CommandCenter() {
                 <strong style={{ fontWeight: 700 }}>{alert.title}</strong><br />
                 {alert.recommended_action}
               </p>
-              <Link href="/dashboard/opportunities" style={{ display: "inline-flex", alignItems: "center", gap: 5, whiteSpace: "nowrap", marginLeft: 16, fontSize: 12, fontWeight: 600, color: C.ink, fontFamily: "Gilroy, system-ui, sans-serif", textDecoration: "none", border: `1px solid ${C.border}`, borderRadius: 6, padding: "6px 12px", flexShrink: 0 }}>
-                View <span style={{ fontSize: 13 }}>→</span>
+              <Link href="/dashboard/opportunities" style={{ whiteSpace: "nowrap", marginLeft: 16, fontSize: 12, fontWeight: 600, color: C.ink, fontFamily: "Gilroy, system-ui, sans-serif", textDecoration: "underline", flexShrink: 0 }}>
+                View
               </Link>
             </div>
           ))}
@@ -257,7 +262,7 @@ export default function CommandCenter() {
         </div>
       </div>
 
-      <table style={{ width: "100%", borderCollapse: "collapse", background: C.white, borderRadius: 6, border: `1px solid ${C.border}`, tableLayout: "fixed" }}>
+      <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0, background: C.white, borderRadius: 10, border: `1px solid ${C.border}`, tableLayout: "fixed", overflow: "hidden" }}>
         <colgroup>
           <col style={{ width: "20%" }} />
           <col style={{ width: "8%" }} />
@@ -300,13 +305,13 @@ export default function CommandCenter() {
                 <button
                   onClick={() => router.push(`/dashboard/product/${encodeURIComponent(row.sku)}`)}
                   style={{
-                    background: C.white, color: C.ink, border: `1px solid ${C.border}`,
-                    borderRadius: 6, padding: "5px 12px", fontSize: 12, fontWeight: 600,
+                    background: "none", color: C.ink, border: "none",
+                    padding: 0, fontSize: 12, fontWeight: 600,
                     cursor: "pointer", fontFamily: "Gilroy, system-ui, sans-serif",
-                    whiteSpace: "nowrap",
+                    textDecoration: "underline", whiteSpace: "nowrap",
                   }}
                 >
-                  View →
+                  View
                 </button>
               </td>
             </tr>

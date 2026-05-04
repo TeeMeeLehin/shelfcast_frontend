@@ -155,7 +155,7 @@ export default function ProductPage() {
   ];
 
   return (
-    <div style={{ padding: "28px 40px", width: "100%", maxWidth: 820, margin: "0 auto", ...gilroy }}>
+    <div style={{ padding: "28px 40px", width: "100%", boxSizing: "border-box", ...gilroy }}>
 
       {/* Back */}
       <button
@@ -176,7 +176,7 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* Score + narrative */}
+      {/* Score + narrative + signals in one row */}
       <div style={{ display: "flex", gap: 24, alignItems: "flex-start", background: C.white, border: `1px solid ${C.border}`, borderRadius: 10, padding: "24px", marginBottom: 20 }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
           <ScoreRing score={score} />
@@ -230,23 +230,36 @@ export default function ProductPage() {
         </div>
       )}
 
-      {/* Stock snapshot */}
+      {/* Stock snapshot — 2×2 grid */}
       <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 10, overflow: "hidden", marginBottom: 20 }}>
         <div style={{ background: C.tint, padding: "12px 24px", fontSize: 11, fontWeight: 700, color: C.sub, textTransform: "uppercase", letterSpacing: "0.07em" }}>
           Stock snapshot
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-          {stockItems.map((s, i) => (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr" }}>
+          {stockItems.slice(0, 4).map((s, i) => (
             <div key={s.label} style={{
-              padding: "16px 24px",
+              padding: "20px 28px",
               borderTop: `1px solid ${C.border}`,
-              borderRight: i % 3 !== 2 ? `1px solid ${C.border}` : "none",
+              borderRight: i % 2 === 0 ? `1px solid ${C.border}` : "none",
             }}>
-              <div style={{ fontSize: 12, color: C.sub, marginBottom: 6 }}>{s.label}</div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: C.ink }}>{s.value}</div>
+              <div style={{ fontSize: 12, color: C.sub, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.04em", fontWeight: 600 }}>{s.label}</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: C.ink, letterSpacing: -0.5 }}>{s.value}</div>
             </div>
           ))}
         </div>
+        {stockItems.length > 4 && (
+          <div style={{ display: "grid", gridTemplateColumns: `repeat(${stockItems.length - 4}, 1fr)`, borderTop: `1px solid ${C.border}` }}>
+            {stockItems.slice(4).map((s, i) => (
+              <div key={s.label} style={{
+                padding: "14px 24px",
+                borderRight: i < stockItems.length - 5 ? `1px solid ${C.border}` : "none",
+              }}>
+                <div style={{ fontSize: 11, color: C.sub, marginBottom: 4, fontWeight: 600 }}>{s.label}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: C.ink }}>{s.value}</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>

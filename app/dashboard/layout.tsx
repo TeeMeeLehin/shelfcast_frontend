@@ -11,6 +11,7 @@ import {
   Gear,
   UploadSimple,
   ChartLine,
+  ListBullets,
 } from "@phosphor-icons/react";
 import { DEMO_MODE } from "@/lib/config";
 
@@ -26,6 +27,7 @@ const navItems = [
   { label: "Register Data",  href: "/dashboard/register",        Icon: UploadSimple },
   { label: "Command Center", href: "/dashboard",                 Icon: SquaresFour  },
   { label: "Catalogue",      href: "/dashboard/catalogue",       Icon: Cube         },
+  { label: "Stock List",     href: "/dashboard/stock-list",      Icon: ListBullets  },
   { label: "Demand Trends",  href: "/dashboard/demand-trends",   Icon: ChartLine    },
   { label: "Opportunities",  href: "/dashboard/opportunities",   Icon: Lightbulb    },
 ];
