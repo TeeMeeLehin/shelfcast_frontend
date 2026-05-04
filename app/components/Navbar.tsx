@@ -28,7 +28,7 @@ export default function Navbar() {
     <>
       <nav style={{ height: 64, background: "#fff", borderBottom: "1px solid #ececec", position: "sticky", top: 0, zIndex: 50, display: "flex", alignItems: "center", padding: "0 96px", gap: 48 }}>
         <Link href="/" onClick={() => setOpen(false)}>
-          <Image src="/logo.jpeg" alt="ShelfCast" width={140} height={32} style={{ height: 32, width: "auto" }} />
+          <Image src="/shelfcast.svg" alt="ShelfCast" width={0} height={32} style={{ height: 32, width: "auto" }} />
         </Link>
 
         {/* desktop links */}

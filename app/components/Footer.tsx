@@ -20,7 +20,7 @@ export default function Footer() {
     <footer style={{ background: "#0a2a0a", color: "#fff", marginTop: 0, borderTop: "8px solid #0a2a0a", padding: "80px 96px 60px" }}>
       <div className="sc-footer-grid">
         <div>
-          <Image src="/logo.jpeg" alt="ShelfCast" width={140} height={32} style={{ height: 32, width: "auto", display: "block" }} />
+          <Image src="/shelfcast.svg" alt="ShelfCast" width={0} height={32} style={{ height: 32, width: "auto", display: "block" }} />
           <p style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(255,255,255,0.62)", margin: 0, marginTop: 20, maxWidth: 280, fontFamily: "'Gilroy',sans-serif" }}>
             AI-driven stocking intelligence for retailers, manufacturers, and importers across West Africa.
           </p>

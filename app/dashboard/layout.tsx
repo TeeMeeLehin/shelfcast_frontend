@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       {/* Header */}
       <header style={{ flexShrink: 0, height: 68, background: "#fff", borderBottom: "1px solid #eaeaea", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 36px" }}>
         <Link href="/">
-          <Image src="/logo.jpeg" alt="ShelfCast" width={140} height={32} style={{ height: 32, width: "auto" }} />
+          <Image src="/shelfcast.svg" alt="ShelfCast" width={0} height={32} style={{ height: 32, width: "auto" }} />
         </Link>
 
         <nav style={{ display: "flex", height: "100%", gap: 32 }}>

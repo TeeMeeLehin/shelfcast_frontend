@@ -151,10 +151,11 @@ export default function CommandCenter() {
       });
       setRows(allRows);
       const highAlerts = signals.composite_demand_alerts.filter(a => a.priority === "high");
+      const highAlertIds = new Set(highAlerts.map(a => a.alert_id));
       const filledAlerts = highAlerts.length >= 2 ? highAlerts.slice(0, 2) : [
         ...highAlerts,
-        ...signals.composite_demand_alerts.slice(0, 2 - highAlerts.length),
-      ].slice(0, 2);
+        ...signals.composite_demand_alerts.filter(a => !highAlertIds.has(a.alert_id)).slice(0, 2 - highAlerts.length),
+      ];
       setAlerts(filledAlerts);
       setInventory(inv);
       setLoading(false);
