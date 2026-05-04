@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'ESKlarheit';
+  src: url('/fonts/ESKlarheitPlakat-Blk-TRIAL-BF6618a6fc7f869.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --sc-amber: #E8A205;
   --sc-amber-text: #1a1100;
@@ -17,9 +40,23 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: 'Gilroy', system-ui, sans-serif;
   color: var(--sc-text);
   background: #fff;
+}
+
+h1, h2 {
+  font-family: 'ESKlarheit', sans-serif;
+  font-weight: 800;
+}
+
+p, li, label, input {
+  font-family: 'Gilroy', system-ui, sans-serif;
+}
+
+button, a {
+  font-family: 'Gilroy', system-ui, sans-serif;
+  font-weight: 600;
 }
 
 /* ── responsive section padding ── */
@@ -55,11 +92,18 @@ body {
 .sc-nav-drawer.open { display: flex; }
 
 /* ── hero responsive ── */
+.sc-hero-section {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
 .sc-hero-grid {
   display: grid;
   grid-template-columns: 1fr 360px;
   gap: 60px;
-  height: 100%;
+  flex: 1;
+  align-items: center;
   padding: 80px 100px;
 }
 @media (max-width: 1024px) {
