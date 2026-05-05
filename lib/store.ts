@@ -183,9 +183,21 @@ function getToken(): string {
 
 import { API_BASE, DEMO_MODE } from "@/lib/config";
 
+// All API calls are routed through the Next.js proxy (/api/proxy/...)
+// to avoid browser CORS issues when the upstream server returns 5xx errors
+// without CORS headers. The proxy forwards requests server-side.
+function proxyPath(path: string): string {
+  if (typeof window === "undefined") {
+    // Server-side: call backend directly
+    return `${API_BASE}${path}`;
+  }
+  // Client-side: route through the local proxy
+  return `/api/proxy${path}`;
+}
+
 function authFetch(path: string, options: RequestInit = {}): Promise<Response> {
   const token = getToken();
-  return fetch(`${API_BASE}${path}`, {
+  return fetch(proxyPath(path), {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -289,7 +301,7 @@ export async function uploadCsv(file: File): Promise<{ job_id: string }> {
   const form = new FormData();
   form.append("file", file);
   const token = getToken();
-  const res = await fetch(`${API_BASE}/api/v1/ingest/csv`, {
+  const res = await fetch(proxyPath("/api/v1/ingest/csv"), {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
     body: form,

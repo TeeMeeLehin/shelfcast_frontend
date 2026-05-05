@@ -4,7 +4,12 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import { ArrowRight, Eye, EyeSlash } from "@phosphor-icons/react";
-import { DEMO_MODE, API_BASE } from "@/lib/config";
+import { DEMO_MODE } from "@/lib/config";
+
+// Route auth calls through the Next.js proxy to avoid CORS issues
+function apiUrl(path: string): string {
+  return `/api/proxy${path}`;
+}
 
 /* ── friendly error messages by HTTP status ─────────────────────── */
 function friendlyError(status: number, flow: "signup" | "login" | "onboarding"): string {
@@ -130,7 +135,7 @@ function Step1({ onNext, onSwitchToLogin }: { onNext: () => void; onSwitchToLogi
     if (DEMO_MODE) { onNext(); return; }
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/v1/auth/signup`, {
+      const res = await fetch(apiUrl("/api/v1/auth/signup"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -265,7 +270,7 @@ function Step2({ onNext }: { onNext: () => void }) {
     setLoading(true);
     try {
       const token = localStorage.getItem("sc_token");
-      const res = await fetch(`${API_BASE}/api/v1/auth/onboarding`, {
+      const res = await fetch(apiUrl("/api/v1/auth/onboarding"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -415,7 +420,7 @@ function Step3({ onBack }: { onBack: () => void }) {
     setLoading(true);
     try {
       const token = localStorage.getItem("sc_token");
-      await fetch(`${API_BASE}/api/v1/auth/start-trial`, {
+      await fetch(apiUrl("/api/v1/auth/start-trial"), {
         method: "POST",
         headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}) },
       });
@@ -522,7 +527,7 @@ function SignIn({ onSwitch }: { onSwitch: () => void }) {
     if (DEMO_MODE) { window.location.href = "/dashboard/register"; return; }
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/v1/auth/login`, {
+      const res = await fetch(apiUrl("/api/v1/auth/login"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -623,7 +628,7 @@ function AuthPageInner() {
       if (!token) { setResuming(false); return; }
 
       try {
-        const res = await fetch(`${API_BASE}/api/v1/auth/me`, {
+        const res = await fetch(apiUrl("/api/v1/auth/me"), {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) {
