@@ -39,3 +39,5 @@ yarn-error.log*
 # editor
 .vscode/
 .idea/
+shelfcast_backend
+remix_-shelfcast-intelligence-command-center

@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'ESKlarheit';
+  src: url('/fonts/ESKlarheitPlakat-Blk-TRIAL-BF6618a6fc7f869.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --sc-amber: #E8A205;
   --sc-amber-text: #1a1100;
@@ -12,14 +35,55 @@
   --sc-border: #CDCDCD;
   --sc-text: #0a0a0a;
   --sc-white: #FFFFFF;
+
+  /* shadcn-style design tokens used by TrustPage */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --primary: #005e04;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f4f4f4;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: 'Gilroy', system-ui, sans-serif;
   color: var(--sc-text);
   background: #fff;
+}
+
+h1, h2 {
+  font-family: 'ESKlarheit', sans-serif;
+  font-weight: 800;
+}
+
+p, li, label, input {
+  font-family: 'Gilroy', system-ui, sans-serif;
+}
+
+button, a {
+  font-family: 'Gilroy', system-ui, sans-serif;
+  font-weight: 600;
 }
 
 /* ── responsive section padding ── */
@@ -55,11 +119,18 @@ body {
 .sc-nav-drawer.open { display: flex; }
 
 /* ── hero responsive ── */
+.sc-hero-section {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
 .sc-hero-grid {
   display: grid;
   grid-template-columns: 1fr 360px;
   gap: 60px;
-  height: 100%;
+  flex: 1;
+  align-items: center;
   padding: 80px 100px;
 }
 @media (max-width: 1024px) {

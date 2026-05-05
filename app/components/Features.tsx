@@ -10,14 +10,14 @@ export default function Features() {
     <section className="sc-section" style={{ background: "#fff" }}>
       <div className="sc-features-header">
         <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#178A00", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14, fontFamily: "'Poppins',sans-serif" }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#178A00", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14, fontFamily: "'Gilroy',sans-serif" }}>
             What ShelfCast does
           </div>
-          <h2 style={{ fontFamily: "'Unbounded',system-ui,sans-serif", fontWeight: 800, fontSize: "clamp(32px,4vw,48px)", lineHeight: 1.1, letterSpacing: "-0.025em", color: "#0a0a0a", margin: 0 }}>
+          <h2 style={{ fontFamily: "'ESKlarheit',sans-serif", fontWeight: 800, fontSize: "clamp(32px,4vw,48px)", lineHeight: 1.1, letterSpacing: "-0.025em", color: "#0a0a0a", margin: 0 }}>
             Every shelf earns<br />its place. Or it goes.
           </h2>
         </div>
-        <p style={{ fontSize: 16, lineHeight: 1.6, color: "#3a3a3a", margin: 0, fontFamily: "'Poppins',sans-serif" }}>
+        <p style={{ fontSize: 16, lineHeight: 1.6, color: "#3a3a3a", margin: 0, fontFamily: "'Gilroy',sans-serif" }}>
           ShelfCast turns six months of sales, supplier prices, and competitor moves into one weekly stocking plan you can actually run with.
         </p>
       </div>
@@ -25,13 +25,13 @@ export default function Features() {
         {items.map((it, idx) => (
           <div key={it.title} style={{ border: "1px solid #CDCDCD", borderRadius: 14, padding: 36, background: idx === 0 ? "#0d3a10" : "#fff", color: idx === 0 ? "#fff" : "#0a0a0a", display: "grid", gridTemplateColumns: "1fr auto", gap: 24, alignItems: "start" }}>
             <div>
-              <div style={{ display: "inline-block", fontSize: 11, fontWeight: 600, color: idx === 0 ? "#E8A205" : "#178A00", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16, fontFamily: "'Poppins',sans-serif" }}>{it.tag}</div>
-              <h3 style={{ fontFamily: "'Unbounded',system-ui,sans-serif", fontWeight: 700, fontSize: 24, letterSpacing: "-0.02em", margin: 0, marginBottom: 12 }}>{it.title}</h3>
-              <p style={{ fontSize: 14.5, lineHeight: 1.55, margin: 0, color: idx === 0 ? "rgba(255,255,255,0.85)" : "#3a3a3a", fontFamily: "'Poppins',sans-serif" }}>{it.body}</p>
+              <div style={{ display: "inline-block", fontSize: 11, fontWeight: 600, color: idx === 0 ? "#E8A205" : "#178A00", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16, fontFamily: "'Gilroy',sans-serif" }}>{it.tag}</div>
+              <h3 style={{ fontFamily: "'ESKlarheit',sans-serif", fontWeight: 700, fontSize: 24, letterSpacing: "-0.02em", margin: 0, marginBottom: 12 }}>{it.title}</h3>
+              <p style={{ fontSize: 14.5, lineHeight: 1.55, margin: 0, color: idx === 0 ? "rgba(255,255,255,0.85)" : "#3a3a3a", fontFamily: "'Gilroy',sans-serif" }}>{it.body}</p>
             </div>
             <div style={{ textAlign: "right" }}>
-              <div style={{ fontFamily: "'Unbounded',system-ui,sans-serif", fontWeight: 800, fontSize: 38, color: "#E8A205", letterSpacing: "-0.03em", lineHeight: 1 }}>{it.stat}</div>
-              <div style={{ fontSize: 11, fontWeight: 500, color: idx === 0 ? "rgba(255,255,255,0.6)" : "#7a7a7a", maxWidth: 130, marginTop: 8, lineHeight: 1.4, fontFamily: "'Poppins',sans-serif" }}>{it.statLabel}</div>
+              <div style={{ fontFamily: "'ESKlarheit',sans-serif", fontWeight: 800, fontSize: 38, color: "#E8A205", letterSpacing: "-0.03em", lineHeight: 1 }}>{it.stat}</div>
+              <div style={{ fontSize: 11, fontWeight: 500, color: idx === 0 ? "rgba(255,255,255,0.6)" : "#7a7a7a", maxWidth: 130, marginTop: 8, lineHeight: 1.4, fontFamily: "'Gilroy',sans-serif" }}>{it.statLabel}</div>
             </div>
           </div>
         ))}

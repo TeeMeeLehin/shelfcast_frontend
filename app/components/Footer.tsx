@@ -20,8 +20,8 @@ export default function Footer() {
     <footer style={{ background: "#0a2a0a", color: "#fff", marginTop: 0, borderTop: "8px solid #0a2a0a", padding: "80px 96px 60px" }}>
       <div className="sc-footer-grid">
         <div>
-          <Image src="/logo.jpeg" alt="ShelfCast" width={140} height={32} style={{ height: 32, width: "auto", display: "block" }} />
-          <p style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(255,255,255,0.62)", margin: 0, marginTop: 20, maxWidth: 280, fontFamily: "'Poppins',sans-serif" }}>
+          <Image src="/shelfcast.svg" alt="ShelfCast" width={0} height={32} style={{ height: 32, width: "auto", display: "block" }} />
+          <p style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(255,255,255,0.62)", margin: 0, marginTop: 20, maxWidth: 280, fontFamily: "'Gilroy',sans-serif" }}>
             AI-driven stocking intelligence for retailers, manufacturers, and importers across West Africa.
           </p>
           <div style={{ display: "flex", gap: 10, marginTop: 20 }}>
@@ -37,16 +37,16 @@ export default function Footer() {
         </div>
         {cols.map(c => (
           <div key={c.h}>
-            <div style={{ fontFamily: "'Unbounded',system-ui,sans-serif", fontWeight: 700, fontSize: 13, color: "#E8A205", letterSpacing: "0.05em", marginBottom: 20, textTransform: "uppercase" }}>{c.h}</div>
+            <div style={{ fontFamily: "'ESKlarheit',sans-serif", fontWeight: 700, fontSize: 13, color: "#E8A205", letterSpacing: "0.05em", marginBottom: 20, textTransform: "uppercase" }}>{c.h}</div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
               {c.items.map(i => (
-                <li key={i} style={{ fontSize: 14, color: "rgba(255,255,255,0.72)", cursor: "pointer", fontFamily: "'Poppins',sans-serif" }}>{i}</li>
+                <li key={i} style={{ fontSize: 14, color: "rgba(255,255,255,0.72)", cursor: "pointer", fontFamily: "'Gilroy',sans-serif" }}>{i}</li>
               ))}
             </ul>
           </div>
         ))}
       </div>
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 28, fontSize: 13, color: "rgba(255,255,255,0.5)", fontFamily: "'Poppins',sans-serif" }}
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 28, fontSize: 13, color: "rgba(255,255,255,0.5)", fontFamily: "'Gilroy',sans-serif" }}
         className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>© 2026 ShelfCast Technologies Ltd. Accra, Ghana.</div>
         <div style={{ display: "flex", gap: 24 }}>

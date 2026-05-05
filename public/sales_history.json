@@ -1,0 +1,5834 @@
+[
+  {
+    "transaction_id": "TXN-LITE-0001",
+    "timestamp": "2026-04-07 06:00:09",
+    "sku": "SKU-LITE-073",
+    "quantity": 1,
+    "unit_price": 6769.83,
+    "total_price": 6769.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0001",
+    "timestamp": "2026-04-07 06:00:09",
+    "sku": "SKU-LITE-043",
+    "quantity": 2,
+    "unit_price": 170.12,
+    "total_price": 340.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0001",
+    "timestamp": "2026-04-07 06:00:09",
+    "sku": "SKU-LITE-029",
+    "quantity": 2,
+    "unit_price": 175.55,
+    "total_price": 351.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0002",
+    "timestamp": "2026-04-28 05:30:08",
+    "sku": "SKU-LITE-076",
+    "quantity": 3,
+    "unit_price": 6638.78,
+    "total_price": 19916.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0002",
+    "timestamp": "2026-04-28 05:30:08",
+    "sku": "SKU-LITE-049",
+    "quantity": 1,
+    "unit_price": 286.61,
+    "total_price": 286.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0002",
+    "timestamp": "2026-04-28 05:30:08",
+    "sku": "SKU-LITE-021",
+    "quantity": 2,
+    "unit_price": 145.71,
+    "total_price": 291.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0003",
+    "timestamp": "2026-04-29 17:58:34",
+    "sku": "SKU-LITE-091",
+    "quantity": 2,
+    "unit_price": 671.11,
+    "total_price": 1342.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0003",
+    "timestamp": "2026-04-29 17:58:34",
+    "sku": "SKU-LITE-094",
+    "quantity": 1,
+    "unit_price": 238.39,
+    "total_price": 238.39
+  },
+  {
+    "transaction_id": "TXN-LITE-0003",
+    "timestamp": "2026-04-29 17:58:34",
+    "sku": "SKU-LITE-009",
+    "quantity": 2,
+    "unit_price": 368.58,
+    "total_price": 737.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0003",
+    "timestamp": "2026-04-29 17:58:34",
+    "sku": "SKU-LITE-071",
+    "quantity": 2,
+    "unit_price": 109.74,
+    "total_price": 219.48
+  },
+  {
+    "transaction_id": "TXN-LITE-0004",
+    "timestamp": "2026-04-20 20:43:13",
+    "sku": "SKU-LITE-091",
+    "quantity": 1,
+    "unit_price": 671.11,
+    "total_price": 671.11
+  },
+  {
+    "transaction_id": "TXN-LITE-0004",
+    "timestamp": "2026-04-20 20:43:13",
+    "sku": "SKU-LITE-078",
+    "quantity": 1,
+    "unit_price": 2806.72,
+    "total_price": 2806.72
+  },
+  {
+    "transaction_id": "TXN-LITE-0004",
+    "timestamp": "2026-04-20 20:43:13",
+    "sku": "SKU-LITE-074",
+    "quantity": 1,
+    "unit_price": 3106.45,
+    "total_price": 3106.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0004",
+    "timestamp": "2026-04-20 20:43:13",
+    "sku": "SKU-LITE-099",
+    "quantity": 1,
+    "unit_price": 57.16,
+    "total_price": 57.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0005",
+    "timestamp": "2026-04-15 20:01:28",
+    "sku": "SKU-LITE-079",
+    "quantity": 2,
+    "unit_price": 2393.5,
+    "total_price": 4787.0
+  },
+  {
+    "transaction_id": "TXN-LITE-0006",
+    "timestamp": "2026-05-03 22:39:21",
+    "sku": "SKU-LITE-004",
+    "quantity": 3,
+    "unit_price": 149.15,
+    "total_price": 447.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0006",
+    "timestamp": "2026-05-03 22:39:21",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0007",
+    "timestamp": "2026-04-07 12:33:22",
+    "sku": "SKU-LITE-002",
+    "quantity": 3,
+    "unit_price": 163.73,
+    "total_price": 491.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0007",
+    "timestamp": "2026-04-07 12:33:22",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0007",
+    "timestamp": "2026-04-07 12:33:22",
+    "sku": "SKU-LITE-042",
+    "quantity": 2,
+    "unit_price": 157.19,
+    "total_price": 314.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0008",
+    "timestamp": "2026-04-18 19:27:42",
+    "sku": "SKU-LITE-078",
+    "quantity": 3,
+    "unit_price": 2806.72,
+    "total_price": 8420.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0009",
+    "timestamp": "2026-05-02 09:30:11",
+    "sku": "SKU-LITE-095",
+    "quantity": 3,
+    "unit_price": 375.63,
+    "total_price": 1126.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0009",
+    "timestamp": "2026-05-02 09:30:11",
+    "sku": "SKU-LITE-059",
+    "quantity": 3,
+    "unit_price": 147.53,
+    "total_price": 442.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0009",
+    "timestamp": "2026-05-02 09:30:11",
+    "sku": "SKU-LITE-058",
+    "quantity": 1,
+    "unit_price": 311.25,
+    "total_price": 311.25
+  },
+  {
+    "transaction_id": "TXN-LITE-0009",
+    "timestamp": "2026-05-02 09:30:11",
+    "sku": "SKU-LITE-070",
+    "quantity": 1,
+    "unit_price": 36.73,
+    "total_price": 36.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0010",
+    "timestamp": "2026-04-24 05:33:09",
+    "sku": "SKU-LITE-025",
+    "quantity": 1,
+    "unit_price": 51.56,
+    "total_price": 51.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0010",
+    "timestamp": "2026-04-24 05:33:09",
+    "sku": "SKU-LITE-040",
+    "quantity": 1,
+    "unit_price": 135.8,
+    "total_price": 135.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0011",
+    "timestamp": "2026-04-16 12:25:58",
+    "sku": "SKU-LITE-085",
+    "quantity": 3,
+    "unit_price": 204.53,
+    "total_price": 613.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0011",
+    "timestamp": "2026-04-16 12:25:58",
+    "sku": "SKU-LITE-012",
+    "quantity": 1,
+    "unit_price": 440.29,
+    "total_price": 440.29
+  },
+  {
+    "transaction_id": "TXN-LITE-0011",
+    "timestamp": "2026-04-16 12:25:58",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0012",
+    "timestamp": "2026-04-19 00:20:15",
+    "sku": "SKU-LITE-087",
+    "quantity": 2,
+    "unit_price": 621.08,
+    "total_price": 1242.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0013",
+    "timestamp": "2026-04-10 07:33:57",
+    "sku": "SKU-LITE-005",
+    "quantity": 3,
+    "unit_price": 153.02,
+    "total_price": 459.06
+  },
+  {
+    "transaction_id": "TXN-LITE-0014",
+    "timestamp": "2026-04-10 20:22:45",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0014",
+    "timestamp": "2026-04-10 20:22:45",
+    "sku": "SKU-LITE-044",
+    "quantity": 1,
+    "unit_price": 50.83,
+    "total_price": 50.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0015",
+    "timestamp": "2026-04-23 17:45:41",
+    "sku": "SKU-LITE-058",
+    "quantity": 2,
+    "unit_price": 311.25,
+    "total_price": 622.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0015",
+    "timestamp": "2026-04-23 17:45:41",
+    "sku": "SKU-LITE-075",
+    "quantity": 1,
+    "unit_price": 7122.27,
+    "total_price": 7122.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0015",
+    "timestamp": "2026-04-23 17:45:41",
+    "sku": "SKU-LITE-027",
+    "quantity": 3,
+    "unit_price": 54.78,
+    "total_price": 164.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0016",
+    "timestamp": "2026-04-21 16:42:22",
+    "sku": "SKU-LITE-009",
+    "quantity": 3,
+    "unit_price": 368.58,
+    "total_price": 1105.74
+  },
+  {
+    "transaction_id": "TXN-LITE-0016",
+    "timestamp": "2026-04-21 16:42:22",
+    "sku": "SKU-LITE-001",
+    "quantity": 1,
+    "unit_price": 65.62,
+    "total_price": 65.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0016",
+    "timestamp": "2026-04-21 16:42:22",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0017",
+    "timestamp": "2026-04-17 17:33:47",
+    "sku": "SKU-LITE-072",
+    "quantity": 3,
+    "unit_price": 1829.11,
+    "total_price": 5487.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0018",
+    "timestamp": "2026-04-25 12:00:47",
+    "sku": "SKU-LITE-035",
+    "quantity": 3,
+    "unit_price": 56.04,
+    "total_price": 168.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0019",
+    "timestamp": "2026-04-20 03:53:57",
+    "sku": "SKU-LITE-025",
+    "quantity": 3,
+    "unit_price": 51.56,
+    "total_price": 154.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0019",
+    "timestamp": "2026-04-20 03:53:57",
+    "sku": "SKU-LITE-065",
+    "quantity": 1,
+    "unit_price": 114.4,
+    "total_price": 114.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0020",
+    "timestamp": "2026-05-03 06:53:28",
+    "sku": "SKU-LITE-030",
+    "quantity": 3,
+    "unit_price": 25.27,
+    "total_price": 75.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0020",
+    "timestamp": "2026-05-03 06:53:28",
+    "sku": "SKU-LITE-027",
+    "quantity": 3,
+    "unit_price": 54.78,
+    "total_price": 164.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0020",
+    "timestamp": "2026-05-03 06:53:28",
+    "sku": "SKU-LITE-057",
+    "quantity": 3,
+    "unit_price": 378.01,
+    "total_price": 1134.03
+  },
+  {
+    "transaction_id": "TXN-LITE-0021",
+    "timestamp": "2026-04-19 13:49:00",
+    "sku": "SKU-LITE-032",
+    "quantity": 2,
+    "unit_price": 142.31,
+    "total_price": 284.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0021",
+    "timestamp": "2026-04-19 13:49:00",
+    "sku": "SKU-LITE-098",
+    "quantity": 3,
+    "unit_price": 245.35,
+    "total_price": 736.05
+  },
+  {
+    "transaction_id": "TXN-LITE-0022",
+    "timestamp": "2026-04-27 07:51:54",
+    "sku": "SKU-LITE-046",
+    "quantity": 2,
+    "unit_price": 9.38,
+    "total_price": 18.76
+  },
+  {
+    "transaction_id": "TXN-LITE-0023",
+    "timestamp": "2026-04-10 10:43:03",
+    "sku": "SKU-LITE-027",
+    "quantity": 2,
+    "unit_price": 54.78,
+    "total_price": 109.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0023",
+    "timestamp": "2026-04-10 10:43:03",
+    "sku": "SKU-LITE-041",
+    "quantity": 1,
+    "unit_price": 154.33,
+    "total_price": 154.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0024",
+    "timestamp": "2026-04-19 07:42:56",
+    "sku": "SKU-LITE-032",
+    "quantity": 3,
+    "unit_price": 142.31,
+    "total_price": 426.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0025",
+    "timestamp": "2026-04-14 03:14:35",
+    "sku": "SKU-LITE-057",
+    "quantity": 2,
+    "unit_price": 378.01,
+    "total_price": 756.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0025",
+    "timestamp": "2026-04-14 03:14:35",
+    "sku": "SKU-LITE-022",
+    "quantity": 1,
+    "unit_price": 221.24,
+    "total_price": 221.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0025",
+    "timestamp": "2026-04-14 03:14:35",
+    "sku": "SKU-LITE-048",
+    "quantity": 2,
+    "unit_price": 116.28,
+    "total_price": 232.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0025",
+    "timestamp": "2026-04-14 03:14:35",
+    "sku": "SKU-LITE-014",
+    "quantity": 2,
+    "unit_price": 228.22,
+    "total_price": 456.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0026",
+    "timestamp": "2026-04-20 00:40:47",
+    "sku": "SKU-LITE-039",
+    "quantity": 1,
+    "unit_price": 125.42,
+    "total_price": 125.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0026",
+    "timestamp": "2026-04-20 00:40:47",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0026",
+    "timestamp": "2026-04-20 00:40:47",
+    "sku": "SKU-LITE-054",
+    "quantity": 1,
+    "unit_price": 329.17,
+    "total_price": 329.17
+  },
+  {
+    "transaction_id": "TXN-LITE-0026",
+    "timestamp": "2026-04-20 00:40:47",
+    "sku": "SKU-LITE-086",
+    "quantity": 2,
+    "unit_price": 474.42,
+    "total_price": 948.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0027",
+    "timestamp": "2026-05-03 22:40:26",
+    "sku": "SKU-LITE-085",
+    "quantity": 3,
+    "unit_price": 204.53,
+    "total_price": 613.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0028",
+    "timestamp": "2026-04-23 16:25:03",
+    "sku": "SKU-LITE-083",
+    "quantity": 1,
+    "unit_price": 437.19,
+    "total_price": 437.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0028",
+    "timestamp": "2026-04-23 16:25:03",
+    "sku": "SKU-LITE-018",
+    "quantity": 1,
+    "unit_price": 268.58,
+    "total_price": 268.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0028",
+    "timestamp": "2026-04-23 16:25:03",
+    "sku": "SKU-LITE-087",
+    "quantity": 1,
+    "unit_price": 621.08,
+    "total_price": 621.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0028",
+    "timestamp": "2026-04-23 16:25:03",
+    "sku": "SKU-LITE-088",
+    "quantity": 3,
+    "unit_price": 1151.35,
+    "total_price": 3454.05
+  },
+  {
+    "transaction_id": "TXN-LITE-0029",
+    "timestamp": "2026-04-26 18:31:27",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0030",
+    "timestamp": "2026-04-14 10:10:23",
+    "sku": "SKU-LITE-081",
+    "quantity": 1,
+    "unit_price": 620.33,
+    "total_price": 620.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0030",
+    "timestamp": "2026-04-14 10:10:23",
+    "sku": "SKU-LITE-051",
+    "quantity": 2,
+    "unit_price": 234.93,
+    "total_price": 469.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0030",
+    "timestamp": "2026-04-14 10:10:23",
+    "sku": "SKU-LITE-020",
+    "quantity": 1,
+    "unit_price": 181.4,
+    "total_price": 181.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0031",
+    "timestamp": "2026-05-01 15:28:49",
+    "sku": "SKU-LITE-095",
+    "quantity": 1,
+    "unit_price": 375.63,
+    "total_price": 375.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0031",
+    "timestamp": "2026-05-01 15:28:49",
+    "sku": "SKU-LITE-029",
+    "quantity": 3,
+    "unit_price": 175.55,
+    "total_price": 526.65
+  },
+  {
+    "transaction_id": "TXN-LITE-0031",
+    "timestamp": "2026-05-01 15:28:49",
+    "sku": "SKU-LITE-046",
+    "quantity": 3,
+    "unit_price": 9.38,
+    "total_price": 28.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0032",
+    "timestamp": "2026-05-01 17:31:17",
+    "sku": "SKU-LITE-087",
+    "quantity": 1,
+    "unit_price": 621.08,
+    "total_price": 621.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0033",
+    "timestamp": "2026-04-16 12:40:21",
+    "sku": "SKU-LITE-084",
+    "quantity": 3,
+    "unit_price": 417.34,
+    "total_price": 1252.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0033",
+    "timestamp": "2026-04-16 12:40:21",
+    "sku": "SKU-LITE-039",
+    "quantity": 1,
+    "unit_price": 125.42,
+    "total_price": 125.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0033",
+    "timestamp": "2026-04-16 12:40:21",
+    "sku": "SKU-LITE-058",
+    "quantity": 1,
+    "unit_price": 311.25,
+    "total_price": 311.25
+  },
+  {
+    "transaction_id": "TXN-LITE-0034",
+    "timestamp": "2026-04-27 15:52:10",
+    "sku": "SKU-LITE-019",
+    "quantity": 2,
+    "unit_price": 79.97,
+    "total_price": 159.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0035",
+    "timestamp": "2026-04-18 19:04:18",
+    "sku": "SKU-LITE-090",
+    "quantity": 2,
+    "unit_price": 785.95,
+    "total_price": 1571.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0036",
+    "timestamp": "2026-04-28 02:19:32",
+    "sku": "SKU-LITE-049",
+    "quantity": 2,
+    "unit_price": 286.61,
+    "total_price": 573.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0036",
+    "timestamp": "2026-04-28 02:19:32",
+    "sku": "SKU-LITE-038",
+    "quantity": 2,
+    "unit_price": 14.19,
+    "total_price": 28.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0036",
+    "timestamp": "2026-04-28 02:19:32",
+    "sku": "SKU-LITE-010",
+    "quantity": 1,
+    "unit_price": 413.79,
+    "total_price": 413.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0036",
+    "timestamp": "2026-04-28 02:19:32",
+    "sku": "SKU-LITE-054",
+    "quantity": 3,
+    "unit_price": 329.17,
+    "total_price": 987.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0037",
+    "timestamp": "2026-04-15 16:53:57",
+    "sku": "SKU-LITE-084",
+    "quantity": 2,
+    "unit_price": 417.34,
+    "total_price": 834.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0037",
+    "timestamp": "2026-04-15 16:53:57",
+    "sku": "SKU-LITE-034",
+    "quantity": 1,
+    "unit_price": 167.25,
+    "total_price": 167.25
+  },
+  {
+    "transaction_id": "TXN-LITE-0038",
+    "timestamp": "2026-04-04 12:13:18",
+    "sku": "SKU-LITE-088",
+    "quantity": 2,
+    "unit_price": 1151.35,
+    "total_price": 2302.7
+  },
+  {
+    "transaction_id": "TXN-LITE-0038",
+    "timestamp": "2026-04-04 12:13:18",
+    "sku": "SKU-LITE-025",
+    "quantity": 1,
+    "unit_price": 51.56,
+    "total_price": 51.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0039",
+    "timestamp": "2026-04-30 07:34:59",
+    "sku": "SKU-LITE-030",
+    "quantity": 1,
+    "unit_price": 25.27,
+    "total_price": 25.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0039",
+    "timestamp": "2026-04-30 07:34:59",
+    "sku": "SKU-LITE-047",
+    "quantity": 1,
+    "unit_price": 117.61,
+    "total_price": 117.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0039",
+    "timestamp": "2026-04-30 07:34:59",
+    "sku": "SKU-LITE-051",
+    "quantity": 1,
+    "unit_price": 234.93,
+    "total_price": 234.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0039",
+    "timestamp": "2026-04-30 07:34:59",
+    "sku": "SKU-LITE-034",
+    "quantity": 3,
+    "unit_price": 167.25,
+    "total_price": 501.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0040",
+    "timestamp": "2026-04-15 13:00:41",
+    "sku": "SKU-LITE-081",
+    "quantity": 3,
+    "unit_price": 620.33,
+    "total_price": 1860.99
+  },
+  {
+    "transaction_id": "TXN-LITE-0041",
+    "timestamp": "2026-04-07 11:13:03",
+    "sku": "SKU-LITE-077",
+    "quantity": 1,
+    "unit_price": 2070.81,
+    "total_price": 2070.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0042",
+    "timestamp": "2026-04-30 21:33:36",
+    "sku": "SKU-LITE-090",
+    "quantity": 3,
+    "unit_price": 785.95,
+    "total_price": 2357.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0042",
+    "timestamp": "2026-04-30 21:33:36",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0042",
+    "timestamp": "2026-04-30 21:33:36",
+    "sku": "SKU-LITE-097",
+    "quantity": 1,
+    "unit_price": 64.2,
+    "total_price": 64.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0043",
+    "timestamp": "2026-04-26 08:52:53",
+    "sku": "SKU-LITE-083",
+    "quantity": 3,
+    "unit_price": 437.19,
+    "total_price": 1311.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0044",
+    "timestamp": "2026-04-27 16:04:02",
+    "sku": "SKU-LITE-007",
+    "quantity": 3,
+    "unit_price": 386.97,
+    "total_price": 1160.91
+  },
+  {
+    "transaction_id": "TXN-LITE-0044",
+    "timestamp": "2026-04-27 16:04:02",
+    "sku": "SKU-LITE-003",
+    "quantity": 1,
+    "unit_price": 173.15,
+    "total_price": 173.15
+  },
+  {
+    "transaction_id": "TXN-LITE-0044",
+    "timestamp": "2026-04-27 16:04:02",
+    "sku": "SKU-LITE-063",
+    "quantity": 3,
+    "unit_price": 116.93,
+    "total_price": 350.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0045",
+    "timestamp": "2026-04-08 17:20:09",
+    "sku": "SKU-LITE-002",
+    "quantity": 1,
+    "unit_price": 163.73,
+    "total_price": 163.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0045",
+    "timestamp": "2026-04-08 17:20:09",
+    "sku": "SKU-LITE-005",
+    "quantity": 3,
+    "unit_price": 153.02,
+    "total_price": 459.06
+  },
+  {
+    "transaction_id": "TXN-LITE-0046",
+    "timestamp": "2026-05-04 00:17:02",
+    "sku": "SKU-LITE-050",
+    "quantity": 1,
+    "unit_price": 245.49,
+    "total_price": 245.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0046",
+    "timestamp": "2026-05-04 00:17:02",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0046",
+    "timestamp": "2026-05-04 00:17:02",
+    "sku": "SKU-LITE-075",
+    "quantity": 2,
+    "unit_price": 7122.27,
+    "total_price": 14244.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0046",
+    "timestamp": "2026-05-04 00:17:02",
+    "sku": "SKU-LITE-086",
+    "quantity": 2,
+    "unit_price": 474.42,
+    "total_price": 948.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0047",
+    "timestamp": "2026-04-10 14:50:54",
+    "sku": "SKU-LITE-078",
+    "quantity": 1,
+    "unit_price": 2806.72,
+    "total_price": 2806.72
+  },
+  {
+    "transaction_id": "TXN-LITE-0048",
+    "timestamp": "2026-04-15 18:22:48",
+    "sku": "SKU-LITE-050",
+    "quantity": 1,
+    "unit_price": 245.49,
+    "total_price": 245.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0048",
+    "timestamp": "2026-04-15 18:22:48",
+    "sku": "SKU-LITE-067",
+    "quantity": 1,
+    "unit_price": 109.9,
+    "total_price": 109.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0049",
+    "timestamp": "2026-04-09 19:38:39",
+    "sku": "SKU-LITE-031",
+    "quantity": 3,
+    "unit_price": 81.12,
+    "total_price": 243.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0050",
+    "timestamp": "2026-04-17 10:31:59",
+    "sku": "SKU-LITE-008",
+    "quantity": 3,
+    "unit_price": 209.1,
+    "total_price": 627.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0051",
+    "timestamp": "2026-04-18 22:55:38",
+    "sku": "SKU-LITE-096",
+    "quantity": 1,
+    "unit_price": 352.89,
+    "total_price": 352.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0051",
+    "timestamp": "2026-04-18 22:55:38",
+    "sku": "SKU-LITE-070",
+    "quantity": 1,
+    "unit_price": 36.73,
+    "total_price": 36.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0051",
+    "timestamp": "2026-04-18 22:55:38",
+    "sku": "SKU-LITE-075",
+    "quantity": 2,
+    "unit_price": 7122.27,
+    "total_price": 14244.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0051",
+    "timestamp": "2026-04-18 22:55:38",
+    "sku": "SKU-LITE-009",
+    "quantity": 2,
+    "unit_price": 368.58,
+    "total_price": 737.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0052",
+    "timestamp": "2026-04-28 02:03:20",
+    "sku": "SKU-LITE-048",
+    "quantity": 1,
+    "unit_price": 116.28,
+    "total_price": 116.28
+  },
+  {
+    "transaction_id": "TXN-LITE-0052",
+    "timestamp": "2026-04-28 02:03:20",
+    "sku": "SKU-LITE-028",
+    "quantity": 1,
+    "unit_price": 128.21,
+    "total_price": 128.21
+  },
+  {
+    "transaction_id": "TXN-LITE-0052",
+    "timestamp": "2026-04-28 02:03:20",
+    "sku": "SKU-LITE-003",
+    "quantity": 3,
+    "unit_price": 173.15,
+    "total_price": 519.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0053",
+    "timestamp": "2026-04-24 19:32:42",
+    "sku": "SKU-LITE-064",
+    "quantity": 3,
+    "unit_price": 50.85,
+    "total_price": 152.55
+  },
+  {
+    "transaction_id": "TXN-LITE-0053",
+    "timestamp": "2026-04-24 19:32:42",
+    "sku": "SKU-LITE-054",
+    "quantity": 3,
+    "unit_price": 329.17,
+    "total_price": 987.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0054",
+    "timestamp": "2026-04-13 02:33:01",
+    "sku": "SKU-LITE-081",
+    "quantity": 2,
+    "unit_price": 620.33,
+    "total_price": 1240.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0055",
+    "timestamp": "2026-04-08 21:21:09",
+    "sku": "SKU-LITE-052",
+    "quantity": 2,
+    "unit_price": 298.81,
+    "total_price": 597.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0055",
+    "timestamp": "2026-04-08 21:21:09",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0055",
+    "timestamp": "2026-04-08 21:21:09",
+    "sku": "SKU-LITE-082",
+    "quantity": 2,
+    "unit_price": 89.07,
+    "total_price": 178.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0055",
+    "timestamp": "2026-04-08 21:21:09",
+    "sku": "SKU-LITE-059",
+    "quantity": 3,
+    "unit_price": 147.53,
+    "total_price": 442.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0056",
+    "timestamp": "2026-04-30 07:34:21",
+    "sku": "SKU-LITE-056",
+    "quantity": 3,
+    "unit_price": 268.59,
+    "total_price": 805.77
+  },
+  {
+    "transaction_id": "TXN-LITE-0057",
+    "timestamp": "2026-04-10 12:48:09",
+    "sku": "SKU-LITE-050",
+    "quantity": 1,
+    "unit_price": 245.49,
+    "total_price": 245.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0057",
+    "timestamp": "2026-04-10 12:48:09",
+    "sku": "SKU-LITE-080",
+    "quantity": 1,
+    "unit_price": 296.55,
+    "total_price": 296.55
+  },
+  {
+    "transaction_id": "TXN-LITE-0057",
+    "timestamp": "2026-04-10 12:48:09",
+    "sku": "SKU-LITE-049",
+    "quantity": 3,
+    "unit_price": 286.61,
+    "total_price": 859.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0058",
+    "timestamp": "2026-04-24 00:14:31",
+    "sku": "SKU-LITE-009",
+    "quantity": 2,
+    "unit_price": 368.58,
+    "total_price": 737.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0058",
+    "timestamp": "2026-04-24 00:14:31",
+    "sku": "SKU-LITE-041",
+    "quantity": 1,
+    "unit_price": 154.33,
+    "total_price": 154.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0058",
+    "timestamp": "2026-04-24 00:14:31",
+    "sku": "SKU-LITE-056",
+    "quantity": 2,
+    "unit_price": 268.59,
+    "total_price": 537.18
+  },
+  {
+    "transaction_id": "TXN-LITE-0059",
+    "timestamp": "2026-04-30 15:55:05",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0060",
+    "timestamp": "2026-04-19 15:01:43",
+    "sku": "SKU-LITE-064",
+    "quantity": 1,
+    "unit_price": 50.85,
+    "total_price": 50.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0060",
+    "timestamp": "2026-04-19 15:01:43",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0061",
+    "timestamp": "2026-04-18 13:18:52",
+    "sku": "SKU-LITE-082",
+    "quantity": 2,
+    "unit_price": 89.07,
+    "total_price": 178.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0062",
+    "timestamp": "2026-04-15 23:37:45",
+    "sku": "SKU-LITE-056",
+    "quantity": 3,
+    "unit_price": 268.59,
+    "total_price": 805.77
+  },
+  {
+    "transaction_id": "TXN-LITE-0062",
+    "timestamp": "2026-04-15 23:37:45",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0063",
+    "timestamp": "2026-05-02 23:23:49",
+    "sku": "SKU-LITE-035",
+    "quantity": 2,
+    "unit_price": 56.04,
+    "total_price": 112.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0063",
+    "timestamp": "2026-05-02 23:23:49",
+    "sku": "SKU-LITE-049",
+    "quantity": 1,
+    "unit_price": 286.61,
+    "total_price": 286.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0063",
+    "timestamp": "2026-05-02 23:23:49",
+    "sku": "SKU-LITE-064",
+    "quantity": 3,
+    "unit_price": 50.85,
+    "total_price": 152.55
+  },
+  {
+    "transaction_id": "TXN-LITE-0064",
+    "timestamp": "2026-04-15 05:51:17",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0064",
+    "timestamp": "2026-04-15 05:51:17",
+    "sku": "SKU-LITE-044",
+    "quantity": 2,
+    "unit_price": 50.83,
+    "total_price": 101.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0065",
+    "timestamp": "2026-05-01 22:59:04",
+    "sku": "SKU-LITE-013",
+    "quantity": 2,
+    "unit_price": 12.58,
+    "total_price": 25.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0066",
+    "timestamp": "2026-04-17 04:06:45",
+    "sku": "SKU-LITE-061",
+    "quantity": 3,
+    "unit_price": 109.17,
+    "total_price": 327.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0066",
+    "timestamp": "2026-04-17 04:06:45",
+    "sku": "SKU-LITE-011",
+    "quantity": 3,
+    "unit_price": 45.44,
+    "total_price": 136.32
+  },
+  {
+    "transaction_id": "TXN-LITE-0067",
+    "timestamp": "2026-04-26 05:48:38",
+    "sku": "SKU-LITE-019",
+    "quantity": 1,
+    "unit_price": 79.97,
+    "total_price": 79.97
+  },
+  {
+    "transaction_id": "TXN-LITE-0067",
+    "timestamp": "2026-04-26 05:48:38",
+    "sku": "SKU-LITE-041",
+    "quantity": 3,
+    "unit_price": 154.33,
+    "total_price": 462.99
+  },
+  {
+    "transaction_id": "TXN-LITE-0067",
+    "timestamp": "2026-04-26 05:48:38",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0068",
+    "timestamp": "2026-04-28 21:33:05",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0068",
+    "timestamp": "2026-04-28 21:33:05",
+    "sku": "SKU-LITE-016",
+    "quantity": 1,
+    "unit_price": 421.16,
+    "total_price": 421.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0069",
+    "timestamp": "2026-04-28 20:41:46",
+    "sku": "SKU-LITE-055",
+    "quantity": 3,
+    "unit_price": 452.28,
+    "total_price": 1356.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0069",
+    "timestamp": "2026-04-28 20:41:46",
+    "sku": "SKU-LITE-024",
+    "quantity": 1,
+    "unit_price": 225.87,
+    "total_price": 225.87
+  },
+  {
+    "transaction_id": "TXN-LITE-0070",
+    "timestamp": "2026-04-27 12:55:42",
+    "sku": "SKU-LITE-002",
+    "quantity": 2,
+    "unit_price": 163.73,
+    "total_price": 327.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0070",
+    "timestamp": "2026-04-27 12:55:42",
+    "sku": "SKU-LITE-051",
+    "quantity": 3,
+    "unit_price": 234.93,
+    "total_price": 704.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0071",
+    "timestamp": "2026-04-11 17:37:56",
+    "sku": "SKU-LITE-007",
+    "quantity": 2,
+    "unit_price": 386.97,
+    "total_price": 773.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0072",
+    "timestamp": "2026-04-30 06:11:45",
+    "sku": "SKU-LITE-039",
+    "quantity": 3,
+    "unit_price": 125.42,
+    "total_price": 376.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0072",
+    "timestamp": "2026-04-30 06:11:45",
+    "sku": "SKU-LITE-089",
+    "quantity": 1,
+    "unit_price": 1630.46,
+    "total_price": 1630.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0072",
+    "timestamp": "2026-04-30 06:11:45",
+    "sku": "SKU-LITE-052",
+    "quantity": 2,
+    "unit_price": 298.81,
+    "total_price": 597.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0072",
+    "timestamp": "2026-04-30 06:11:45",
+    "sku": "SKU-LITE-090",
+    "quantity": 1,
+    "unit_price": 785.95,
+    "total_price": 785.95
+  },
+  {
+    "transaction_id": "TXN-LITE-0073",
+    "timestamp": "2026-04-21 20:57:25",
+    "sku": "SKU-LITE-080",
+    "quantity": 3,
+    "unit_price": 296.55,
+    "total_price": 889.65
+  },
+  {
+    "transaction_id": "TXN-LITE-0073",
+    "timestamp": "2026-04-21 20:57:25",
+    "sku": "SKU-LITE-082",
+    "quantity": 1,
+    "unit_price": 89.07,
+    "total_price": 89.07
+  },
+  {
+    "transaction_id": "TXN-LITE-0073",
+    "timestamp": "2026-04-21 20:57:25",
+    "sku": "SKU-LITE-043",
+    "quantity": 1,
+    "unit_price": 170.12,
+    "total_price": 170.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0073",
+    "timestamp": "2026-04-21 20:57:25",
+    "sku": "SKU-LITE-086",
+    "quantity": 1,
+    "unit_price": 474.42,
+    "total_price": 474.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0074",
+    "timestamp": "2026-04-13 04:48:16",
+    "sku": "SKU-LITE-031",
+    "quantity": 1,
+    "unit_price": 81.12,
+    "total_price": 81.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0074",
+    "timestamp": "2026-04-13 04:48:16",
+    "sku": "SKU-LITE-034",
+    "quantity": 2,
+    "unit_price": 167.25,
+    "total_price": 334.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0075",
+    "timestamp": "2026-05-02 08:13:38",
+    "sku": "SKU-LITE-095",
+    "quantity": 3,
+    "unit_price": 375.63,
+    "total_price": 1126.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0075",
+    "timestamp": "2026-05-02 08:13:38",
+    "sku": "SKU-LITE-073",
+    "quantity": 2,
+    "unit_price": 6769.83,
+    "total_price": 13539.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0075",
+    "timestamp": "2026-05-02 08:13:38",
+    "sku": "SKU-LITE-028",
+    "quantity": 3,
+    "unit_price": 128.21,
+    "total_price": 384.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0076",
+    "timestamp": "2026-04-17 13:33:55",
+    "sku": "SKU-LITE-017",
+    "quantity": 3,
+    "unit_price": 191.97,
+    "total_price": 575.91
+  },
+  {
+    "transaction_id": "TXN-LITE-0076",
+    "timestamp": "2026-04-17 13:33:55",
+    "sku": "SKU-LITE-080",
+    "quantity": 2,
+    "unit_price": 296.55,
+    "total_price": 593.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0076",
+    "timestamp": "2026-04-17 13:33:55",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0076",
+    "timestamp": "2026-04-17 13:33:55",
+    "sku": "SKU-LITE-047",
+    "quantity": 1,
+    "unit_price": 117.61,
+    "total_price": 117.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0077",
+    "timestamp": "2026-04-28 18:29:58",
+    "sku": "SKU-LITE-054",
+    "quantity": 2,
+    "unit_price": 329.17,
+    "total_price": 658.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0077",
+    "timestamp": "2026-04-28 18:29:58",
+    "sku": "SKU-LITE-023",
+    "quantity": 3,
+    "unit_price": 152.9,
+    "total_price": 458.7
+  },
+  {
+    "transaction_id": "TXN-LITE-0077",
+    "timestamp": "2026-04-28 18:29:58",
+    "sku": "SKU-LITE-015",
+    "quantity": 2,
+    "unit_price": 21.09,
+    "total_price": 42.18
+  },
+  {
+    "transaction_id": "TXN-LITE-0077",
+    "timestamp": "2026-04-28 18:29:58",
+    "sku": "SKU-LITE-072",
+    "quantity": 2,
+    "unit_price": 1829.11,
+    "total_price": 3658.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0078",
+    "timestamp": "2026-05-01 19:33:22",
+    "sku": "SKU-LITE-018",
+    "quantity": 1,
+    "unit_price": 268.58,
+    "total_price": 268.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0078",
+    "timestamp": "2026-05-01 19:33:22",
+    "sku": "SKU-LITE-098",
+    "quantity": 1,
+    "unit_price": 245.35,
+    "total_price": 245.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0078",
+    "timestamp": "2026-05-01 19:33:22",
+    "sku": "SKU-LITE-080",
+    "quantity": 3,
+    "unit_price": 296.55,
+    "total_price": 889.65
+  },
+  {
+    "transaction_id": "TXN-LITE-0078",
+    "timestamp": "2026-05-01 19:33:22",
+    "sku": "SKU-LITE-076",
+    "quantity": 3,
+    "unit_price": 6638.78,
+    "total_price": 19916.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0079",
+    "timestamp": "2026-04-16 12:33:37",
+    "sku": "SKU-LITE-072",
+    "quantity": 3,
+    "unit_price": 1829.11,
+    "total_price": 5487.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0080",
+    "timestamp": "2026-04-05 20:20:37",
+    "sku": "SKU-LITE-086",
+    "quantity": 3,
+    "unit_price": 474.42,
+    "total_price": 1423.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0081",
+    "timestamp": "2026-04-30 09:09:28",
+    "sku": "SKU-LITE-038",
+    "quantity": 2,
+    "unit_price": 14.19,
+    "total_price": 28.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0081",
+    "timestamp": "2026-04-30 09:09:28",
+    "sku": "SKU-LITE-093",
+    "quantity": 1,
+    "unit_price": 407.88,
+    "total_price": 407.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0081",
+    "timestamp": "2026-04-30 09:09:28",
+    "sku": "SKU-LITE-042",
+    "quantity": 3,
+    "unit_price": 157.19,
+    "total_price": 471.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0082",
+    "timestamp": "2026-04-19 09:05:39",
+    "sku": "SKU-LITE-061",
+    "quantity": 1,
+    "unit_price": 109.17,
+    "total_price": 109.17
+  },
+  {
+    "transaction_id": "TXN-LITE-0082",
+    "timestamp": "2026-04-19 09:05:39",
+    "sku": "SKU-LITE-009",
+    "quantity": 2,
+    "unit_price": 368.58,
+    "total_price": 737.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0082",
+    "timestamp": "2026-04-19 09:05:39",
+    "sku": "SKU-LITE-041",
+    "quantity": 3,
+    "unit_price": 154.33,
+    "total_price": 462.99
+  },
+  {
+    "transaction_id": "TXN-LITE-0083",
+    "timestamp": "2026-04-12 20:40:54",
+    "sku": "SKU-LITE-008",
+    "quantity": 1,
+    "unit_price": 209.1,
+    "total_price": 209.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0084",
+    "timestamp": "2026-04-06 05:18:01",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0085",
+    "timestamp": "2026-04-08 17:58:51",
+    "sku": "SKU-LITE-043",
+    "quantity": 2,
+    "unit_price": 170.12,
+    "total_price": 340.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0085",
+    "timestamp": "2026-04-08 17:58:51",
+    "sku": "SKU-LITE-017",
+    "quantity": 1,
+    "unit_price": 191.97,
+    "total_price": 191.97
+  },
+  {
+    "transaction_id": "TXN-LITE-0085",
+    "timestamp": "2026-04-08 17:58:51",
+    "sku": "SKU-LITE-032",
+    "quantity": 1,
+    "unit_price": 142.31,
+    "total_price": 142.31
+  },
+  {
+    "transaction_id": "TXN-LITE-0085",
+    "timestamp": "2026-04-08 17:58:51",
+    "sku": "SKU-LITE-071",
+    "quantity": 2,
+    "unit_price": 109.74,
+    "total_price": 219.48
+  },
+  {
+    "transaction_id": "TXN-LITE-0086",
+    "timestamp": "2026-04-06 20:02:56",
+    "sku": "SKU-LITE-077",
+    "quantity": 3,
+    "unit_price": 2070.81,
+    "total_price": 6212.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0087",
+    "timestamp": "2026-04-21 07:17:31",
+    "sku": "SKU-LITE-015",
+    "quantity": 1,
+    "unit_price": 21.09,
+    "total_price": 21.09
+  },
+  {
+    "transaction_id": "TXN-LITE-0087",
+    "timestamp": "2026-04-21 07:17:31",
+    "sku": "SKU-LITE-039",
+    "quantity": 1,
+    "unit_price": 125.42,
+    "total_price": 125.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0088",
+    "timestamp": "2026-04-23 10:05:25",
+    "sku": "SKU-LITE-076",
+    "quantity": 2,
+    "unit_price": 6638.78,
+    "total_price": 13277.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0088",
+    "timestamp": "2026-04-23 10:05:25",
+    "sku": "SKU-LITE-087",
+    "quantity": 2,
+    "unit_price": 621.08,
+    "total_price": 1242.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0088",
+    "timestamp": "2026-04-23 10:05:25",
+    "sku": "SKU-LITE-091",
+    "quantity": 3,
+    "unit_price": 671.11,
+    "total_price": 2013.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0088",
+    "timestamp": "2026-04-23 10:05:25",
+    "sku": "SKU-LITE-062",
+    "quantity": 1,
+    "unit_price": 50.09,
+    "total_price": 50.09
+  },
+  {
+    "transaction_id": "TXN-LITE-0089",
+    "timestamp": "2026-04-09 05:13:58",
+    "sku": "SKU-LITE-037",
+    "quantity": 3,
+    "unit_price": 155.2,
+    "total_price": 465.6
+  },
+  {
+    "transaction_id": "TXN-LITE-0089",
+    "timestamp": "2026-04-09 05:13:58",
+    "sku": "SKU-LITE-065",
+    "quantity": 1,
+    "unit_price": 114.4,
+    "total_price": 114.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0090",
+    "timestamp": "2026-05-03 05:29:56",
+    "sku": "SKU-LITE-034",
+    "quantity": 2,
+    "unit_price": 167.25,
+    "total_price": 334.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0090",
+    "timestamp": "2026-05-03 05:29:56",
+    "sku": "SKU-LITE-061",
+    "quantity": 3,
+    "unit_price": 109.17,
+    "total_price": 327.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0090",
+    "timestamp": "2026-05-03 05:29:56",
+    "sku": "SKU-LITE-010",
+    "quantity": 1,
+    "unit_price": 413.79,
+    "total_price": 413.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0091",
+    "timestamp": "2026-04-04 04:33:09",
+    "sku": "SKU-LITE-008",
+    "quantity": 2,
+    "unit_price": 209.1,
+    "total_price": 418.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0091",
+    "timestamp": "2026-04-04 04:33:09",
+    "sku": "SKU-LITE-038",
+    "quantity": 3,
+    "unit_price": 14.19,
+    "total_price": 42.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0091",
+    "timestamp": "2026-04-04 04:33:09",
+    "sku": "SKU-LITE-056",
+    "quantity": 3,
+    "unit_price": 268.59,
+    "total_price": 805.77
+  },
+  {
+    "transaction_id": "TXN-LITE-0092",
+    "timestamp": "2026-04-20 21:35:38",
+    "sku": "SKU-LITE-035",
+    "quantity": 2,
+    "unit_price": 56.04,
+    "total_price": 112.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0092",
+    "timestamp": "2026-04-20 21:35:38",
+    "sku": "SKU-LITE-002",
+    "quantity": 2,
+    "unit_price": 163.73,
+    "total_price": 327.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0092",
+    "timestamp": "2026-04-20 21:35:38",
+    "sku": "SKU-LITE-043",
+    "quantity": 2,
+    "unit_price": 170.12,
+    "total_price": 340.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0092",
+    "timestamp": "2026-04-20 21:35:38",
+    "sku": "SKU-LITE-072",
+    "quantity": 2,
+    "unit_price": 1829.11,
+    "total_price": 3658.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0093",
+    "timestamp": "2026-04-08 20:07:16",
+    "sku": "SKU-LITE-032",
+    "quantity": 1,
+    "unit_price": 142.31,
+    "total_price": 142.31
+  },
+  {
+    "transaction_id": "TXN-LITE-0093",
+    "timestamp": "2026-04-08 20:07:16",
+    "sku": "SKU-LITE-005",
+    "quantity": 2,
+    "unit_price": 153.02,
+    "total_price": 306.04
+  },
+  {
+    "transaction_id": "TXN-LITE-0093",
+    "timestamp": "2026-04-08 20:07:16",
+    "sku": "SKU-LITE-054",
+    "quantity": 3,
+    "unit_price": 329.17,
+    "total_price": 987.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0093",
+    "timestamp": "2026-04-08 20:07:16",
+    "sku": "SKU-LITE-036",
+    "quantity": 1,
+    "unit_price": 156.67,
+    "total_price": 156.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0094",
+    "timestamp": "2026-04-16 16:07:51",
+    "sku": "SKU-LITE-065",
+    "quantity": 2,
+    "unit_price": 114.4,
+    "total_price": 228.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0094",
+    "timestamp": "2026-04-16 16:07:51",
+    "sku": "SKU-LITE-079",
+    "quantity": 2,
+    "unit_price": 2393.5,
+    "total_price": 4787.0
+  },
+  {
+    "transaction_id": "TXN-LITE-0095",
+    "timestamp": "2026-04-20 09:34:23",
+    "sku": "SKU-LITE-059",
+    "quantity": 2,
+    "unit_price": 147.53,
+    "total_price": 295.06
+  },
+  {
+    "transaction_id": "TXN-LITE-0095",
+    "timestamp": "2026-04-20 09:34:23",
+    "sku": "SKU-LITE-014",
+    "quantity": 3,
+    "unit_price": 228.22,
+    "total_price": 684.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0095",
+    "timestamp": "2026-04-20 09:34:23",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0095",
+    "timestamp": "2026-04-20 09:34:23",
+    "sku": "SKU-LITE-012",
+    "quantity": 1,
+    "unit_price": 440.29,
+    "total_price": 440.29
+  },
+  {
+    "transaction_id": "TXN-LITE-0096",
+    "timestamp": "2026-04-24 23:50:02",
+    "sku": "SKU-LITE-019",
+    "quantity": 3,
+    "unit_price": 79.97,
+    "total_price": 239.91
+  },
+  {
+    "transaction_id": "TXN-LITE-0096",
+    "timestamp": "2026-04-24 23:50:02",
+    "sku": "SKU-LITE-044",
+    "quantity": 2,
+    "unit_price": 50.83,
+    "total_price": 101.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0096",
+    "timestamp": "2026-04-24 23:50:02",
+    "sku": "SKU-LITE-082",
+    "quantity": 1,
+    "unit_price": 89.07,
+    "total_price": 89.07
+  },
+  {
+    "transaction_id": "TXN-LITE-0097",
+    "timestamp": "2026-04-05 09:36:42",
+    "sku": "SKU-LITE-067",
+    "quantity": 1,
+    "unit_price": 109.9,
+    "total_price": 109.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0098",
+    "timestamp": "2026-04-04 09:39:59",
+    "sku": "SKU-LITE-032",
+    "quantity": 1,
+    "unit_price": 142.31,
+    "total_price": 142.31
+  },
+  {
+    "transaction_id": "TXN-LITE-0099",
+    "timestamp": "2026-04-10 15:32:36",
+    "sku": "SKU-LITE-091",
+    "quantity": 1,
+    "unit_price": 671.11,
+    "total_price": 671.11
+  },
+  {
+    "transaction_id": "TXN-LITE-0100",
+    "timestamp": "2026-04-22 14:09:48",
+    "sku": "SKU-LITE-081",
+    "quantity": 2,
+    "unit_price": 620.33,
+    "total_price": 1240.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0100",
+    "timestamp": "2026-04-22 14:09:48",
+    "sku": "SKU-LITE-001",
+    "quantity": 3,
+    "unit_price": 65.62,
+    "total_price": 196.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0100",
+    "timestamp": "2026-04-22 14:09:48",
+    "sku": "SKU-LITE-088",
+    "quantity": 1,
+    "unit_price": 1151.35,
+    "total_price": 1151.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0101",
+    "timestamp": "2026-04-29 11:29:56",
+    "sku": "SKU-LITE-090",
+    "quantity": 3,
+    "unit_price": 785.95,
+    "total_price": 2357.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0102",
+    "timestamp": "2026-04-27 21:03:07",
+    "sku": "SKU-LITE-059",
+    "quantity": 1,
+    "unit_price": 147.53,
+    "total_price": 147.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0102",
+    "timestamp": "2026-04-27 21:03:07",
+    "sku": "SKU-LITE-074",
+    "quantity": 3,
+    "unit_price": 3106.45,
+    "total_price": 9319.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0103",
+    "timestamp": "2026-04-23 23:19:35",
+    "sku": "SKU-LITE-001",
+    "quantity": 3,
+    "unit_price": 65.62,
+    "total_price": 196.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0103",
+    "timestamp": "2026-04-23 23:19:35",
+    "sku": "SKU-LITE-088",
+    "quantity": 1,
+    "unit_price": 1151.35,
+    "total_price": 1151.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0103",
+    "timestamp": "2026-04-23 23:19:35",
+    "sku": "SKU-LITE-060",
+    "quantity": 1,
+    "unit_price": 330.4,
+    "total_price": 330.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0104",
+    "timestamp": "2026-04-25 13:02:37",
+    "sku": "SKU-LITE-055",
+    "quantity": 3,
+    "unit_price": 452.28,
+    "total_price": 1356.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0104",
+    "timestamp": "2026-04-25 13:02:37",
+    "sku": "SKU-LITE-072",
+    "quantity": 3,
+    "unit_price": 1829.11,
+    "total_price": 5487.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0104",
+    "timestamp": "2026-04-25 13:02:37",
+    "sku": "SKU-LITE-065",
+    "quantity": 1,
+    "unit_price": 114.4,
+    "total_price": 114.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0105",
+    "timestamp": "2026-04-11 05:17:15",
+    "sku": "SKU-LITE-055",
+    "quantity": 2,
+    "unit_price": 452.28,
+    "total_price": 904.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0105",
+    "timestamp": "2026-04-11 05:17:15",
+    "sku": "SKU-LITE-026",
+    "quantity": 3,
+    "unit_price": 131.86,
+    "total_price": 395.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0105",
+    "timestamp": "2026-04-11 05:17:15",
+    "sku": "SKU-LITE-085",
+    "quantity": 1,
+    "unit_price": 204.53,
+    "total_price": 204.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0106",
+    "timestamp": "2026-05-02 11:51:00",
+    "sku": "SKU-LITE-071",
+    "quantity": 1,
+    "unit_price": 109.74,
+    "total_price": 109.74
+  },
+  {
+    "transaction_id": "TXN-LITE-0106",
+    "timestamp": "2026-05-02 11:51:00",
+    "sku": "SKU-LITE-068",
+    "quantity": 3,
+    "unit_price": 103.43,
+    "total_price": 310.29
+  },
+  {
+    "transaction_id": "TXN-LITE-0107",
+    "timestamp": "2026-04-07 08:38:46",
+    "sku": "SKU-LITE-049",
+    "quantity": 1,
+    "unit_price": 286.61,
+    "total_price": 286.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0107",
+    "timestamp": "2026-04-07 08:38:46",
+    "sku": "SKU-LITE-098",
+    "quantity": 1,
+    "unit_price": 245.35,
+    "total_price": 245.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0107",
+    "timestamp": "2026-04-07 08:38:46",
+    "sku": "SKU-LITE-065",
+    "quantity": 2,
+    "unit_price": 114.4,
+    "total_price": 228.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0107",
+    "timestamp": "2026-04-07 08:38:46",
+    "sku": "SKU-LITE-061",
+    "quantity": 3,
+    "unit_price": 109.17,
+    "total_price": 327.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0108",
+    "timestamp": "2026-04-20 11:51:13",
+    "sku": "SKU-LITE-017",
+    "quantity": 1,
+    "unit_price": 191.97,
+    "total_price": 191.97
+  },
+  {
+    "transaction_id": "TXN-LITE-0108",
+    "timestamp": "2026-04-20 11:51:13",
+    "sku": "SKU-LITE-091",
+    "quantity": 3,
+    "unit_price": 671.11,
+    "total_price": 2013.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0108",
+    "timestamp": "2026-04-20 11:51:13",
+    "sku": "SKU-LITE-086",
+    "quantity": 2,
+    "unit_price": 474.42,
+    "total_price": 948.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0109",
+    "timestamp": "2026-05-01 18:55:50",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0109",
+    "timestamp": "2026-05-01 18:55:50",
+    "sku": "SKU-LITE-059",
+    "quantity": 2,
+    "unit_price": 147.53,
+    "total_price": 295.06
+  },
+  {
+    "transaction_id": "TXN-LITE-0109",
+    "timestamp": "2026-05-01 18:55:50",
+    "sku": "SKU-LITE-003",
+    "quantity": 2,
+    "unit_price": 173.15,
+    "total_price": 346.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0110",
+    "timestamp": "2026-04-29 14:08:01",
+    "sku": "SKU-LITE-050",
+    "quantity": 3,
+    "unit_price": 245.49,
+    "total_price": 736.47
+  },
+  {
+    "transaction_id": "TXN-LITE-0110",
+    "timestamp": "2026-04-29 14:08:01",
+    "sku": "SKU-LITE-094",
+    "quantity": 2,
+    "unit_price": 238.39,
+    "total_price": 476.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0111",
+    "timestamp": "2026-04-16 17:14:09",
+    "sku": "SKU-LITE-034",
+    "quantity": 2,
+    "unit_price": 167.25,
+    "total_price": 334.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0111",
+    "timestamp": "2026-04-16 17:14:09",
+    "sku": "SKU-LITE-096",
+    "quantity": 1,
+    "unit_price": 352.89,
+    "total_price": 352.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0112",
+    "timestamp": "2026-04-18 01:16:37",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0112",
+    "timestamp": "2026-04-18 01:16:37",
+    "sku": "SKU-LITE-009",
+    "quantity": 3,
+    "unit_price": 368.58,
+    "total_price": 1105.74
+  },
+  {
+    "transaction_id": "TXN-LITE-0113",
+    "timestamp": "2026-04-15 17:35:48",
+    "sku": "SKU-LITE-026",
+    "quantity": 3,
+    "unit_price": 131.86,
+    "total_price": 395.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0113",
+    "timestamp": "2026-04-15 17:35:48",
+    "sku": "SKU-LITE-080",
+    "quantity": 3,
+    "unit_price": 296.55,
+    "total_price": 889.65
+  },
+  {
+    "transaction_id": "TXN-LITE-0114",
+    "timestamp": "2026-04-15 04:52:23",
+    "sku": "SKU-LITE-053",
+    "quantity": 1,
+    "unit_price": 344.83,
+    "total_price": 344.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0114",
+    "timestamp": "2026-04-15 04:52:23",
+    "sku": "SKU-LITE-089",
+    "quantity": 2,
+    "unit_price": 1630.46,
+    "total_price": 3260.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0114",
+    "timestamp": "2026-04-15 04:52:23",
+    "sku": "SKU-LITE-068",
+    "quantity": 1,
+    "unit_price": 103.43,
+    "total_price": 103.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0114",
+    "timestamp": "2026-04-15 04:52:23",
+    "sku": "SKU-LITE-050",
+    "quantity": 3,
+    "unit_price": 245.49,
+    "total_price": 736.47
+  },
+  {
+    "transaction_id": "TXN-LITE-0115",
+    "timestamp": "2026-04-16 16:14:57",
+    "sku": "SKU-LITE-021",
+    "quantity": 1,
+    "unit_price": 145.71,
+    "total_price": 145.71
+  },
+  {
+    "transaction_id": "TXN-LITE-0115",
+    "timestamp": "2026-04-16 16:14:57",
+    "sku": "SKU-LITE-057",
+    "quantity": 2,
+    "unit_price": 378.01,
+    "total_price": 756.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0115",
+    "timestamp": "2026-04-16 16:14:57",
+    "sku": "SKU-LITE-045",
+    "quantity": 3,
+    "unit_price": 126.54,
+    "total_price": 379.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0116",
+    "timestamp": "2026-04-26 19:13:00",
+    "sku": "SKU-LITE-028",
+    "quantity": 3,
+    "unit_price": 128.21,
+    "total_price": 384.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0116",
+    "timestamp": "2026-04-26 19:13:00",
+    "sku": "SKU-LITE-099",
+    "quantity": 3,
+    "unit_price": 57.16,
+    "total_price": 171.48
+  },
+  {
+    "transaction_id": "TXN-LITE-0116",
+    "timestamp": "2026-04-26 19:13:00",
+    "sku": "SKU-LITE-082",
+    "quantity": 3,
+    "unit_price": 89.07,
+    "total_price": 267.21
+  },
+  {
+    "transaction_id": "TXN-LITE-0116",
+    "timestamp": "2026-04-26 19:13:00",
+    "sku": "SKU-LITE-053",
+    "quantity": 1,
+    "unit_price": 344.83,
+    "total_price": 344.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0117",
+    "timestamp": "2026-05-01 11:50:24",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0117",
+    "timestamp": "2026-05-01 11:50:24",
+    "sku": "SKU-LITE-019",
+    "quantity": 2,
+    "unit_price": 79.97,
+    "total_price": 159.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0118",
+    "timestamp": "2026-04-13 01:44:16",
+    "sku": "SKU-LITE-087",
+    "quantity": 1,
+    "unit_price": 621.08,
+    "total_price": 621.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0119",
+    "timestamp": "2026-04-19 20:11:02",
+    "sku": "SKU-LITE-095",
+    "quantity": 2,
+    "unit_price": 375.63,
+    "total_price": 751.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0119",
+    "timestamp": "2026-04-19 20:11:02",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0119",
+    "timestamp": "2026-04-19 20:11:02",
+    "sku": "SKU-LITE-041",
+    "quantity": 1,
+    "unit_price": 154.33,
+    "total_price": 154.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0120",
+    "timestamp": "2026-05-03 10:16:35",
+    "sku": "SKU-LITE-013",
+    "quantity": 2,
+    "unit_price": 12.58,
+    "total_price": 25.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0120",
+    "timestamp": "2026-05-03 10:16:35",
+    "sku": "SKU-LITE-002",
+    "quantity": 3,
+    "unit_price": 163.73,
+    "total_price": 491.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0120",
+    "timestamp": "2026-05-03 10:16:35",
+    "sku": "SKU-LITE-070",
+    "quantity": 1,
+    "unit_price": 36.73,
+    "total_price": 36.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0120",
+    "timestamp": "2026-05-03 10:16:35",
+    "sku": "SKU-LITE-063",
+    "quantity": 2,
+    "unit_price": 116.93,
+    "total_price": 233.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0121",
+    "timestamp": "2026-04-22 08:01:22",
+    "sku": "SKU-LITE-031",
+    "quantity": 3,
+    "unit_price": 81.12,
+    "total_price": 243.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0121",
+    "timestamp": "2026-04-22 08:01:22",
+    "sku": "SKU-LITE-090",
+    "quantity": 3,
+    "unit_price": 785.95,
+    "total_price": 2357.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0121",
+    "timestamp": "2026-04-22 08:01:22",
+    "sku": "SKU-LITE-009",
+    "quantity": 3,
+    "unit_price": 368.58,
+    "total_price": 1105.74
+  },
+  {
+    "transaction_id": "TXN-LITE-0121",
+    "timestamp": "2026-04-22 08:01:22",
+    "sku": "SKU-LITE-034",
+    "quantity": 3,
+    "unit_price": 167.25,
+    "total_price": 501.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0122",
+    "timestamp": "2026-04-10 12:57:37",
+    "sku": "SKU-LITE-028",
+    "quantity": 1,
+    "unit_price": 128.21,
+    "total_price": 128.21
+  },
+  {
+    "transaction_id": "TXN-LITE-0123",
+    "timestamp": "2026-04-26 13:35:27",
+    "sku": "SKU-LITE-030",
+    "quantity": 2,
+    "unit_price": 25.27,
+    "total_price": 50.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0123",
+    "timestamp": "2026-04-26 13:35:27",
+    "sku": "SKU-LITE-046",
+    "quantity": 3,
+    "unit_price": 9.38,
+    "total_price": 28.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0123",
+    "timestamp": "2026-04-26 13:35:27",
+    "sku": "SKU-LITE-001",
+    "quantity": 3,
+    "unit_price": 65.62,
+    "total_price": 196.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0123",
+    "timestamp": "2026-04-26 13:35:27",
+    "sku": "SKU-LITE-060",
+    "quantity": 2,
+    "unit_price": 330.4,
+    "total_price": 660.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0124",
+    "timestamp": "2026-04-10 14:57:51",
+    "sku": "SKU-LITE-049",
+    "quantity": 2,
+    "unit_price": 286.61,
+    "total_price": 573.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0124",
+    "timestamp": "2026-04-10 14:57:51",
+    "sku": "SKU-LITE-052",
+    "quantity": 1,
+    "unit_price": 298.81,
+    "total_price": 298.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0124",
+    "timestamp": "2026-04-10 14:57:51",
+    "sku": "SKU-LITE-041",
+    "quantity": 2,
+    "unit_price": 154.33,
+    "total_price": 308.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0125",
+    "timestamp": "2026-04-26 15:54:09",
+    "sku": "SKU-LITE-060",
+    "quantity": 3,
+    "unit_price": 330.4,
+    "total_price": 991.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0125",
+    "timestamp": "2026-04-26 15:54:09",
+    "sku": "SKU-LITE-070",
+    "quantity": 2,
+    "unit_price": 36.73,
+    "total_price": 73.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0125",
+    "timestamp": "2026-04-26 15:54:09",
+    "sku": "SKU-LITE-054",
+    "quantity": 2,
+    "unit_price": 329.17,
+    "total_price": 658.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0126",
+    "timestamp": "2026-04-22 20:46:02",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0126",
+    "timestamp": "2026-04-22 20:46:02",
+    "sku": "SKU-LITE-071",
+    "quantity": 3,
+    "unit_price": 109.74,
+    "total_price": 329.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0127",
+    "timestamp": "2026-04-17 12:22:20",
+    "sku": "SKU-LITE-061",
+    "quantity": 3,
+    "unit_price": 109.17,
+    "total_price": 327.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0127",
+    "timestamp": "2026-04-17 12:22:20",
+    "sku": "SKU-LITE-025",
+    "quantity": 1,
+    "unit_price": 51.56,
+    "total_price": 51.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0128",
+    "timestamp": "2026-04-07 18:39:50",
+    "sku": "SKU-LITE-086",
+    "quantity": 1,
+    "unit_price": 474.42,
+    "total_price": 474.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0129",
+    "timestamp": "2026-04-20 20:30:28",
+    "sku": "SKU-LITE-060",
+    "quantity": 3,
+    "unit_price": 330.4,
+    "total_price": 991.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0130",
+    "timestamp": "2026-05-04 01:08:33",
+    "sku": "SKU-LITE-089",
+    "quantity": 2,
+    "unit_price": 1630.46,
+    "total_price": 3260.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0131",
+    "timestamp": "2026-04-05 02:31:47",
+    "sku": "SKU-LITE-035",
+    "quantity": 3,
+    "unit_price": 56.04,
+    "total_price": 168.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0131",
+    "timestamp": "2026-04-05 02:31:47",
+    "sku": "SKU-LITE-024",
+    "quantity": 3,
+    "unit_price": 225.87,
+    "total_price": 677.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0132",
+    "timestamp": "2026-04-25 04:35:44",
+    "sku": "SKU-LITE-085",
+    "quantity": 3,
+    "unit_price": 204.53,
+    "total_price": 613.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0132",
+    "timestamp": "2026-04-25 04:35:44",
+    "sku": "SKU-LITE-082",
+    "quantity": 1,
+    "unit_price": 89.07,
+    "total_price": 89.07
+  },
+  {
+    "transaction_id": "TXN-LITE-0132",
+    "timestamp": "2026-04-25 04:35:44",
+    "sku": "SKU-LITE-045",
+    "quantity": 2,
+    "unit_price": 126.54,
+    "total_price": 253.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0132",
+    "timestamp": "2026-04-25 04:35:44",
+    "sku": "SKU-LITE-079",
+    "quantity": 1,
+    "unit_price": 2393.5,
+    "total_price": 2393.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0133",
+    "timestamp": "2026-04-26 08:37:46",
+    "sku": "SKU-LITE-048",
+    "quantity": 2,
+    "unit_price": 116.28,
+    "total_price": 232.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0133",
+    "timestamp": "2026-04-26 08:37:46",
+    "sku": "SKU-LITE-011",
+    "quantity": 2,
+    "unit_price": 45.44,
+    "total_price": 90.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0133",
+    "timestamp": "2026-04-26 08:37:46",
+    "sku": "SKU-LITE-041",
+    "quantity": 2,
+    "unit_price": 154.33,
+    "total_price": 308.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0134",
+    "timestamp": "2026-04-13 03:58:43",
+    "sku": "SKU-LITE-026",
+    "quantity": 1,
+    "unit_price": 131.86,
+    "total_price": 131.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0135",
+    "timestamp": "2026-05-03 15:47:58",
+    "sku": "SKU-LITE-079",
+    "quantity": 3,
+    "unit_price": 2393.5,
+    "total_price": 7180.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0135",
+    "timestamp": "2026-05-03 15:47:58",
+    "sku": "SKU-LITE-075",
+    "quantity": 3,
+    "unit_price": 7122.27,
+    "total_price": 21366.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0136",
+    "timestamp": "2026-04-13 02:02:40",
+    "sku": "SKU-LITE-001",
+    "quantity": 1,
+    "unit_price": 65.62,
+    "total_price": 65.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0136",
+    "timestamp": "2026-04-13 02:02:40",
+    "sku": "SKU-LITE-086",
+    "quantity": 3,
+    "unit_price": 474.42,
+    "total_price": 1423.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0136",
+    "timestamp": "2026-04-13 02:02:40",
+    "sku": "SKU-LITE-024",
+    "quantity": 1,
+    "unit_price": 225.87,
+    "total_price": 225.87
+  },
+  {
+    "transaction_id": "TXN-LITE-0137",
+    "timestamp": "2026-04-11 00:04:49",
+    "sku": "SKU-LITE-025",
+    "quantity": 2,
+    "unit_price": 51.56,
+    "total_price": 103.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0137",
+    "timestamp": "2026-04-11 00:04:49",
+    "sku": "SKU-LITE-012",
+    "quantity": 3,
+    "unit_price": 440.29,
+    "total_price": 1320.87
+  },
+  {
+    "transaction_id": "TXN-LITE-0137",
+    "timestamp": "2026-04-11 00:04:49",
+    "sku": "SKU-LITE-092",
+    "quantity": 1,
+    "unit_price": 493.63,
+    "total_price": 493.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0138",
+    "timestamp": "2026-04-29 10:40:13",
+    "sku": "SKU-LITE-083",
+    "quantity": 3,
+    "unit_price": 437.19,
+    "total_price": 1311.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0138",
+    "timestamp": "2026-04-29 10:40:13",
+    "sku": "SKU-LITE-019",
+    "quantity": 3,
+    "unit_price": 79.97,
+    "total_price": 239.91
+  },
+  {
+    "transaction_id": "TXN-LITE-0138",
+    "timestamp": "2026-04-29 10:40:13",
+    "sku": "SKU-LITE-028",
+    "quantity": 2,
+    "unit_price": 128.21,
+    "total_price": 256.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0138",
+    "timestamp": "2026-04-29 10:40:13",
+    "sku": "SKU-LITE-085",
+    "quantity": 1,
+    "unit_price": 204.53,
+    "total_price": 204.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0139",
+    "timestamp": "2026-05-02 19:55:20",
+    "sku": "SKU-LITE-049",
+    "quantity": 1,
+    "unit_price": 286.61,
+    "total_price": 286.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0140",
+    "timestamp": "2026-04-30 22:26:39",
+    "sku": "SKU-LITE-066",
+    "quantity": 2,
+    "unit_price": 55.3,
+    "total_price": 110.6
+  },
+  {
+    "transaction_id": "TXN-LITE-0140",
+    "timestamp": "2026-04-30 22:26:39",
+    "sku": "SKU-LITE-048",
+    "quantity": 3,
+    "unit_price": 116.28,
+    "total_price": 348.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0141",
+    "timestamp": "2026-05-02 09:49:59",
+    "sku": "SKU-LITE-097",
+    "quantity": 2,
+    "unit_price": 64.2,
+    "total_price": 128.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0141",
+    "timestamp": "2026-05-02 09:49:59",
+    "sku": "SKU-LITE-047",
+    "quantity": 3,
+    "unit_price": 117.61,
+    "total_price": 352.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0142",
+    "timestamp": "2026-04-14 17:55:55",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0142",
+    "timestamp": "2026-04-14 17:55:55",
+    "sku": "SKU-LITE-030",
+    "quantity": 1,
+    "unit_price": 25.27,
+    "total_price": 25.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0143",
+    "timestamp": "2026-04-13 13:23:37",
+    "sku": "SKU-LITE-014",
+    "quantity": 2,
+    "unit_price": 228.22,
+    "total_price": 456.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0144",
+    "timestamp": "2026-04-23 09:31:55",
+    "sku": "SKU-LITE-067",
+    "quantity": 1,
+    "unit_price": 109.9,
+    "total_price": 109.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0145",
+    "timestamp": "2026-04-29 13:32:18",
+    "sku": "SKU-LITE-049",
+    "quantity": 1,
+    "unit_price": 286.61,
+    "total_price": 286.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0145",
+    "timestamp": "2026-04-29 13:32:18",
+    "sku": "SKU-LITE-075",
+    "quantity": 1,
+    "unit_price": 7122.27,
+    "total_price": 7122.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0145",
+    "timestamp": "2026-04-29 13:32:18",
+    "sku": "SKU-LITE-051",
+    "quantity": 3,
+    "unit_price": 234.93,
+    "total_price": 704.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0145",
+    "timestamp": "2026-04-29 13:32:18",
+    "sku": "SKU-LITE-020",
+    "quantity": 3,
+    "unit_price": 181.4,
+    "total_price": 544.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0146",
+    "timestamp": "2026-04-26 06:47:20",
+    "sku": "SKU-LITE-038",
+    "quantity": 3,
+    "unit_price": 14.19,
+    "total_price": 42.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0147",
+    "timestamp": "2026-04-29 22:30:24",
+    "sku": "SKU-LITE-081",
+    "quantity": 3,
+    "unit_price": 620.33,
+    "total_price": 1860.99
+  },
+  {
+    "transaction_id": "TXN-LITE-0147",
+    "timestamp": "2026-04-29 22:30:24",
+    "sku": "SKU-LITE-073",
+    "quantity": 3,
+    "unit_price": 6769.83,
+    "total_price": 20309.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0147",
+    "timestamp": "2026-04-29 22:30:24",
+    "sku": "SKU-LITE-031",
+    "quantity": 1,
+    "unit_price": 81.12,
+    "total_price": 81.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0148",
+    "timestamp": "2026-04-07 09:19:32",
+    "sku": "SKU-LITE-045",
+    "quantity": 1,
+    "unit_price": 126.54,
+    "total_price": 126.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0149",
+    "timestamp": "2026-04-21 21:30:41",
+    "sku": "SKU-LITE-037",
+    "quantity": 2,
+    "unit_price": 155.2,
+    "total_price": 310.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0150",
+    "timestamp": "2026-04-13 14:43:46",
+    "sku": "SKU-LITE-026",
+    "quantity": 3,
+    "unit_price": 131.86,
+    "total_price": 395.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0150",
+    "timestamp": "2026-04-13 14:43:46",
+    "sku": "SKU-LITE-070",
+    "quantity": 1,
+    "unit_price": 36.73,
+    "total_price": 36.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0150",
+    "timestamp": "2026-04-13 14:43:46",
+    "sku": "SKU-LITE-098",
+    "quantity": 2,
+    "unit_price": 245.35,
+    "total_price": 490.7
+  },
+  {
+    "transaction_id": "TXN-LITE-0150",
+    "timestamp": "2026-04-13 14:43:46",
+    "sku": "SKU-LITE-071",
+    "quantity": 3,
+    "unit_price": 109.74,
+    "total_price": 329.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0151",
+    "timestamp": "2026-05-03 20:33:27",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0151",
+    "timestamp": "2026-05-03 20:33:27",
+    "sku": "SKU-LITE-100",
+    "quantity": 1,
+    "unit_price": 1595.75,
+    "total_price": 1595.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0151",
+    "timestamp": "2026-05-03 20:33:27",
+    "sku": "SKU-LITE-039",
+    "quantity": 2,
+    "unit_price": 125.42,
+    "total_price": 250.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0151",
+    "timestamp": "2026-05-03 20:33:27",
+    "sku": "SKU-LITE-002",
+    "quantity": 2,
+    "unit_price": 163.73,
+    "total_price": 327.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0152",
+    "timestamp": "2026-04-15 23:52:25",
+    "sku": "SKU-LITE-030",
+    "quantity": 2,
+    "unit_price": 25.27,
+    "total_price": 50.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0152",
+    "timestamp": "2026-04-15 23:52:25",
+    "sku": "SKU-LITE-067",
+    "quantity": 2,
+    "unit_price": 109.9,
+    "total_price": 219.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0152",
+    "timestamp": "2026-04-15 23:52:25",
+    "sku": "SKU-LITE-035",
+    "quantity": 2,
+    "unit_price": 56.04,
+    "total_price": 112.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0153",
+    "timestamp": "2026-04-08 18:06:31",
+    "sku": "SKU-LITE-072",
+    "quantity": 3,
+    "unit_price": 1829.11,
+    "total_price": 5487.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0154",
+    "timestamp": "2026-05-02 04:41:39",
+    "sku": "SKU-LITE-027",
+    "quantity": 2,
+    "unit_price": 54.78,
+    "total_price": 109.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0154",
+    "timestamp": "2026-05-02 04:41:39",
+    "sku": "SKU-LITE-090",
+    "quantity": 2,
+    "unit_price": 785.95,
+    "total_price": 1571.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0155",
+    "timestamp": "2026-04-16 17:08:52",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0155",
+    "timestamp": "2026-04-16 17:08:52",
+    "sku": "SKU-LITE-071",
+    "quantity": 3,
+    "unit_price": 109.74,
+    "total_price": 329.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0155",
+    "timestamp": "2026-04-16 17:08:52",
+    "sku": "SKU-LITE-092",
+    "quantity": 3,
+    "unit_price": 493.63,
+    "total_price": 1480.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0156",
+    "timestamp": "2026-04-14 23:53:05",
+    "sku": "SKU-LITE-008",
+    "quantity": 1,
+    "unit_price": 209.1,
+    "total_price": 209.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0157",
+    "timestamp": "2026-04-07 10:14:33",
+    "sku": "SKU-LITE-042",
+    "quantity": 2,
+    "unit_price": 157.19,
+    "total_price": 314.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0157",
+    "timestamp": "2026-04-07 10:14:33",
+    "sku": "SKU-LITE-060",
+    "quantity": 2,
+    "unit_price": 330.4,
+    "total_price": 660.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0157",
+    "timestamp": "2026-04-07 10:14:33",
+    "sku": "SKU-LITE-093",
+    "quantity": 1,
+    "unit_price": 407.88,
+    "total_price": 407.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0158",
+    "timestamp": "2026-04-12 09:33:02",
+    "sku": "SKU-LITE-065",
+    "quantity": 3,
+    "unit_price": 114.4,
+    "total_price": 343.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0158",
+    "timestamp": "2026-04-12 09:33:02",
+    "sku": "SKU-LITE-062",
+    "quantity": 1,
+    "unit_price": 50.09,
+    "total_price": 50.09
+  },
+  {
+    "transaction_id": "TXN-LITE-0158",
+    "timestamp": "2026-04-12 09:33:02",
+    "sku": "SKU-LITE-033",
+    "quantity": 1,
+    "unit_price": 167.08,
+    "total_price": 167.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0159",
+    "timestamp": "2026-04-17 00:04:53",
+    "sku": "SKU-LITE-003",
+    "quantity": 1,
+    "unit_price": 173.15,
+    "total_price": 173.15
+  },
+  {
+    "transaction_id": "TXN-LITE-0159",
+    "timestamp": "2026-04-17 00:04:53",
+    "sku": "SKU-LITE-097",
+    "quantity": 1,
+    "unit_price": 64.2,
+    "total_price": 64.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0160",
+    "timestamp": "2026-04-06 23:08:22",
+    "sku": "SKU-LITE-099",
+    "quantity": 1,
+    "unit_price": 57.16,
+    "total_price": 57.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0160",
+    "timestamp": "2026-04-06 23:08:22",
+    "sku": "SKU-LITE-067",
+    "quantity": 1,
+    "unit_price": 109.9,
+    "total_price": 109.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0160",
+    "timestamp": "2026-04-06 23:08:22",
+    "sku": "SKU-LITE-031",
+    "quantity": 3,
+    "unit_price": 81.12,
+    "total_price": 243.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0160",
+    "timestamp": "2026-04-06 23:08:22",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0161",
+    "timestamp": "2026-04-14 10:08:53",
+    "sku": "SKU-LITE-003",
+    "quantity": 3,
+    "unit_price": 173.15,
+    "total_price": 519.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0161",
+    "timestamp": "2026-04-14 10:08:53",
+    "sku": "SKU-LITE-085",
+    "quantity": 1,
+    "unit_price": 204.53,
+    "total_price": 204.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0161",
+    "timestamp": "2026-04-14 10:08:53",
+    "sku": "SKU-LITE-029",
+    "quantity": 3,
+    "unit_price": 175.55,
+    "total_price": 526.65
+  },
+  {
+    "transaction_id": "TXN-LITE-0161",
+    "timestamp": "2026-04-14 10:08:53",
+    "sku": "SKU-LITE-030",
+    "quantity": 2,
+    "unit_price": 25.27,
+    "total_price": 50.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0162",
+    "timestamp": "2026-04-11 18:00:27",
+    "sku": "SKU-LITE-063",
+    "quantity": 1,
+    "unit_price": 116.93,
+    "total_price": 116.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0162",
+    "timestamp": "2026-04-11 18:00:27",
+    "sku": "SKU-LITE-059",
+    "quantity": 3,
+    "unit_price": 147.53,
+    "total_price": 442.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0162",
+    "timestamp": "2026-04-11 18:00:27",
+    "sku": "SKU-LITE-002",
+    "quantity": 3,
+    "unit_price": 163.73,
+    "total_price": 491.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0162",
+    "timestamp": "2026-04-11 18:00:27",
+    "sku": "SKU-LITE-017",
+    "quantity": 3,
+    "unit_price": 191.97,
+    "total_price": 575.91
+  },
+  {
+    "transaction_id": "TXN-LITE-0163",
+    "timestamp": "2026-04-26 11:40:00",
+    "sku": "SKU-LITE-091",
+    "quantity": 1,
+    "unit_price": 671.11,
+    "total_price": 671.11
+  },
+  {
+    "transaction_id": "TXN-LITE-0163",
+    "timestamp": "2026-04-26 11:40:00",
+    "sku": "SKU-LITE-007",
+    "quantity": 2,
+    "unit_price": 386.97,
+    "total_price": 773.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0164",
+    "timestamp": "2026-04-19 11:36:56",
+    "sku": "SKU-LITE-004",
+    "quantity": 3,
+    "unit_price": 149.15,
+    "total_price": 447.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0164",
+    "timestamp": "2026-04-19 11:36:56",
+    "sku": "SKU-LITE-049",
+    "quantity": 1,
+    "unit_price": 286.61,
+    "total_price": 286.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0164",
+    "timestamp": "2026-04-19 11:36:56",
+    "sku": "SKU-LITE-011",
+    "quantity": 1,
+    "unit_price": 45.44,
+    "total_price": 45.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0164",
+    "timestamp": "2026-04-19 11:36:56",
+    "sku": "SKU-LITE-095",
+    "quantity": 3,
+    "unit_price": 375.63,
+    "total_price": 1126.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0165",
+    "timestamp": "2026-04-06 03:58:58",
+    "sku": "SKU-LITE-001",
+    "quantity": 2,
+    "unit_price": 65.62,
+    "total_price": 131.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0165",
+    "timestamp": "2026-04-06 03:58:58",
+    "sku": "SKU-LITE-084",
+    "quantity": 2,
+    "unit_price": 417.34,
+    "total_price": 834.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0165",
+    "timestamp": "2026-04-06 03:58:58",
+    "sku": "SKU-LITE-060",
+    "quantity": 1,
+    "unit_price": 330.4,
+    "total_price": 330.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0165",
+    "timestamp": "2026-04-06 03:58:58",
+    "sku": "SKU-LITE-070",
+    "quantity": 2,
+    "unit_price": 36.73,
+    "total_price": 73.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0166",
+    "timestamp": "2026-04-28 03:41:20",
+    "sku": "SKU-LITE-042",
+    "quantity": 3,
+    "unit_price": 157.19,
+    "total_price": 471.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0166",
+    "timestamp": "2026-04-28 03:41:20",
+    "sku": "SKU-LITE-050",
+    "quantity": 3,
+    "unit_price": 245.49,
+    "total_price": 736.47
+  },
+  {
+    "transaction_id": "TXN-LITE-0167",
+    "timestamp": "2026-04-27 02:50:43",
+    "sku": "SKU-LITE-009",
+    "quantity": 2,
+    "unit_price": 368.58,
+    "total_price": 737.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0167",
+    "timestamp": "2026-04-27 02:50:43",
+    "sku": "SKU-LITE-042",
+    "quantity": 3,
+    "unit_price": 157.19,
+    "total_price": 471.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0167",
+    "timestamp": "2026-04-27 02:50:43",
+    "sku": "SKU-LITE-065",
+    "quantity": 3,
+    "unit_price": 114.4,
+    "total_price": 343.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0167",
+    "timestamp": "2026-04-27 02:50:43",
+    "sku": "SKU-LITE-011",
+    "quantity": 2,
+    "unit_price": 45.44,
+    "total_price": 90.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0168",
+    "timestamp": "2026-04-18 16:00:26",
+    "sku": "SKU-LITE-094",
+    "quantity": 2,
+    "unit_price": 238.39,
+    "total_price": 476.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0169",
+    "timestamp": "2026-04-25 18:01:29",
+    "sku": "SKU-LITE-027",
+    "quantity": 3,
+    "unit_price": 54.78,
+    "total_price": 164.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0169",
+    "timestamp": "2026-04-25 18:01:29",
+    "sku": "SKU-LITE-035",
+    "quantity": 1,
+    "unit_price": 56.04,
+    "total_price": 56.04
+  },
+  {
+    "transaction_id": "TXN-LITE-0169",
+    "timestamp": "2026-04-25 18:01:29",
+    "sku": "SKU-LITE-015",
+    "quantity": 2,
+    "unit_price": 21.09,
+    "total_price": 42.18
+  },
+  {
+    "transaction_id": "TXN-LITE-0169",
+    "timestamp": "2026-04-25 18:01:29",
+    "sku": "SKU-LITE-078",
+    "quantity": 1,
+    "unit_price": 2806.72,
+    "total_price": 2806.72
+  },
+  {
+    "transaction_id": "TXN-LITE-0170",
+    "timestamp": "2026-04-05 06:51:33",
+    "sku": "SKU-LITE-017",
+    "quantity": 2,
+    "unit_price": 191.97,
+    "total_price": 383.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0170",
+    "timestamp": "2026-04-05 06:51:33",
+    "sku": "SKU-LITE-073",
+    "quantity": 2,
+    "unit_price": 6769.83,
+    "total_price": 13539.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0171",
+    "timestamp": "2026-04-11 17:36:26",
+    "sku": "SKU-LITE-048",
+    "quantity": 2,
+    "unit_price": 116.28,
+    "total_price": 232.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0172",
+    "timestamp": "2026-04-10 09:15:44",
+    "sku": "SKU-LITE-004",
+    "quantity": 3,
+    "unit_price": 149.15,
+    "total_price": 447.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0172",
+    "timestamp": "2026-04-10 09:15:44",
+    "sku": "SKU-LITE-055",
+    "quantity": 3,
+    "unit_price": 452.28,
+    "total_price": 1356.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0172",
+    "timestamp": "2026-04-10 09:15:44",
+    "sku": "SKU-LITE-087",
+    "quantity": 3,
+    "unit_price": 621.08,
+    "total_price": 1863.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0173",
+    "timestamp": "2026-04-11 07:56:13",
+    "sku": "SKU-LITE-088",
+    "quantity": 1,
+    "unit_price": 1151.35,
+    "total_price": 1151.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0174",
+    "timestamp": "2026-04-25 11:40:01",
+    "sku": "SKU-LITE-096",
+    "quantity": 1,
+    "unit_price": 352.89,
+    "total_price": 352.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0174",
+    "timestamp": "2026-04-25 11:40:01",
+    "sku": "SKU-LITE-009",
+    "quantity": 1,
+    "unit_price": 368.58,
+    "total_price": 368.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0174",
+    "timestamp": "2026-04-25 11:40:01",
+    "sku": "SKU-LITE-008",
+    "quantity": 2,
+    "unit_price": 209.1,
+    "total_price": 418.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0175",
+    "timestamp": "2026-04-15 16:43:33",
+    "sku": "SKU-LITE-082",
+    "quantity": 2,
+    "unit_price": 89.07,
+    "total_price": 178.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0175",
+    "timestamp": "2026-04-15 16:43:33",
+    "sku": "SKU-LITE-013",
+    "quantity": 2,
+    "unit_price": 12.58,
+    "total_price": 25.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0176",
+    "timestamp": "2026-04-06 23:36:49",
+    "sku": "SKU-LITE-095",
+    "quantity": 1,
+    "unit_price": 375.63,
+    "total_price": 375.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0176",
+    "timestamp": "2026-04-06 23:36:49",
+    "sku": "SKU-LITE-041",
+    "quantity": 2,
+    "unit_price": 154.33,
+    "total_price": 308.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0176",
+    "timestamp": "2026-04-06 23:36:49",
+    "sku": "SKU-LITE-004",
+    "quantity": 1,
+    "unit_price": 149.15,
+    "total_price": 149.15
+  },
+  {
+    "transaction_id": "TXN-LITE-0177",
+    "timestamp": "2026-04-14 17:48:15",
+    "sku": "SKU-LITE-041",
+    "quantity": 1,
+    "unit_price": 154.33,
+    "total_price": 154.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0177",
+    "timestamp": "2026-04-14 17:48:15",
+    "sku": "SKU-LITE-061",
+    "quantity": 1,
+    "unit_price": 109.17,
+    "total_price": 109.17
+  },
+  {
+    "transaction_id": "TXN-LITE-0178",
+    "timestamp": "2026-04-13 18:07:01",
+    "sku": "SKU-LITE-025",
+    "quantity": 1,
+    "unit_price": 51.56,
+    "total_price": 51.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0178",
+    "timestamp": "2026-04-13 18:07:01",
+    "sku": "SKU-LITE-079",
+    "quantity": 2,
+    "unit_price": 2393.5,
+    "total_price": 4787.0
+  },
+  {
+    "transaction_id": "TXN-LITE-0178",
+    "timestamp": "2026-04-13 18:07:01",
+    "sku": "SKU-LITE-001",
+    "quantity": 3,
+    "unit_price": 65.62,
+    "total_price": 196.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0178",
+    "timestamp": "2026-04-13 18:07:01",
+    "sku": "SKU-LITE-003",
+    "quantity": 2,
+    "unit_price": 173.15,
+    "total_price": 346.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0179",
+    "timestamp": "2026-04-09 23:23:27",
+    "sku": "SKU-LITE-013",
+    "quantity": 2,
+    "unit_price": 12.58,
+    "total_price": 25.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0179",
+    "timestamp": "2026-04-09 23:23:27",
+    "sku": "SKU-LITE-028",
+    "quantity": 1,
+    "unit_price": 128.21,
+    "total_price": 128.21
+  },
+  {
+    "transaction_id": "TXN-LITE-0179",
+    "timestamp": "2026-04-09 23:23:27",
+    "sku": "SKU-LITE-060",
+    "quantity": 2,
+    "unit_price": 330.4,
+    "total_price": 660.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0179",
+    "timestamp": "2026-04-09 23:23:27",
+    "sku": "SKU-LITE-023",
+    "quantity": 1,
+    "unit_price": 152.9,
+    "total_price": 152.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0180",
+    "timestamp": "2026-04-07 15:12:29",
+    "sku": "SKU-LITE-079",
+    "quantity": 3,
+    "unit_price": 2393.5,
+    "total_price": 7180.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0181",
+    "timestamp": "2026-04-07 17:11:18",
+    "sku": "SKU-LITE-028",
+    "quantity": 1,
+    "unit_price": 128.21,
+    "total_price": 128.21
+  },
+  {
+    "transaction_id": "TXN-LITE-0181",
+    "timestamp": "2026-04-07 17:11:18",
+    "sku": "SKU-LITE-027",
+    "quantity": 2,
+    "unit_price": 54.78,
+    "total_price": 109.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0181",
+    "timestamp": "2026-04-07 17:11:18",
+    "sku": "SKU-LITE-069",
+    "quantity": 1,
+    "unit_price": 50.92,
+    "total_price": 50.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0181",
+    "timestamp": "2026-04-07 17:11:18",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0182",
+    "timestamp": "2026-05-01 01:11:34",
+    "sku": "SKU-LITE-096",
+    "quantity": 2,
+    "unit_price": 352.89,
+    "total_price": 705.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0182",
+    "timestamp": "2026-05-01 01:11:34",
+    "sku": "SKU-LITE-056",
+    "quantity": 1,
+    "unit_price": 268.59,
+    "total_price": 268.59
+  },
+  {
+    "transaction_id": "TXN-LITE-0183",
+    "timestamp": "2026-04-26 09:49:04",
+    "sku": "SKU-LITE-027",
+    "quantity": 2,
+    "unit_price": 54.78,
+    "total_price": 109.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0183",
+    "timestamp": "2026-04-26 09:49:04",
+    "sku": "SKU-LITE-008",
+    "quantity": 1,
+    "unit_price": 209.1,
+    "total_price": 209.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0184",
+    "timestamp": "2026-04-15 12:13:48",
+    "sku": "SKU-LITE-037",
+    "quantity": 2,
+    "unit_price": 155.2,
+    "total_price": 310.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0184",
+    "timestamp": "2026-04-15 12:13:48",
+    "sku": "SKU-LITE-043",
+    "quantity": 3,
+    "unit_price": 170.12,
+    "total_price": 510.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0184",
+    "timestamp": "2026-04-15 12:13:48",
+    "sku": "SKU-LITE-018",
+    "quantity": 2,
+    "unit_price": 268.58,
+    "total_price": 537.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0185",
+    "timestamp": "2026-04-25 14:56:13",
+    "sku": "SKU-LITE-034",
+    "quantity": 3,
+    "unit_price": 167.25,
+    "total_price": 501.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0186",
+    "timestamp": "2026-04-16 22:08:05",
+    "sku": "SKU-LITE-089",
+    "quantity": 2,
+    "unit_price": 1630.46,
+    "total_price": 3260.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0186",
+    "timestamp": "2026-04-16 22:08:05",
+    "sku": "SKU-LITE-077",
+    "quantity": 1,
+    "unit_price": 2070.81,
+    "total_price": 2070.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0187",
+    "timestamp": "2026-04-07 11:35:24",
+    "sku": "SKU-LITE-089",
+    "quantity": 1,
+    "unit_price": 1630.46,
+    "total_price": 1630.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0187",
+    "timestamp": "2026-04-07 11:35:24",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0187",
+    "timestamp": "2026-04-07 11:35:24",
+    "sku": "SKU-LITE-058",
+    "quantity": 1,
+    "unit_price": 311.25,
+    "total_price": 311.25
+  },
+  {
+    "transaction_id": "TXN-LITE-0187",
+    "timestamp": "2026-04-07 11:35:24",
+    "sku": "SKU-LITE-002",
+    "quantity": 3,
+    "unit_price": 163.73,
+    "total_price": 491.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0188",
+    "timestamp": "2026-04-04 21:17:47",
+    "sku": "SKU-LITE-054",
+    "quantity": 3,
+    "unit_price": 329.17,
+    "total_price": 987.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0189",
+    "timestamp": "2026-04-07 08:42:37",
+    "sku": "SKU-LITE-043",
+    "quantity": 3,
+    "unit_price": 170.12,
+    "total_price": 510.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0190",
+    "timestamp": "2026-04-23 10:51:40",
+    "sku": "SKU-LITE-048",
+    "quantity": 2,
+    "unit_price": 116.28,
+    "total_price": 232.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0190",
+    "timestamp": "2026-04-23 10:51:40",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0190",
+    "timestamp": "2026-04-23 10:51:40",
+    "sku": "SKU-LITE-019",
+    "quantity": 1,
+    "unit_price": 79.97,
+    "total_price": 79.97
+  },
+  {
+    "transaction_id": "TXN-LITE-0191",
+    "timestamp": "2026-04-27 14:03:42",
+    "sku": "SKU-LITE-039",
+    "quantity": 1,
+    "unit_price": 125.42,
+    "total_price": 125.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0191",
+    "timestamp": "2026-04-27 14:03:42",
+    "sku": "SKU-LITE-001",
+    "quantity": 3,
+    "unit_price": 65.62,
+    "total_price": 196.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0191",
+    "timestamp": "2026-04-27 14:03:42",
+    "sku": "SKU-LITE-050",
+    "quantity": 1,
+    "unit_price": 245.49,
+    "total_price": 245.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0192",
+    "timestamp": "2026-05-03 06:11:17",
+    "sku": "SKU-LITE-072",
+    "quantity": 3,
+    "unit_price": 1829.11,
+    "total_price": 5487.33
+  },
+  {
+    "transaction_id": "TXN-LITE-0192",
+    "timestamp": "2026-05-03 06:11:17",
+    "sku": "SKU-LITE-028",
+    "quantity": 2,
+    "unit_price": 128.21,
+    "total_price": 256.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0192",
+    "timestamp": "2026-05-03 06:11:17",
+    "sku": "SKU-LITE-077",
+    "quantity": 1,
+    "unit_price": 2070.81,
+    "total_price": 2070.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0192",
+    "timestamp": "2026-05-03 06:11:17",
+    "sku": "SKU-LITE-084",
+    "quantity": 3,
+    "unit_price": 417.34,
+    "total_price": 1252.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0193",
+    "timestamp": "2026-04-15 11:44:04",
+    "sku": "SKU-LITE-005",
+    "quantity": 3,
+    "unit_price": 153.02,
+    "total_price": 459.06
+  },
+  {
+    "transaction_id": "TXN-LITE-0193",
+    "timestamp": "2026-04-15 11:44:04",
+    "sku": "SKU-LITE-018",
+    "quantity": 1,
+    "unit_price": 268.58,
+    "total_price": 268.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0193",
+    "timestamp": "2026-04-15 11:44:04",
+    "sku": "SKU-LITE-077",
+    "quantity": 1,
+    "unit_price": 2070.81,
+    "total_price": 2070.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0194",
+    "timestamp": "2026-04-16 23:50:29",
+    "sku": "SKU-LITE-081",
+    "quantity": 2,
+    "unit_price": 620.33,
+    "total_price": 1240.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0194",
+    "timestamp": "2026-04-16 23:50:29",
+    "sku": "SKU-LITE-003",
+    "quantity": 2,
+    "unit_price": 173.15,
+    "total_price": 346.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0194",
+    "timestamp": "2026-04-16 23:50:29",
+    "sku": "SKU-LITE-073",
+    "quantity": 1,
+    "unit_price": 6769.83,
+    "total_price": 6769.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0194",
+    "timestamp": "2026-04-16 23:50:29",
+    "sku": "SKU-LITE-051",
+    "quantity": 2,
+    "unit_price": 234.93,
+    "total_price": 469.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0195",
+    "timestamp": "2026-04-11 03:33:26",
+    "sku": "SKU-LITE-008",
+    "quantity": 3,
+    "unit_price": 209.1,
+    "total_price": 627.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0196",
+    "timestamp": "2026-04-16 19:17:33",
+    "sku": "SKU-LITE-034",
+    "quantity": 3,
+    "unit_price": 167.25,
+    "total_price": 501.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0197",
+    "timestamp": "2026-04-15 06:41:07",
+    "sku": "SKU-LITE-069",
+    "quantity": 2,
+    "unit_price": 50.92,
+    "total_price": 101.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0197",
+    "timestamp": "2026-04-15 06:41:07",
+    "sku": "SKU-LITE-062",
+    "quantity": 1,
+    "unit_price": 50.09,
+    "total_price": 50.09
+  },
+  {
+    "transaction_id": "TXN-LITE-0197",
+    "timestamp": "2026-04-15 06:41:07",
+    "sku": "SKU-LITE-057",
+    "quantity": 2,
+    "unit_price": 378.01,
+    "total_price": 756.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0197",
+    "timestamp": "2026-04-15 06:41:07",
+    "sku": "SKU-LITE-004",
+    "quantity": 1,
+    "unit_price": 149.15,
+    "total_price": 149.15
+  },
+  {
+    "transaction_id": "TXN-LITE-0198",
+    "timestamp": "2026-04-25 20:42:30",
+    "sku": "SKU-LITE-032",
+    "quantity": 2,
+    "unit_price": 142.31,
+    "total_price": 284.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0198",
+    "timestamp": "2026-04-25 20:42:30",
+    "sku": "SKU-LITE-093",
+    "quantity": 1,
+    "unit_price": 407.88,
+    "total_price": 407.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0199",
+    "timestamp": "2026-04-15 20:40:17",
+    "sku": "SKU-LITE-096",
+    "quantity": 2,
+    "unit_price": 352.89,
+    "total_price": 705.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0199",
+    "timestamp": "2026-04-15 20:40:17",
+    "sku": "SKU-LITE-085",
+    "quantity": 1,
+    "unit_price": 204.53,
+    "total_price": 204.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0199",
+    "timestamp": "2026-04-15 20:40:17",
+    "sku": "SKU-LITE-073",
+    "quantity": 1,
+    "unit_price": 6769.83,
+    "total_price": 6769.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0200",
+    "timestamp": "2026-04-22 00:14:51",
+    "sku": "SKU-LITE-010",
+    "quantity": 1,
+    "unit_price": 413.79,
+    "total_price": 413.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0200",
+    "timestamp": "2026-04-22 00:14:51",
+    "sku": "SKU-LITE-064",
+    "quantity": 3,
+    "unit_price": 50.85,
+    "total_price": 152.55
+  },
+  {
+    "transaction_id": "TXN-LITE-0200",
+    "timestamp": "2026-04-22 00:14:51",
+    "sku": "SKU-LITE-034",
+    "quantity": 3,
+    "unit_price": 167.25,
+    "total_price": 501.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0200",
+    "timestamp": "2026-04-22 00:14:51",
+    "sku": "SKU-LITE-047",
+    "quantity": 2,
+    "unit_price": 117.61,
+    "total_price": 235.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0201",
+    "timestamp": "2026-04-29 11:59:52",
+    "sku": "SKU-LITE-078",
+    "quantity": 3,
+    "unit_price": 2806.72,
+    "total_price": 8420.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0201",
+    "timestamp": "2026-04-29 11:59:52",
+    "sku": "SKU-LITE-087",
+    "quantity": 2,
+    "unit_price": 621.08,
+    "total_price": 1242.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0201",
+    "timestamp": "2026-04-29 11:59:52",
+    "sku": "SKU-LITE-068",
+    "quantity": 3,
+    "unit_price": 103.43,
+    "total_price": 310.29
+  },
+  {
+    "transaction_id": "TXN-LITE-0201",
+    "timestamp": "2026-04-29 11:59:52",
+    "sku": "SKU-LITE-010",
+    "quantity": 1,
+    "unit_price": 413.79,
+    "total_price": 413.79
+  },
+  {
+    "transaction_id": "TXN-LITE-0202",
+    "timestamp": "2026-04-24 13:23:16",
+    "sku": "SKU-LITE-090",
+    "quantity": 2,
+    "unit_price": 785.95,
+    "total_price": 1571.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0202",
+    "timestamp": "2026-04-24 13:23:16",
+    "sku": "SKU-LITE-035",
+    "quantity": 3,
+    "unit_price": 56.04,
+    "total_price": 168.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0203",
+    "timestamp": "2026-04-11 05:53:04",
+    "sku": "SKU-LITE-069",
+    "quantity": 1,
+    "unit_price": 50.92,
+    "total_price": 50.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0203",
+    "timestamp": "2026-04-11 05:53:04",
+    "sku": "SKU-LITE-037",
+    "quantity": 3,
+    "unit_price": 155.2,
+    "total_price": 465.6
+  },
+  {
+    "transaction_id": "TXN-LITE-0204",
+    "timestamp": "2026-04-11 10:35:51",
+    "sku": "SKU-LITE-049",
+    "quantity": 2,
+    "unit_price": 286.61,
+    "total_price": 573.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0204",
+    "timestamp": "2026-04-11 10:35:51",
+    "sku": "SKU-LITE-074",
+    "quantity": 1,
+    "unit_price": 3106.45,
+    "total_price": 3106.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0205",
+    "timestamp": "2026-04-27 13:55:53",
+    "sku": "SKU-LITE-087",
+    "quantity": 1,
+    "unit_price": 621.08,
+    "total_price": 621.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0205",
+    "timestamp": "2026-04-27 13:55:53",
+    "sku": "SKU-LITE-050",
+    "quantity": 3,
+    "unit_price": 245.49,
+    "total_price": 736.47
+  },
+  {
+    "transaction_id": "TXN-LITE-0205",
+    "timestamp": "2026-04-27 13:55:53",
+    "sku": "SKU-LITE-081",
+    "quantity": 2,
+    "unit_price": 620.33,
+    "total_price": 1240.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0205",
+    "timestamp": "2026-04-27 13:55:53",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0206",
+    "timestamp": "2026-04-17 21:17:44",
+    "sku": "SKU-LITE-055",
+    "quantity": 1,
+    "unit_price": 452.28,
+    "total_price": 452.28
+  },
+  {
+    "transaction_id": "TXN-LITE-0207",
+    "timestamp": "2026-04-13 01:29:52",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0207",
+    "timestamp": "2026-04-13 01:29:52",
+    "sku": "SKU-LITE-055",
+    "quantity": 1,
+    "unit_price": 452.28,
+    "total_price": 452.28
+  },
+  {
+    "transaction_id": "TXN-LITE-0207",
+    "timestamp": "2026-04-13 01:29:52",
+    "sku": "SKU-LITE-004",
+    "quantity": 1,
+    "unit_price": 149.15,
+    "total_price": 149.15
+  },
+  {
+    "transaction_id": "TXN-LITE-0208",
+    "timestamp": "2026-05-03 06:51:59",
+    "sku": "SKU-LITE-053",
+    "quantity": 2,
+    "unit_price": 344.83,
+    "total_price": 689.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0208",
+    "timestamp": "2026-05-03 06:51:59",
+    "sku": "SKU-LITE-030",
+    "quantity": 3,
+    "unit_price": 25.27,
+    "total_price": 75.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0209",
+    "timestamp": "2026-04-28 06:02:49",
+    "sku": "SKU-LITE-051",
+    "quantity": 1,
+    "unit_price": 234.93,
+    "total_price": 234.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0209",
+    "timestamp": "2026-04-28 06:02:49",
+    "sku": "SKU-LITE-052",
+    "quantity": 3,
+    "unit_price": 298.81,
+    "total_price": 896.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0209",
+    "timestamp": "2026-04-28 06:02:49",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0210",
+    "timestamp": "2026-04-08 12:36:31",
+    "sku": "SKU-LITE-061",
+    "quantity": 2,
+    "unit_price": 109.17,
+    "total_price": 218.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0210",
+    "timestamp": "2026-04-08 12:36:31",
+    "sku": "SKU-LITE-036",
+    "quantity": 1,
+    "unit_price": 156.67,
+    "total_price": 156.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0210",
+    "timestamp": "2026-04-08 12:36:31",
+    "sku": "SKU-LITE-083",
+    "quantity": 2,
+    "unit_price": 437.19,
+    "total_price": 874.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0211",
+    "timestamp": "2026-04-21 20:38:24",
+    "sku": "SKU-LITE-060",
+    "quantity": 1,
+    "unit_price": 330.4,
+    "total_price": 330.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0212",
+    "timestamp": "2026-04-04 11:58:07",
+    "sku": "SKU-LITE-038",
+    "quantity": 2,
+    "unit_price": 14.19,
+    "total_price": 28.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0212",
+    "timestamp": "2026-04-04 11:58:07",
+    "sku": "SKU-LITE-016",
+    "quantity": 3,
+    "unit_price": 421.16,
+    "total_price": 1263.48
+  },
+  {
+    "transaction_id": "TXN-LITE-0212",
+    "timestamp": "2026-04-04 11:58:07",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0213",
+    "timestamp": "2026-04-12 01:01:48",
+    "sku": "SKU-LITE-090",
+    "quantity": 1,
+    "unit_price": 785.95,
+    "total_price": 785.95
+  },
+  {
+    "transaction_id": "TXN-LITE-0213",
+    "timestamp": "2026-04-12 01:01:48",
+    "sku": "SKU-LITE-080",
+    "quantity": 2,
+    "unit_price": 296.55,
+    "total_price": 593.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0214",
+    "timestamp": "2026-04-23 13:09:15",
+    "sku": "SKU-LITE-082",
+    "quantity": 2,
+    "unit_price": 89.07,
+    "total_price": 178.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0214",
+    "timestamp": "2026-04-23 13:09:15",
+    "sku": "SKU-LITE-025",
+    "quantity": 3,
+    "unit_price": 51.56,
+    "total_price": 154.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0215",
+    "timestamp": "2026-04-06 17:33:09",
+    "sku": "SKU-LITE-095",
+    "quantity": 2,
+    "unit_price": 375.63,
+    "total_price": 751.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0215",
+    "timestamp": "2026-04-06 17:33:09",
+    "sku": "SKU-LITE-067",
+    "quantity": 1,
+    "unit_price": 109.9,
+    "total_price": 109.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0216",
+    "timestamp": "2026-04-26 09:09:42",
+    "sku": "SKU-LITE-094",
+    "quantity": 2,
+    "unit_price": 238.39,
+    "total_price": 476.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0216",
+    "timestamp": "2026-04-26 09:09:42",
+    "sku": "SKU-LITE-019",
+    "quantity": 2,
+    "unit_price": 79.97,
+    "total_price": 159.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0216",
+    "timestamp": "2026-04-26 09:09:42",
+    "sku": "SKU-LITE-079",
+    "quantity": 1,
+    "unit_price": 2393.5,
+    "total_price": 2393.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0217",
+    "timestamp": "2026-04-16 11:33:22",
+    "sku": "SKU-LITE-052",
+    "quantity": 3,
+    "unit_price": 298.81,
+    "total_price": 896.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0217",
+    "timestamp": "2026-04-16 11:33:22",
+    "sku": "SKU-LITE-036",
+    "quantity": 1,
+    "unit_price": 156.67,
+    "total_price": 156.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0217",
+    "timestamp": "2026-04-16 11:33:22",
+    "sku": "SKU-LITE-047",
+    "quantity": 1,
+    "unit_price": 117.61,
+    "total_price": 117.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0217",
+    "timestamp": "2026-04-16 11:33:22",
+    "sku": "SKU-LITE-038",
+    "quantity": 2,
+    "unit_price": 14.19,
+    "total_price": 28.38
+  },
+  {
+    "transaction_id": "TXN-LITE-0218",
+    "timestamp": "2026-04-21 13:56:30",
+    "sku": "SKU-LITE-048",
+    "quantity": 1,
+    "unit_price": 116.28,
+    "total_price": 116.28
+  },
+  {
+    "transaction_id": "TXN-LITE-0218",
+    "timestamp": "2026-04-21 13:56:30",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0218",
+    "timestamp": "2026-04-21 13:56:30",
+    "sku": "SKU-LITE-015",
+    "quantity": 1,
+    "unit_price": 21.09,
+    "total_price": 21.09
+  },
+  {
+    "transaction_id": "TXN-LITE-0218",
+    "timestamp": "2026-04-21 13:56:30",
+    "sku": "SKU-LITE-025",
+    "quantity": 2,
+    "unit_price": 51.56,
+    "total_price": 103.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0219",
+    "timestamp": "2026-04-22 04:36:49",
+    "sku": "SKU-LITE-054",
+    "quantity": 3,
+    "unit_price": 329.17,
+    "total_price": 987.51
+  },
+  {
+    "transaction_id": "TXN-LITE-0220",
+    "timestamp": "2026-04-21 20:29:27",
+    "sku": "SKU-LITE-053",
+    "quantity": 2,
+    "unit_price": 344.83,
+    "total_price": 689.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0220",
+    "timestamp": "2026-04-21 20:29:27",
+    "sku": "SKU-LITE-067",
+    "quantity": 1,
+    "unit_price": 109.9,
+    "total_price": 109.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0220",
+    "timestamp": "2026-04-21 20:29:27",
+    "sku": "SKU-LITE-097",
+    "quantity": 1,
+    "unit_price": 64.2,
+    "total_price": 64.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0220",
+    "timestamp": "2026-04-21 20:29:27",
+    "sku": "SKU-LITE-058",
+    "quantity": 3,
+    "unit_price": 311.25,
+    "total_price": 933.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0221",
+    "timestamp": "2026-04-10 18:58:23",
+    "sku": "SKU-LITE-087",
+    "quantity": 3,
+    "unit_price": 621.08,
+    "total_price": 1863.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0221",
+    "timestamp": "2026-04-10 18:58:23",
+    "sku": "SKU-LITE-002",
+    "quantity": 1,
+    "unit_price": 163.73,
+    "total_price": 163.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0221",
+    "timestamp": "2026-04-10 18:58:23",
+    "sku": "SKU-LITE-031",
+    "quantity": 2,
+    "unit_price": 81.12,
+    "total_price": 162.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0222",
+    "timestamp": "2026-04-06 05:54:21",
+    "sku": "SKU-LITE-005",
+    "quantity": 1,
+    "unit_price": 153.02,
+    "total_price": 153.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0223",
+    "timestamp": "2026-04-17 08:50:12",
+    "sku": "SKU-LITE-047",
+    "quantity": 1,
+    "unit_price": 117.61,
+    "total_price": 117.61
+  },
+  {
+    "transaction_id": "TXN-LITE-0223",
+    "timestamp": "2026-04-17 08:50:12",
+    "sku": "SKU-LITE-094",
+    "quantity": 1,
+    "unit_price": 238.39,
+    "total_price": 238.39
+  },
+  {
+    "transaction_id": "TXN-LITE-0223",
+    "timestamp": "2026-04-17 08:50:12",
+    "sku": "SKU-LITE-075",
+    "quantity": 1,
+    "unit_price": 7122.27,
+    "total_price": 7122.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0223",
+    "timestamp": "2026-04-17 08:50:12",
+    "sku": "SKU-LITE-006",
+    "quantity": 3,
+    "unit_price": 59.32,
+    "total_price": 177.96
+  },
+  {
+    "transaction_id": "TXN-LITE-0224",
+    "timestamp": "2026-04-08 16:22:05",
+    "sku": "SKU-LITE-058",
+    "quantity": 2,
+    "unit_price": 311.25,
+    "total_price": 622.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0225",
+    "timestamp": "2026-04-19 19:42:10",
+    "sku": "SKU-LITE-093",
+    "quantity": 1,
+    "unit_price": 407.88,
+    "total_price": 407.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0225",
+    "timestamp": "2026-04-19 19:42:10",
+    "sku": "SKU-LITE-006",
+    "quantity": 3,
+    "unit_price": 59.32,
+    "total_price": 177.96
+  },
+  {
+    "transaction_id": "TXN-LITE-0225",
+    "timestamp": "2026-04-19 19:42:10",
+    "sku": "SKU-LITE-086",
+    "quantity": 3,
+    "unit_price": 474.42,
+    "total_price": 1423.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0225",
+    "timestamp": "2026-04-19 19:42:10",
+    "sku": "SKU-LITE-075",
+    "quantity": 1,
+    "unit_price": 7122.27,
+    "total_price": 7122.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0226",
+    "timestamp": "2026-04-14 19:13:05",
+    "sku": "SKU-LITE-035",
+    "quantity": 2,
+    "unit_price": 56.04,
+    "total_price": 112.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0226",
+    "timestamp": "2026-04-14 19:13:05",
+    "sku": "SKU-LITE-096",
+    "quantity": 1,
+    "unit_price": 352.89,
+    "total_price": 352.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0226",
+    "timestamp": "2026-04-14 19:13:05",
+    "sku": "SKU-LITE-056",
+    "quantity": 3,
+    "unit_price": 268.59,
+    "total_price": 805.77
+  },
+  {
+    "transaction_id": "TXN-LITE-0227",
+    "timestamp": "2026-04-05 02:53:41",
+    "sku": "SKU-LITE-079",
+    "quantity": 2,
+    "unit_price": 2393.5,
+    "total_price": 4787.0
+  },
+  {
+    "transaction_id": "TXN-LITE-0227",
+    "timestamp": "2026-04-05 02:53:41",
+    "sku": "SKU-LITE-069",
+    "quantity": 2,
+    "unit_price": 50.92,
+    "total_price": 101.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0227",
+    "timestamp": "2026-04-05 02:53:41",
+    "sku": "SKU-LITE-014",
+    "quantity": 3,
+    "unit_price": 228.22,
+    "total_price": 684.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0227",
+    "timestamp": "2026-04-05 02:53:41",
+    "sku": "SKU-LITE-021",
+    "quantity": 2,
+    "unit_price": 145.71,
+    "total_price": 291.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0228",
+    "timestamp": "2026-04-09 09:21:52",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0228",
+    "timestamp": "2026-04-09 09:21:52",
+    "sku": "SKU-LITE-072",
+    "quantity": 2,
+    "unit_price": 1829.11,
+    "total_price": 3658.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0228",
+    "timestamp": "2026-04-09 09:21:52",
+    "sku": "SKU-LITE-091",
+    "quantity": 2,
+    "unit_price": 671.11,
+    "total_price": 1342.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0229",
+    "timestamp": "2026-04-17 05:15:42",
+    "sku": "SKU-LITE-011",
+    "quantity": 2,
+    "unit_price": 45.44,
+    "total_price": 90.88
+  },
+  {
+    "transaction_id": "TXN-LITE-0229",
+    "timestamp": "2026-04-17 05:15:42",
+    "sku": "SKU-LITE-020",
+    "quantity": 1,
+    "unit_price": 181.4,
+    "total_price": 181.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0230",
+    "timestamp": "2026-04-19 09:50:14",
+    "sku": "SKU-LITE-036",
+    "quantity": 2,
+    "unit_price": 156.67,
+    "total_price": 313.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0230",
+    "timestamp": "2026-04-19 09:50:14",
+    "sku": "SKU-LITE-068",
+    "quantity": 3,
+    "unit_price": 103.43,
+    "total_price": 310.29
+  },
+  {
+    "transaction_id": "TXN-LITE-0231",
+    "timestamp": "2026-04-24 20:22:44",
+    "sku": "SKU-LITE-072",
+    "quantity": 1,
+    "unit_price": 1829.11,
+    "total_price": 1829.11
+  },
+  {
+    "transaction_id": "TXN-LITE-0231",
+    "timestamp": "2026-04-24 20:22:44",
+    "sku": "SKU-LITE-016",
+    "quantity": 3,
+    "unit_price": 421.16,
+    "total_price": 1263.48
+  },
+  {
+    "transaction_id": "TXN-LITE-0231",
+    "timestamp": "2026-04-24 20:22:44",
+    "sku": "SKU-LITE-064",
+    "quantity": 1,
+    "unit_price": 50.85,
+    "total_price": 50.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0232",
+    "timestamp": "2026-04-15 23:29:20",
+    "sku": "SKU-LITE-032",
+    "quantity": 2,
+    "unit_price": 142.31,
+    "total_price": 284.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0232",
+    "timestamp": "2026-04-15 23:29:20",
+    "sku": "SKU-LITE-028",
+    "quantity": 2,
+    "unit_price": 128.21,
+    "total_price": 256.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0232",
+    "timestamp": "2026-04-15 23:29:20",
+    "sku": "SKU-LITE-094",
+    "quantity": 3,
+    "unit_price": 238.39,
+    "total_price": 715.17
+  },
+  {
+    "transaction_id": "TXN-LITE-0232",
+    "timestamp": "2026-04-15 23:29:20",
+    "sku": "SKU-LITE-095",
+    "quantity": 2,
+    "unit_price": 375.63,
+    "total_price": 751.26
+  },
+  {
+    "transaction_id": "TXN-LITE-0233",
+    "timestamp": "2026-04-10 15:36:15",
+    "sku": "SKU-LITE-077",
+    "quantity": 2,
+    "unit_price": 2070.81,
+    "total_price": 4141.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0233",
+    "timestamp": "2026-04-10 15:36:15",
+    "sku": "SKU-LITE-018",
+    "quantity": 2,
+    "unit_price": 268.58,
+    "total_price": 537.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0234",
+    "timestamp": "2026-04-12 00:01:14",
+    "sku": "SKU-LITE-024",
+    "quantity": 1,
+    "unit_price": 225.87,
+    "total_price": 225.87
+  },
+  {
+    "transaction_id": "TXN-LITE-0234",
+    "timestamp": "2026-04-12 00:01:14",
+    "sku": "SKU-LITE-088",
+    "quantity": 1,
+    "unit_price": 1151.35,
+    "total_price": 1151.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0234",
+    "timestamp": "2026-04-12 00:01:14",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0234",
+    "timestamp": "2026-04-12 00:01:14",
+    "sku": "SKU-LITE-079",
+    "quantity": 1,
+    "unit_price": 2393.5,
+    "total_price": 2393.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0235",
+    "timestamp": "2026-05-03 01:13:34",
+    "sku": "SKU-LITE-038",
+    "quantity": 3,
+    "unit_price": 14.19,
+    "total_price": 42.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0236",
+    "timestamp": "2026-05-01 16:20:03",
+    "sku": "SKU-LITE-064",
+    "quantity": 1,
+    "unit_price": 50.85,
+    "total_price": 50.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0236",
+    "timestamp": "2026-05-01 16:20:03",
+    "sku": "SKU-LITE-068",
+    "quantity": 3,
+    "unit_price": 103.43,
+    "total_price": 310.29
+  },
+  {
+    "transaction_id": "TXN-LITE-0236",
+    "timestamp": "2026-05-01 16:20:03",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0237",
+    "timestamp": "2026-05-01 11:59:29",
+    "sku": "SKU-LITE-092",
+    "quantity": 3,
+    "unit_price": 493.63,
+    "total_price": 1480.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0237",
+    "timestamp": "2026-05-01 11:59:29",
+    "sku": "SKU-LITE-054",
+    "quantity": 2,
+    "unit_price": 329.17,
+    "total_price": 658.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0238",
+    "timestamp": "2026-04-09 01:37:58",
+    "sku": "SKU-LITE-008",
+    "quantity": 2,
+    "unit_price": 209.1,
+    "total_price": 418.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0238",
+    "timestamp": "2026-04-09 01:37:58",
+    "sku": "SKU-LITE-033",
+    "quantity": 2,
+    "unit_price": 167.08,
+    "total_price": 334.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0238",
+    "timestamp": "2026-04-09 01:37:58",
+    "sku": "SKU-LITE-023",
+    "quantity": 1,
+    "unit_price": 152.9,
+    "total_price": 152.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0239",
+    "timestamp": "2026-04-17 19:30:11",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0239",
+    "timestamp": "2026-04-17 19:30:11",
+    "sku": "SKU-LITE-025",
+    "quantity": 3,
+    "unit_price": 51.56,
+    "total_price": 154.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0239",
+    "timestamp": "2026-04-17 19:30:11",
+    "sku": "SKU-LITE-042",
+    "quantity": 1,
+    "unit_price": 157.19,
+    "total_price": 157.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0240",
+    "timestamp": "2026-04-20 14:12:32",
+    "sku": "SKU-LITE-085",
+    "quantity": 1,
+    "unit_price": 204.53,
+    "total_price": 204.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0240",
+    "timestamp": "2026-04-20 14:12:32",
+    "sku": "SKU-LITE-022",
+    "quantity": 2,
+    "unit_price": 221.24,
+    "total_price": 442.48
+  },
+  {
+    "transaction_id": "TXN-LITE-0240",
+    "timestamp": "2026-04-20 14:12:32",
+    "sku": "SKU-LITE-098",
+    "quantity": 3,
+    "unit_price": 245.35,
+    "total_price": 736.05
+  },
+  {
+    "transaction_id": "TXN-LITE-0240",
+    "timestamp": "2026-04-20 14:12:32",
+    "sku": "SKU-LITE-077",
+    "quantity": 3,
+    "unit_price": 2070.81,
+    "total_price": 6212.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0241",
+    "timestamp": "2026-04-13 04:35:14",
+    "sku": "SKU-LITE-073",
+    "quantity": 2,
+    "unit_price": 6769.83,
+    "total_price": 13539.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0241",
+    "timestamp": "2026-04-13 04:35:14",
+    "sku": "SKU-LITE-090",
+    "quantity": 1,
+    "unit_price": 785.95,
+    "total_price": 785.95
+  },
+  {
+    "transaction_id": "TXN-LITE-0241",
+    "timestamp": "2026-04-13 04:35:14",
+    "sku": "SKU-LITE-098",
+    "quantity": 2,
+    "unit_price": 245.35,
+    "total_price": 490.7
+  },
+  {
+    "transaction_id": "TXN-LITE-0242",
+    "timestamp": "2026-04-19 00:25:21",
+    "sku": "SKU-LITE-098",
+    "quantity": 1,
+    "unit_price": 245.35,
+    "total_price": 245.35
+  },
+  {
+    "transaction_id": "TXN-LITE-0242",
+    "timestamp": "2026-04-19 00:25:21",
+    "sku": "SKU-LITE-099",
+    "quantity": 2,
+    "unit_price": 57.16,
+    "total_price": 114.32
+  },
+  {
+    "transaction_id": "TXN-LITE-0243",
+    "timestamp": "2026-05-02 00:10:02",
+    "sku": "SKU-LITE-057",
+    "quantity": 1,
+    "unit_price": 378.01,
+    "total_price": 378.01
+  },
+  {
+    "transaction_id": "TXN-LITE-0243",
+    "timestamp": "2026-05-02 00:10:02",
+    "sku": "SKU-LITE-042",
+    "quantity": 1,
+    "unit_price": 157.19,
+    "total_price": 157.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0244",
+    "timestamp": "2026-04-14 16:22:39",
+    "sku": "SKU-LITE-076",
+    "quantity": 1,
+    "unit_price": 6638.78,
+    "total_price": 6638.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0245",
+    "timestamp": "2026-04-15 08:06:06",
+    "sku": "SKU-LITE-056",
+    "quantity": 3,
+    "unit_price": 268.59,
+    "total_price": 805.77
+  },
+  {
+    "transaction_id": "TXN-LITE-0245",
+    "timestamp": "2026-04-15 08:06:06",
+    "sku": "SKU-LITE-069",
+    "quantity": 1,
+    "unit_price": 50.92,
+    "total_price": 50.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0245",
+    "timestamp": "2026-04-15 08:06:06",
+    "sku": "SKU-LITE-014",
+    "quantity": 2,
+    "unit_price": 228.22,
+    "total_price": 456.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0246",
+    "timestamp": "2026-04-10 16:20:08",
+    "sku": "SKU-LITE-070",
+    "quantity": 2,
+    "unit_price": 36.73,
+    "total_price": 73.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0246",
+    "timestamp": "2026-04-10 16:20:08",
+    "sku": "SKU-LITE-084",
+    "quantity": 1,
+    "unit_price": 417.34,
+    "total_price": 417.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0246",
+    "timestamp": "2026-04-10 16:20:08",
+    "sku": "SKU-LITE-052",
+    "quantity": 3,
+    "unit_price": 298.81,
+    "total_price": 896.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0247",
+    "timestamp": "2026-04-23 20:24:35",
+    "sku": "SKU-LITE-020",
+    "quantity": 2,
+    "unit_price": 181.4,
+    "total_price": 362.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0247",
+    "timestamp": "2026-04-23 20:24:35",
+    "sku": "SKU-LITE-031",
+    "quantity": 3,
+    "unit_price": 81.12,
+    "total_price": 243.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0248",
+    "timestamp": "2026-04-19 13:03:37",
+    "sku": "SKU-LITE-056",
+    "quantity": 2,
+    "unit_price": 268.59,
+    "total_price": 537.18
+  },
+  {
+    "transaction_id": "TXN-LITE-0248",
+    "timestamp": "2026-04-19 13:03:37",
+    "sku": "SKU-LITE-020",
+    "quantity": 2,
+    "unit_price": 181.4,
+    "total_price": 362.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0248",
+    "timestamp": "2026-04-19 13:03:37",
+    "sku": "SKU-LITE-008",
+    "quantity": 3,
+    "unit_price": 209.1,
+    "total_price": 627.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0248",
+    "timestamp": "2026-04-19 13:03:37",
+    "sku": "SKU-LITE-097",
+    "quantity": 1,
+    "unit_price": 64.2,
+    "total_price": 64.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0249",
+    "timestamp": "2026-05-01 19:21:47",
+    "sku": "SKU-LITE-019",
+    "quantity": 2,
+    "unit_price": 79.97,
+    "total_price": 159.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0249",
+    "timestamp": "2026-05-01 19:21:47",
+    "sku": "SKU-LITE-001",
+    "quantity": 1,
+    "unit_price": 65.62,
+    "total_price": 65.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0249",
+    "timestamp": "2026-05-01 19:21:47",
+    "sku": "SKU-LITE-073",
+    "quantity": 3,
+    "unit_price": 6769.83,
+    "total_price": 20309.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0249",
+    "timestamp": "2026-05-01 19:21:47",
+    "sku": "SKU-LITE-050",
+    "quantity": 2,
+    "unit_price": 245.49,
+    "total_price": 490.98
+  },
+  {
+    "transaction_id": "TXN-LITE-0250",
+    "timestamp": "2026-04-14 19:37:13",
+    "sku": "SKU-LITE-001",
+    "quantity": 3,
+    "unit_price": 65.62,
+    "total_price": 196.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0250",
+    "timestamp": "2026-04-14 19:37:13",
+    "sku": "SKU-LITE-048",
+    "quantity": 3,
+    "unit_price": 116.28,
+    "total_price": 348.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0250",
+    "timestamp": "2026-04-14 19:37:13",
+    "sku": "SKU-LITE-084",
+    "quantity": 2,
+    "unit_price": 417.34,
+    "total_price": 834.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0250",
+    "timestamp": "2026-04-14 19:37:13",
+    "sku": "SKU-LITE-064",
+    "quantity": 2,
+    "unit_price": 50.85,
+    "total_price": 101.7
+  },
+  {
+    "transaction_id": "TXN-LITE-0251",
+    "timestamp": "2026-04-07 22:19:28",
+    "sku": "SKU-LITE-096",
+    "quantity": 2,
+    "unit_price": 352.89,
+    "total_price": 705.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0251",
+    "timestamp": "2026-04-07 22:19:28",
+    "sku": "SKU-LITE-095",
+    "quantity": 1,
+    "unit_price": 375.63,
+    "total_price": 375.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0251",
+    "timestamp": "2026-04-07 22:19:28",
+    "sku": "SKU-LITE-062",
+    "quantity": 2,
+    "unit_price": 50.09,
+    "total_price": 100.18
+  },
+  {
+    "transaction_id": "TXN-LITE-0252",
+    "timestamp": "2026-04-10 06:25:46",
+    "sku": "SKU-LITE-089",
+    "quantity": 1,
+    "unit_price": 1630.46,
+    "total_price": 1630.46
+  },
+  {
+    "transaction_id": "TXN-LITE-0252",
+    "timestamp": "2026-04-10 06:25:46",
+    "sku": "SKU-LITE-068",
+    "quantity": 2,
+    "unit_price": 103.43,
+    "total_price": 206.86
+  },
+  {
+    "transaction_id": "TXN-LITE-0253",
+    "timestamp": "2026-04-15 03:19:27",
+    "sku": "SKU-LITE-025",
+    "quantity": 2,
+    "unit_price": 51.56,
+    "total_price": 103.12
+  },
+  {
+    "transaction_id": "TXN-LITE-0254",
+    "timestamp": "2026-04-08 03:31:17",
+    "sku": "SKU-LITE-057",
+    "quantity": 2,
+    "unit_price": 378.01,
+    "total_price": 756.02
+  },
+  {
+    "transaction_id": "TXN-LITE-0254",
+    "timestamp": "2026-04-08 03:31:17",
+    "sku": "SKU-LITE-038",
+    "quantity": 3,
+    "unit_price": 14.19,
+    "total_price": 42.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0255",
+    "timestamp": "2026-05-03 20:18:34",
+    "sku": "SKU-LITE-093",
+    "quantity": 2,
+    "unit_price": 407.88,
+    "total_price": 815.76
+  },
+  {
+    "transaction_id": "TXN-LITE-0255",
+    "timestamp": "2026-05-03 20:18:34",
+    "sku": "SKU-LITE-089",
+    "quantity": 2,
+    "unit_price": 1630.46,
+    "total_price": 3260.92
+  },
+  {
+    "transaction_id": "TXN-LITE-0255",
+    "timestamp": "2026-05-03 20:18:34",
+    "sku": "SKU-LITE-016",
+    "quantity": 1,
+    "unit_price": 421.16,
+    "total_price": 421.16
+  },
+  {
+    "transaction_id": "TXN-LITE-0256",
+    "timestamp": "2026-04-23 08:59:15",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0256",
+    "timestamp": "2026-04-23 08:59:15",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0257",
+    "timestamp": "2026-04-18 16:50:51",
+    "sku": "SKU-LITE-034",
+    "quantity": 1,
+    "unit_price": 167.25,
+    "total_price": 167.25
+  },
+  {
+    "transaction_id": "TXN-LITE-0258",
+    "timestamp": "2026-04-23 17:27:48",
+    "sku": "SKU-LITE-003",
+    "quantity": 1,
+    "unit_price": 173.15,
+    "total_price": 173.15
+  },
+  {
+    "transaction_id": "TXN-LITE-0259",
+    "timestamp": "2026-04-17 04:45:57",
+    "sku": "SKU-LITE-078",
+    "quantity": 2,
+    "unit_price": 2806.72,
+    "total_price": 5613.44
+  },
+  {
+    "transaction_id": "TXN-LITE-0260",
+    "timestamp": "2026-04-14 10:17:03",
+    "sku": "SKU-LITE-077",
+    "quantity": 3,
+    "unit_price": 2070.81,
+    "total_price": 6212.43
+  },
+  {
+    "transaction_id": "TXN-LITE-0260",
+    "timestamp": "2026-04-14 10:17:03",
+    "sku": "SKU-LITE-051",
+    "quantity": 1,
+    "unit_price": 234.93,
+    "total_price": 234.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0261",
+    "timestamp": "2026-04-06 14:32:20",
+    "sku": "SKU-LITE-064",
+    "quantity": 1,
+    "unit_price": 50.85,
+    "total_price": 50.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0261",
+    "timestamp": "2026-04-06 14:32:20",
+    "sku": "SKU-LITE-096",
+    "quantity": 1,
+    "unit_price": 352.89,
+    "total_price": 352.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0262",
+    "timestamp": "2026-04-24 11:24:56",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0262",
+    "timestamp": "2026-04-24 11:24:56",
+    "sku": "SKU-LITE-021",
+    "quantity": 1,
+    "unit_price": 145.71,
+    "total_price": 145.71
+  },
+  {
+    "transaction_id": "TXN-LITE-0263",
+    "timestamp": "2026-04-22 08:29:29",
+    "sku": "SKU-LITE-006",
+    "quantity": 2,
+    "unit_price": 59.32,
+    "total_price": 118.64
+  },
+  {
+    "transaction_id": "TXN-LITE-0263",
+    "timestamp": "2026-04-22 08:29:29",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0263",
+    "timestamp": "2026-04-22 08:29:29",
+    "sku": "SKU-LITE-084",
+    "quantity": 1,
+    "unit_price": 417.34,
+    "total_price": 417.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0264",
+    "timestamp": "2026-04-11 08:16:51",
+    "sku": "SKU-LITE-006",
+    "quantity": 2,
+    "unit_price": 59.32,
+    "total_price": 118.64
+  },
+  {
+    "transaction_id": "TXN-LITE-0265",
+    "timestamp": "2026-04-08 00:57:20",
+    "sku": "SKU-LITE-075",
+    "quantity": 3,
+    "unit_price": 7122.27,
+    "total_price": 21366.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0265",
+    "timestamp": "2026-04-08 00:57:20",
+    "sku": "SKU-LITE-014",
+    "quantity": 3,
+    "unit_price": 228.22,
+    "total_price": 684.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0266",
+    "timestamp": "2026-04-07 23:06:37",
+    "sku": "SKU-LITE-023",
+    "quantity": 2,
+    "unit_price": 152.9,
+    "total_price": 305.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0266",
+    "timestamp": "2026-04-07 23:06:37",
+    "sku": "SKU-LITE-031",
+    "quantity": 3,
+    "unit_price": 81.12,
+    "total_price": 243.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0267",
+    "timestamp": "2026-04-19 09:32:25",
+    "sku": "SKU-LITE-019",
+    "quantity": 2,
+    "unit_price": 79.97,
+    "total_price": 159.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0268",
+    "timestamp": "2026-04-13 12:41:30",
+    "sku": "SKU-LITE-076",
+    "quantity": 1,
+    "unit_price": 6638.78,
+    "total_price": 6638.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0269",
+    "timestamp": "2026-04-30 16:15:26",
+    "sku": "SKU-LITE-070",
+    "quantity": 1,
+    "unit_price": 36.73,
+    "total_price": 36.73
+  },
+  {
+    "transaction_id": "TXN-LITE-0269",
+    "timestamp": "2026-04-30 16:15:26",
+    "sku": "SKU-LITE-081",
+    "quantity": 3,
+    "unit_price": 620.33,
+    "total_price": 1860.99
+  },
+  {
+    "transaction_id": "TXN-LITE-0270",
+    "timestamp": "2026-04-26 09:10:52",
+    "sku": "SKU-LITE-085",
+    "quantity": 1,
+    "unit_price": 204.53,
+    "total_price": 204.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0270",
+    "timestamp": "2026-04-26 09:10:52",
+    "sku": "SKU-LITE-097",
+    "quantity": 2,
+    "unit_price": 64.2,
+    "total_price": 128.4
+  },
+  {
+    "transaction_id": "TXN-LITE-0271",
+    "timestamp": "2026-04-14 03:03:05",
+    "sku": "SKU-LITE-050",
+    "quantity": 3,
+    "unit_price": 245.49,
+    "total_price": 736.47
+  },
+  {
+    "transaction_id": "TXN-LITE-0271",
+    "timestamp": "2026-04-14 03:03:05",
+    "sku": "SKU-LITE-017",
+    "quantity": 2,
+    "unit_price": 191.97,
+    "total_price": 383.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0271",
+    "timestamp": "2026-04-14 03:03:05",
+    "sku": "SKU-LITE-044",
+    "quantity": 1,
+    "unit_price": 50.83,
+    "total_price": 50.83
+  },
+  {
+    "transaction_id": "TXN-LITE-0272",
+    "timestamp": "2026-04-28 13:29:06",
+    "sku": "SKU-LITE-072",
+    "quantity": 1,
+    "unit_price": 1829.11,
+    "total_price": 1829.11
+  },
+  {
+    "transaction_id": "TXN-LITE-0272",
+    "timestamp": "2026-04-28 13:29:06",
+    "sku": "SKU-LITE-092",
+    "quantity": 1,
+    "unit_price": 493.63,
+    "total_price": 493.63
+  },
+  {
+    "transaction_id": "TXN-LITE-0272",
+    "timestamp": "2026-04-28 13:29:06",
+    "sku": "SKU-LITE-051",
+    "quantity": 1,
+    "unit_price": 234.93,
+    "total_price": 234.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0273",
+    "timestamp": "2026-04-18 02:43:16",
+    "sku": "SKU-LITE-005",
+    "quantity": 2,
+    "unit_price": 153.02,
+    "total_price": 306.04
+  },
+  {
+    "transaction_id": "TXN-LITE-0273",
+    "timestamp": "2026-04-18 02:43:16",
+    "sku": "SKU-LITE-031",
+    "quantity": 3,
+    "unit_price": 81.12,
+    "total_price": 243.36
+  },
+  {
+    "transaction_id": "TXN-LITE-0273",
+    "timestamp": "2026-04-18 02:43:16",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0274",
+    "timestamp": "2026-04-15 02:45:55",
+    "sku": "SKU-LITE-086",
+    "quantity": 1,
+    "unit_price": 474.42,
+    "total_price": 474.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0274",
+    "timestamp": "2026-04-15 02:45:55",
+    "sku": "SKU-LITE-053",
+    "quantity": 3,
+    "unit_price": 344.83,
+    "total_price": 1034.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0274",
+    "timestamp": "2026-04-15 02:45:55",
+    "sku": "SKU-LITE-002",
+    "quantity": 3,
+    "unit_price": 163.73,
+    "total_price": 491.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0275",
+    "timestamp": "2026-04-06 02:30:50",
+    "sku": "SKU-LITE-025",
+    "quantity": 1,
+    "unit_price": 51.56,
+    "total_price": 51.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0275",
+    "timestamp": "2026-04-06 02:30:50",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0276",
+    "timestamp": "2026-04-15 03:19:53",
+    "sku": "SKU-LITE-050",
+    "quantity": 3,
+    "unit_price": 245.49,
+    "total_price": 736.47
+  },
+  {
+    "transaction_id": "TXN-LITE-0277",
+    "timestamp": "2026-04-24 16:16:01",
+    "sku": "SKU-LITE-013",
+    "quantity": 1,
+    "unit_price": 12.58,
+    "total_price": 12.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0278",
+    "timestamp": "2026-04-23 21:18:59",
+    "sku": "SKU-LITE-073",
+    "quantity": 3,
+    "unit_price": 6769.83,
+    "total_price": 20309.49
+  },
+  {
+    "transaction_id": "TXN-LITE-0278",
+    "timestamp": "2026-04-23 21:18:59",
+    "sku": "SKU-LITE-082",
+    "quantity": 2,
+    "unit_price": 89.07,
+    "total_price": 178.14
+  },
+  {
+    "transaction_id": "TXN-LITE-0279",
+    "timestamp": "2026-05-02 14:26:42",
+    "sku": "SKU-LITE-075",
+    "quantity": 3,
+    "unit_price": 7122.27,
+    "total_price": 21366.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0279",
+    "timestamp": "2026-05-02 14:26:42",
+    "sku": "SKU-LITE-083",
+    "quantity": 1,
+    "unit_price": 437.19,
+    "total_price": 437.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0279",
+    "timestamp": "2026-05-02 14:26:42",
+    "sku": "SKU-LITE-003",
+    "quantity": 2,
+    "unit_price": 173.15,
+    "total_price": 346.3
+  },
+  {
+    "transaction_id": "TXN-LITE-0279",
+    "timestamp": "2026-05-02 14:26:42",
+    "sku": "SKU-LITE-066",
+    "quantity": 3,
+    "unit_price": 55.3,
+    "total_price": 165.9
+  },
+  {
+    "transaction_id": "TXN-LITE-0280",
+    "timestamp": "2026-04-29 21:56:44",
+    "sku": "SKU-LITE-070",
+    "quantity": 3,
+    "unit_price": 36.73,
+    "total_price": 110.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0281",
+    "timestamp": "2026-04-27 14:34:07",
+    "sku": "SKU-LITE-052",
+    "quantity": 2,
+    "unit_price": 298.81,
+    "total_price": 597.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0281",
+    "timestamp": "2026-04-27 14:34:07",
+    "sku": "SKU-LITE-059",
+    "quantity": 1,
+    "unit_price": 147.53,
+    "total_price": 147.53
+  },
+  {
+    "transaction_id": "TXN-LITE-0281",
+    "timestamp": "2026-04-27 14:34:07",
+    "sku": "SKU-LITE-078",
+    "quantity": 1,
+    "unit_price": 2806.72,
+    "total_price": 2806.72
+  },
+  {
+    "transaction_id": "TXN-LITE-0282",
+    "timestamp": "2026-04-23 02:55:20",
+    "sku": "SKU-LITE-100",
+    "quantity": 1,
+    "unit_price": 1595.75,
+    "total_price": 1595.75
+  },
+  {
+    "transaction_id": "TXN-LITE-0282",
+    "timestamp": "2026-04-23 02:55:20",
+    "sku": "SKU-LITE-012",
+    "quantity": 3,
+    "unit_price": 440.29,
+    "total_price": 1320.87
+  },
+  {
+    "transaction_id": "TXN-LITE-0282",
+    "timestamp": "2026-04-23 02:55:20",
+    "sku": "SKU-LITE-080",
+    "quantity": 1,
+    "unit_price": 296.55,
+    "total_price": 296.55
+  },
+  {
+    "transaction_id": "TXN-LITE-0283",
+    "timestamp": "2026-04-28 02:31:25",
+    "sku": "SKU-LITE-075",
+    "quantity": 2,
+    "unit_price": 7122.27,
+    "total_price": 14244.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0284",
+    "timestamp": "2026-04-20 20:25:57",
+    "sku": "SKU-LITE-048",
+    "quantity": 1,
+    "unit_price": 116.28,
+    "total_price": 116.28
+  },
+  {
+    "transaction_id": "TXN-LITE-0285",
+    "timestamp": "2026-04-12 15:51:37",
+    "sku": "SKU-LITE-021",
+    "quantity": 1,
+    "unit_price": 145.71,
+    "total_price": 145.71
+  },
+  {
+    "transaction_id": "TXN-LITE-0285",
+    "timestamp": "2026-04-12 15:51:37",
+    "sku": "SKU-LITE-026",
+    "quantity": 3,
+    "unit_price": 131.86,
+    "total_price": 395.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0286",
+    "timestamp": "2026-04-07 23:41:52",
+    "sku": "SKU-LITE-049",
+    "quantity": 2,
+    "unit_price": 286.61,
+    "total_price": 573.22
+  },
+  {
+    "transaction_id": "TXN-LITE-0287",
+    "timestamp": "2026-05-03 10:26:04",
+    "sku": "SKU-LITE-032",
+    "quantity": 3,
+    "unit_price": 142.31,
+    "total_price": 426.93
+  },
+  {
+    "transaction_id": "TXN-LITE-0287",
+    "timestamp": "2026-05-03 10:26:04",
+    "sku": "SKU-LITE-060",
+    "quantity": 2,
+    "unit_price": 330.4,
+    "total_price": 660.8
+  },
+  {
+    "transaction_id": "TXN-LITE-0287",
+    "timestamp": "2026-05-03 10:26:04",
+    "sku": "SKU-LITE-018",
+    "quantity": 1,
+    "unit_price": 268.58,
+    "total_price": 268.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0287",
+    "timestamp": "2026-05-03 10:26:04",
+    "sku": "SKU-LITE-099",
+    "quantity": 2,
+    "unit_price": 57.16,
+    "total_price": 114.32
+  },
+  {
+    "transaction_id": "TXN-LITE-0288",
+    "timestamp": "2026-04-13 13:28:45",
+    "sku": "SKU-LITE-041",
+    "quantity": 2,
+    "unit_price": 154.33,
+    "total_price": 308.66
+  },
+  {
+    "transaction_id": "TXN-LITE-0288",
+    "timestamp": "2026-04-13 13:28:45",
+    "sku": "SKU-LITE-001",
+    "quantity": 1,
+    "unit_price": 65.62,
+    "total_price": 65.62
+  },
+  {
+    "transaction_id": "TXN-LITE-0289",
+    "timestamp": "2026-04-07 17:17:43",
+    "sku": "SKU-LITE-055",
+    "quantity": 3,
+    "unit_price": 452.28,
+    "total_price": 1356.84
+  },
+  {
+    "transaction_id": "TXN-LITE-0289",
+    "timestamp": "2026-04-07 17:17:43",
+    "sku": "SKU-LITE-084",
+    "quantity": 2,
+    "unit_price": 417.34,
+    "total_price": 834.68
+  },
+  {
+    "transaction_id": "TXN-LITE-0289",
+    "timestamp": "2026-04-07 17:17:43",
+    "sku": "SKU-LITE-025",
+    "quantity": 1,
+    "unit_price": 51.56,
+    "total_price": 51.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0290",
+    "timestamp": "2026-04-19 15:22:38",
+    "sku": "SKU-LITE-033",
+    "quantity": 1,
+    "unit_price": 167.08,
+    "total_price": 167.08
+  },
+  {
+    "transaction_id": "TXN-LITE-0290",
+    "timestamp": "2026-04-19 15:22:38",
+    "sku": "SKU-LITE-064",
+    "quantity": 1,
+    "unit_price": 50.85,
+    "total_price": 50.85
+  },
+  {
+    "transaction_id": "TXN-LITE-0290",
+    "timestamp": "2026-04-19 15:22:38",
+    "sku": "SKU-LITE-009",
+    "quantity": 1,
+    "unit_price": 368.58,
+    "total_price": 368.58
+  },
+  {
+    "transaction_id": "TXN-LITE-0291",
+    "timestamp": "2026-04-07 12:46:12",
+    "sku": "SKU-LITE-029",
+    "quantity": 2,
+    "unit_price": 175.55,
+    "total_price": 351.1
+  },
+  {
+    "transaction_id": "TXN-LITE-0291",
+    "timestamp": "2026-04-07 12:46:12",
+    "sku": "SKU-LITE-010",
+    "quantity": 3,
+    "unit_price": 413.79,
+    "total_price": 1241.37
+  },
+  {
+    "transaction_id": "TXN-LITE-0291",
+    "timestamp": "2026-04-07 12:46:12",
+    "sku": "SKU-LITE-061",
+    "quantity": 2,
+    "unit_price": 109.17,
+    "total_price": 218.34
+  },
+  {
+    "transaction_id": "TXN-LITE-0291",
+    "timestamp": "2026-04-07 12:46:12",
+    "sku": "SKU-LITE-094",
+    "quantity": 2,
+    "unit_price": 238.39,
+    "total_price": 476.78
+  },
+  {
+    "transaction_id": "TXN-LITE-0292",
+    "timestamp": "2026-04-10 09:43:03",
+    "sku": "SKU-LITE-062",
+    "quantity": 3,
+    "unit_price": 50.09,
+    "total_price": 150.27
+  },
+  {
+    "transaction_id": "TXN-LITE-0292",
+    "timestamp": "2026-04-10 09:43:03",
+    "sku": "SKU-LITE-034",
+    "quantity": 1,
+    "unit_price": 167.25,
+    "total_price": 167.25
+  },
+  {
+    "transaction_id": "TXN-LITE-0293",
+    "timestamp": "2026-04-05 02:49:03",
+    "sku": "SKU-LITE-098",
+    "quantity": 3,
+    "unit_price": 245.35,
+    "total_price": 736.05
+  },
+  {
+    "transaction_id": "TXN-LITE-0293",
+    "timestamp": "2026-04-05 02:49:03",
+    "sku": "SKU-LITE-096",
+    "quantity": 3,
+    "unit_price": 352.89,
+    "total_price": 1058.67
+  },
+  {
+    "transaction_id": "TXN-LITE-0293",
+    "timestamp": "2026-04-05 02:49:03",
+    "sku": "SKU-LITE-100",
+    "quantity": 2,
+    "unit_price": 1595.75,
+    "total_price": 3191.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0293",
+    "timestamp": "2026-04-05 02:49:03",
+    "sku": "SKU-LITE-077",
+    "quantity": 1,
+    "unit_price": 2070.81,
+    "total_price": 2070.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0294",
+    "timestamp": "2026-04-26 08:06:00",
+    "sku": "SKU-LITE-028",
+    "quantity": 2,
+    "unit_price": 128.21,
+    "total_price": 256.42
+  },
+  {
+    "transaction_id": "TXN-LITE-0294",
+    "timestamp": "2026-04-26 08:06:00",
+    "sku": "SKU-LITE-052",
+    "quantity": 1,
+    "unit_price": 298.81,
+    "total_price": 298.81
+  },
+  {
+    "transaction_id": "TXN-LITE-0294",
+    "timestamp": "2026-04-26 08:06:00",
+    "sku": "SKU-LITE-098",
+    "quantity": 2,
+    "unit_price": 245.35,
+    "total_price": 490.7
+  },
+  {
+    "transaction_id": "TXN-LITE-0294",
+    "timestamp": "2026-04-26 08:06:00",
+    "sku": "SKU-LITE-002",
+    "quantity": 3,
+    "unit_price": 163.73,
+    "total_price": 491.19
+  },
+  {
+    "transaction_id": "TXN-LITE-0295",
+    "timestamp": "2026-05-02 09:14:26",
+    "sku": "SKU-LITE-045",
+    "quantity": 1,
+    "unit_price": 126.54,
+    "total_price": 126.54
+  },
+  {
+    "transaction_id": "TXN-LITE-0295",
+    "timestamp": "2026-05-02 09:14:26",
+    "sku": "SKU-LITE-074",
+    "quantity": 1,
+    "unit_price": 3106.45,
+    "total_price": 3106.45
+  },
+  {
+    "transaction_id": "TXN-LITE-0296",
+    "timestamp": "2026-05-01 14:00:25",
+    "sku": "SKU-LITE-037",
+    "quantity": 1,
+    "unit_price": 155.2,
+    "total_price": 155.2
+  },
+  {
+    "transaction_id": "TXN-LITE-0297",
+    "timestamp": "2026-04-08 16:09:21",
+    "sku": "SKU-LITE-034",
+    "quantity": 2,
+    "unit_price": 167.25,
+    "total_price": 334.5
+  },
+  {
+    "transaction_id": "TXN-LITE-0298",
+    "timestamp": "2026-04-09 06:55:02",
+    "sku": "SKU-LITE-096",
+    "quantity": 1,
+    "unit_price": 352.89,
+    "total_price": 352.89
+  },
+  {
+    "transaction_id": "TXN-LITE-0299",
+    "timestamp": "2026-04-16 10:44:16",
+    "sku": "SKU-LITE-027",
+    "quantity": 2,
+    "unit_price": 54.78,
+    "total_price": 109.56
+  },
+  {
+    "transaction_id": "TXN-LITE-0299",
+    "timestamp": "2026-04-16 10:44:16",
+    "sku": "SKU-LITE-042",
+    "quantity": 3,
+    "unit_price": 157.19,
+    "total_price": 471.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0299",
+    "timestamp": "2026-04-16 10:44:16",
+    "sku": "SKU-LITE-017",
+    "quantity": 2,
+    "unit_price": 191.97,
+    "total_price": 383.94
+  },
+  {
+    "transaction_id": "TXN-LITE-0299",
+    "timestamp": "2026-04-16 10:44:16",
+    "sku": "SKU-LITE-038",
+    "quantity": 3,
+    "unit_price": 14.19,
+    "total_price": 42.57
+  },
+  {
+    "transaction_id": "TXN-LITE-0300",
+    "timestamp": "2026-04-11 19:46:11",
+    "sku": "SKU-LITE-033",
+    "quantity": 3,
+    "unit_price": 167.08,
+    "total_price": 501.24
+  },
+  {
+    "transaction_id": "TXN-LITE-0300",
+    "timestamp": "2026-04-11 19:46:11",
+    "sku": "SKU-LITE-048",
+    "quantity": 3,
+    "unit_price": 116.28,
+    "total_price": 348.84
+  }
+]
