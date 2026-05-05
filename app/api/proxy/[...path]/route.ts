@@ -1,46 +1,49 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "";
+const BACKEND = process.env.NEXT_PUBLIC_API_BASE ?? "";
 
-async function handler(req: NextRequest, { params }: { params: Promise<{ path: string[] }> }) {
+// Skip headers that must not be forwarded to the upstream server
+const SKIP_REQ = new Set(["host", "connection", "transfer-encoding", "content-length"]);
+const SKIP_RES = new Set(["transfer-encoding", "connection"]);
+
+async function handler(
+  req: NextRequest,
+  { params }: { params: Promise<{ path: string[] }> },
+) {
   const { path } = await params;
-  const targetUrl = `${API_BASE}/${path.join("/")}${req.nextUrl.search}`;
+  const targetUrl = `${BACKEND}/${path.join("/")}${req.nextUrl.search}`;
 
   const headers = new Headers();
   req.headers.forEach((value, key) => {
-    // Skip headers that should not be forwarded
-    if (!["host", "connection", "transfer-encoding"].includes(key.toLowerCase())) {
-      headers.set(key, value);
-    }
+    if (!SKIP_REQ.has(key.toLowerCase())) headers.set(key, value);
   });
 
-  const isFormData = req.headers.get("content-type")?.includes("multipart/form-data");
+  let upstream: Response;
+  try {
+    upstream = await fetch(targetUrl, {
+      method: req.method,
+      headers,
+      // Pass the raw body stream — preserves multipart boundaries intact
+      body: req.method === "GET" || req.method === "HEAD" ? undefined : req.body,
+      // Required for streaming request bodies in Node fetch
+      // @ts-expect-error — duplex is valid in Node 18 fetch
+      duplex: "half",
+    });
+  } catch (err) {
+    return NextResponse.json(
+      { detail: `Proxy error: ${(err as Error).message}` },
+      { status: 502 },
+    );
+  }
 
-  const body =
-    req.method === "GET" || req.method === "HEAD"
-      ? undefined
-      : isFormData
-        ? await req.blob()
-        : await req.arrayBuffer();
-
-  const upstream = await fetch(targetUrl, {
-    method: req.method,
-    headers,
-    body: body as BodyInit | undefined,
-    // @ts-expect-error — Node fetch supports duplex
-    duplex: "half",
-  });
-
-  const responseHeaders = new Headers();
+  const resHeaders = new Headers();
   upstream.headers.forEach((value, key) => {
-    if (!["transfer-encoding", "connection"].includes(key.toLowerCase())) {
-      responseHeaders.set(key, value);
-    }
+    if (!SKIP_RES.has(key.toLowerCase())) resHeaders.set(key, value);
   });
 
   return new NextResponse(upstream.body, {
     status: upstream.status,
-    headers: responseHeaders,
+    headers: resHeaders,
   });
 }
 
@@ -50,3 +53,8 @@ export const PUT     = handler;
 export const PATCH   = handler;
 export const DELETE  = handler;
 export const OPTIONS = handler;
+
+// Allow large file uploads (no default 4MB body size limit)
+export const config = {
+  api: { bodyParser: false },
+};

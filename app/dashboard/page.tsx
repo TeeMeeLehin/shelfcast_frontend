@@ -204,14 +204,12 @@ export default function CommandCenter() {
   }), [rows, search, filterCategory, filterAlert]);
 
   // KPI values: use API summary when in live mode, derive from demo data otherwise
-  const alertCount    = summary ? summary.active_alerts    : rows.filter(r => r.alert === "Demand Spike" || r.alert === "Low Stock").length;
-  const highSignal    = summary ? summary.high_signal_products : rows.filter(r => r.score >= 70).length;
-  const capitalAtRisk = summary ? summary.capital_at_risk_ghs  : inventory
+  const alertCount      = (summary?.active_alerts      ?? rows.filter(r => r.alert === "Demand Spike" || r.alert === "Low Stock").length) ?? 0;
+  const highSignal      = (summary?.high_signal_products ?? rows.filter(r => r.score >= 70).length) ?? 0;
+  const capitalAtRisk   = (summary?.capital_at_risk_ghs  ?? inventory
     .filter(i => rows.find(r => r.sku === i.sku && (r.alert === "Demand Spike" || r.alert === "Low Stock")))
-    .reduce((s, i) => s + i.unit_price_ghs * i.current_stock, 0);
-  const productsTracked = summary ? summary.products_tracked : rows.length;
-
-  const revenueChange = 20500;
+    .reduce((s, i) => s + i.unit_price_ghs * i.current_stock, 0)) ?? 0;
+  const productsTracked = (summary?.products_tracked ?? rows.length) ?? 0;
 
   const selectStyle: React.CSSProperties = {
     border: `1px solid ${C.border}`, borderRadius: 6, padding: "8px 12px",
@@ -252,10 +250,10 @@ export default function CommandCenter() {
 
       {/* KPIs */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 18 }}>
-        <KpiCard title="Active Alerts"        value={String(alertCount)}  label={`${rows.filter(r=>r.alert==="Demand Spike").length} demand spikes`} accent={C.red} />
-        <KpiCard title="High Signal Products" value={String(highSignal)}  label="Score above 70"            accent={C.green} />
-        <KpiCard title="Products Tracked"     value="1,247"               label="Across 12 categories"      accent={C.green} />
-        <KpiCard title="Capital at Risk"      value="GHS 43,000.00"       accent={C.red} compact />
+        <KpiCard title="Active Alerts"        value={String(alertCount)}     label={`${rows.filter(r=>r.alert==="Demand Spike").length} demand spikes`} accent={C.red} />
+        <KpiCard title="High Signal Products" value={String(highSignal)}    label="Score above 70"           accent={C.green} />
+        <KpiCard title="Products Tracked"     value={String(productsTracked)} label="Across your categories" accent={C.green} />
+        <KpiCard title="Capital at Risk"      value={capitalAtRisk > 0 ? `GHS ${capitalAtRisk.toLocaleString("en-GH", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "0"} accent={C.red} compact />
       </div>
 
       {/* Alert banners */}
@@ -332,7 +330,9 @@ export default function CommandCenter() {
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "6px 12px", textAlign: "center" }}><ScoreRing score={row.score} /></td>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", textAlign: "center" }}><TrendCell trend={row.trend} /></td>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px" }}><AlertPill label={row.alert} /></td>
-              <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 13, fontWeight: 600, color: row.stock < 20 ? C.red : C.ink, fontFamily: "Gilroy, system-ui, sans-serif" }}>{row.stock} pcs</td>
+              <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 13, fontWeight: 600, color: row.stock > 0 && row.stock < 20 ? C.red : C.ink, fontFamily: "Gilroy, system-ui, sans-serif" }}>
+                {row.stock > 0 ? `${row.stock} pcs` : "—"}
+              </td>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 12.5, color: C.sub, fontFamily: "Gilroy, system-ui, sans-serif", lineHeight: 1.5, wordBreak: "break-word" as const }}>{row.advice}</td>
               <td style={{ borderBottom: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`, padding: "10px 12px", fontSize: 12.5, color: C.sub, fontFamily: "Gilroy, system-ui, sans-serif", lineHeight: 1.5, wordBreak: "break-word" as const }}>{row.insight || "—"}</td>
               <td style={{ borderBottom: `1px solid ${C.border}`, padding: "10px 12px", textAlign: "center" }}>
