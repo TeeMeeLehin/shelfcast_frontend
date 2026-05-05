@@ -43,8 +43,9 @@ const BG: React.CSSProperties = {
 const CARD: React.CSSProperties = {
   background: "#fff",
   borderRadius: 12,
-  padding: "40px 36px",
-  width: 480,
+  padding: "24px 28px",
+  width: 400,
+  maxWidth: "100%",
   boxShadow: "0 8px 48px rgba(0,0,0,0.18)",
   flexShrink: 0,
 };
@@ -53,7 +54,7 @@ const INPUT: React.CSSProperties = {
   width: "100%",
   border: "1.5px solid #C0C0C0",
   borderRadius: 8,
-  padding: "13px 14px",
+  padding: "10px 14px",
   fontFamily: "'Gilroy',sans-serif",
   fontSize: 14,
   color: "#0a0a0a",
@@ -67,10 +68,10 @@ const BTN: React.CSSProperties = {
   color: "#0D1F0D",
   border: "none",
   borderRadius: 10,
-  padding: "12px 24px",
+  padding: "10px 20px",
   fontFamily: "'Gilroy',sans-serif",
   fontWeight: 600,
-  fontSize: 15,
+  fontSize: 14,
   cursor: "pointer",
   display: "flex",
   alignItems: "center",
@@ -135,16 +136,14 @@ function Step1({ onNext, onSwitchToLogin }: { onNext: () => void; onSwitchToLogi
         body: JSON.stringify({ email, password }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        console.error("Sign up failed:", data);
+        await res.json().catch(() => null);
         setError(friendlyError(res.status, "signup"));
         return;
       }
       const { access_token } = await res.json();
       localStorage.setItem("sc_token", access_token);
       onNext();
-    } catch (err) {
-      console.error("Sign up network error:", err);
+    } catch {
       setError("We couldn't reach the server. Kindly check your connection and try again.");
     } finally {
       setLoading(false);
@@ -164,10 +163,10 @@ function Step1({ onNext, onSwitchToLogin }: { onNext: () => void; onSwitchToLogi
 
         {/* card */}
         <div style={CARD}>
-          <h2 style={{ fontFamily: "'ESKlarheit',sans-serif", fontSize: 26, color: "#0D1F0D", margin: 0, marginBottom: 6 }}>
+          <h2 style={{ fontFamily: "'ESKlarheit',sans-serif", fontSize: 22, color: "#0D1F0D", margin: 0, marginBottom: 4 }}>
             Let&apos;s get you started
           </h2>
-          <p style={{ fontFamily: "'Gilroy',sans-serif", fontSize: 14, color: "#666", margin: 0, marginBottom: 28 }}>
+          <p style={{ fontFamily: "'Gilroy',sans-serif", fontSize: 13, color: "#666", margin: 0, marginBottom: 18 }}>
             Securely create your account in seconds
           </p>
 
@@ -178,7 +177,7 @@ function Step1({ onNext, onSwitchToLogin }: { onNext: () => void; onSwitchToLogi
           )}
 
           {/* Email */}
-          <div style={{ marginBottom: 18 }}>
+          <div style={{ marginBottom: 12 }}>
             <label style={LABEL}>Email</label>
             <input
               type="email"
@@ -190,7 +189,7 @@ function Step1({ onNext, onSwitchToLogin }: { onNext: () => void; onSwitchToLogi
           </div>
 
           {/* Password full-width */}
-          <div style={{ marginBottom: 24, position: "relative" }}>
+          <div style={{ marginBottom: 16, position: "relative" }}>
             <label style={LABEL}>Password</label>
             <input
               type={showPw ? "text" : "password"}
@@ -218,7 +217,7 @@ function Step1({ onNext, onSwitchToLogin }: { onNext: () => void; onSwitchToLogi
             <ArrowRight size={18} weight="bold" />
           </button>
 
-          <p style={{ fontFamily: "'Gilroy',sans-serif", fontSize: 13, color: "#666", textAlign: "center", margin: 0, marginBottom: 20 }}>
+          <p style={{ fontFamily: "'Gilroy',sans-serif", fontSize: 13, color: "#666", textAlign: "center", margin: 0, marginBottom: 14 }}>
             Already have an account?{" "}
             <span onClick={onSwitchToLogin} style={{ color: "#E8A205", cursor: "pointer", fontWeight: 600 }}>Sign in</span>
           </p>
@@ -276,15 +275,19 @@ function Step2({ onNext }: { onNext: () => void }) {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        console.error("Onboarding failed:", data);
-        setError(friendlyError(res.status, "onboarding"));
-        return;
+        const detail = (data as { detail?: string }).detail;
+        void detail;
+        // Non-fatal — preferences couldn't be saved server-side but the account
+        // is already created. Proceed so the user isn't blocked.
       }
       localStorage.setItem("sc_onboarded", "true");
+      localStorage.setItem("sc_retailer_name", retailerName);
       onNext();
     } catch (err) {
-      console.error("Onboarding network error:", err);
-      setError("We couldn't reach the server. Kindly check your connection and try again.");
+      // Still proceed — don't block the user over a preference step
+      localStorage.setItem("sc_onboarded", "true");
+      localStorage.setItem("sc_retailer_name", retailerName);
+      onNext();
     } finally {
       setLoading(false);
     }
@@ -525,16 +528,15 @@ function SignIn({ onSwitch }: { onSwitch: () => void }) {
         body: JSON.stringify({ email, password }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        console.error("Sign in failed:", data);
+        await res.json().catch(() => null);
         setError(friendlyError(res.status, "login"));
         return;
       }
       const { access_token } = await res.json();
       localStorage.setItem("sc_token", access_token);
+      localStorage.setItem("sc_onboarded", "true");
       window.location.href = "/dashboard/register";
-    } catch (err) {
-      console.error("Sign in network error:", err);
+    } catch {
       setError("We couldn't reach the server. Kindly check your connection and try again.");
     } finally {
       setLoading(false);
@@ -543,7 +545,7 @@ function SignIn({ onSwitch }: { onSwitch: () => void }) {
 
   return (
     <div style={{ ...BG, justifyContent: "center" }}>
-      <div style={{ ...CARD, width: 520, padding: "48px 44px" }}>
+      <div style={{ ...CARD, width: 420, padding: "36px 32px" }}>
         <h2 style={{ fontFamily: "'ESKlarheit',sans-serif", fontSize: 28, color: "#0D1F0D", margin: 0, marginBottom: 6 }}>
           Sign in
         </h2>
@@ -625,6 +627,18 @@ function AuthPageInner() {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) {
+          if (res.status >= 500) {
+            // Backend error — keep the token, use localStorage state to decide
+            const onboarded = localStorage.getItem("sc_onboarded");
+            if (onboarded) {
+              window.location.href = "/dashboard";
+            } else {
+              setStep(1);
+              setResuming(false);
+            }
+            return;
+          }
+          // 401/403 — token invalid, clear and show login
           localStorage.removeItem("sc_token");
           localStorage.removeItem("sc_onboarded");
           setResuming(false);
@@ -643,6 +657,12 @@ function AuthPageInner() {
           setStep(1);
         }
       } catch {
+        // Network error — if we have a token, let them in; don't strand them on the auth page
+        const onboarded = localStorage.getItem("sc_onboarded");
+        if (onboarded) {
+          window.location.href = "/dashboard";
+          return;
+        }
         setResuming(false);
         return;
       }

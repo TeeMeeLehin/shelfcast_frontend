@@ -6,11 +6,13 @@ import Button from "../components/Button";
 import {
   fetchInventory,
   fetchDemandSignals,
+  fetchDashboardOpportunities,
   hasAnyActiveBatch,
   type InventoryItem,
   type DemandAlert,
   type DemandSignals,
 } from "@/lib/store";
+import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 
@@ -148,14 +150,57 @@ export default function OpportunitiesPage() {
   const [noBatch, setNoBatch] = useState(false);
 
   useEffect(() => {
-    if (!hasAnyActiveBatch()) { setNoBatch(true); setLoading(false); return; }
-    Promise.all([fetchInventory(), fetchDemandSignals()]).then(([inv, signals]) => {
-      const { stockNow, maybe, avoid } = buildOpportunities(inv, signals);
-      setStockNow(stockNow);
-      setMaybe(maybe);
-      setAvoid(avoid);
-      setLoading(false);
-    });
+    if (DEMO_MODE) {
+      if (!hasAnyActiveBatch()) { setNoBatch(true); setLoading(false); return; }
+      Promise.all([fetchInventory(), fetchDemandSignals()]).then(([inv, signals]) => {
+        const { stockNow, maybe, avoid } = buildOpportunities(inv, signals);
+        setStockNow(stockNow);
+        setMaybe(maybe);
+        setAvoid(avoid);
+        setLoading(false);
+      });
+    } else {
+      fetchDashboardOpportunities()
+        .then(items => {
+          const sn: StockNowItem[] = [];
+          const mb: MaybeItem[] = [];
+          const av: AvoidItem[] = [];
+          for (const item of items) {
+            const trendPct = `${item.trend_pct >= 0 ? "+" : ""}${Math.round(item.trend_pct)}%`;
+            if (item.action === "buy") {
+              if (item.confidence >= 75) {
+                sn.push({
+                  sku: item.sku, product: item.product_name, category: item.category,
+                  confidence: Math.round(item.confidence), trendPct,
+                  why: item.reason, signal: "AI signal",
+                });
+              } else {
+                mb.push({
+                  sku: item.sku, product: item.product_name, category: item.category,
+                  confidence: Math.round(item.confidence), trendPct, why: item.reason,
+                  caution: "Monitor before committing to a large order.",
+                  signal: "AI signal",
+                });
+              }
+            } else {
+              av.push({
+                sku: item.sku, product: item.product_name, category: item.category,
+                stock: 0, why: item.reason,
+                recommendation: item.reason,
+              });
+            }
+          }
+          if (sn.length === 0 && mb.length === 0 && av.length === 0) {
+            setNoBatch(true);
+          } else {
+            setStockNow(sn);
+            setMaybe(mb);
+            setAvoid(av);
+          }
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    }
   }, []);
 
   if (loading) return (

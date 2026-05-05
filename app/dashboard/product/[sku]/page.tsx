@@ -5,9 +5,13 @@ import { ArrowLeft } from "@phosphor-icons/react";
 import {
   fetchInventory,
   fetchDemandSignals,
+  fetchCatalogueApi,
+  fetchRootCause,
   type InventoryItem,
   type DemandAlert,
+  type RootCause,
 } from "@/lib/store";
+import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 
@@ -90,6 +94,7 @@ type ProductData = {
   score: number;
   trend: string;
   alertLabel: string;
+  rootCause?: RootCause;
 };
 
 export default function ProductPage() {
@@ -100,20 +105,52 @@ export default function ProductPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([fetchInventory(), fetchDemandSignals()]).then(([inv, signals]) => {
-      const item = inv.find(i => i.sku === sku);
-      if (!item) { setLoading(false); return; }
-      const alertedSkus = new Set<string>(signals.composite_demand_alerts.flatMap(a => a.affected_skus));
-      const alert = signals.composite_demand_alerts.find(a => a.affected_skus.includes(sku)) ?? null;
-      setData({
-        item,
-        alert,
-        score: deriveScore(item, alertedSkus),
-        trend: deriveTrend(item, alertedSkus),
-        alertLabel: deriveAlert(item, alertedSkus),
+    if (DEMO_MODE) {
+      Promise.all([fetchInventory(), fetchDemandSignals()]).then(([inv, signals]) => {
+        const item = inv.find(i => i.sku === sku);
+        if (!item) { setLoading(false); return; }
+        const alertedSkus = new Set<string>(signals.composite_demand_alerts.flatMap(a => a.affected_skus));
+        const alert = signals.composite_demand_alerts.find(a => a.affected_skus.includes(sku)) ?? null;
+        setData({
+          item, alert,
+          score: deriveScore(item, alertedSkus),
+          trend: deriveTrend(item, alertedSkus),
+          alertLabel: deriveAlert(item, alertedSkus),
+        });
+        setLoading(false);
       });
-      setLoading(false);
-    });
+    } else {
+      // In live mode: look up the product by sku, get sku_id, then fetch root cause
+      fetchCatalogueApi({ search: sku, limit: 5 })
+        .then(async ({ items }) => {
+          const match = items.find(i => i.sku === sku) ?? items[0];
+          if (!match) { setLoading(false); return; }
+
+          const item: InventoryItem = {
+            sku: match.sku,
+            product_name: match.product_name,
+            category: match.category,
+            unit_price_ghs: match.unit_price_ghs,
+            current_stock: match.current_stock,
+          };
+
+          let rootCause: RootCause | undefined;
+          try {
+            rootCause = await fetchRootCause(match.sku_id);
+          } catch {
+            // root cause may not be available for all skus
+          }
+
+          const score = rootCause?.score ?? match.score ?? 60;
+          const trendPct = rootCause?.trend_pct ?? match.trend_pct ?? 0;
+          const trend = `${trendPct >= 0 ? "+" : ""}${Math.round(trendPct)}%`;
+          const alertLabel = rootCause?.alert_type ?? match.alert_type ?? "Stable";
+
+          setData({ item, alert: null, score, trend, alertLabel, rootCause });
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    }
   }, [sku]);
 
   if (loading) {
@@ -129,28 +166,36 @@ export default function ProductPage() {
     );
   }
 
-  const { item, alert, score, trend, alertLabel } = data;
-  const isSpike = alertLabel === "Demand Spike";
+  const { item, alert, score, trend, alertLabel, rootCause } = data;
+  const isSpike = alertLabel === "Demand Spike" || alertLabel === "demand_spike";
   const trendUp = trend.startsWith("+");
   const trendColor = trendUp ? C.green : C.red;
   const dailyVelocity = Math.round(item.current_stock / 9) || 33;
   const daysCover = Math.round(item.current_stock / dailyVelocity);
   const reorderRec = item.current_stock;
 
-  const signals = [
-    { label: "Social (25%)",     value: Math.min(99, score + 6),  color: C.green },
-    { label: "Search (20%)",     value: Math.min(99, score - 6),  color: C.green },
-    { label: "Internal (30%)",   value: Math.min(99, score - 17), color: "#e8a020" },
-    { label: "Competitor (15%)", value: Math.min(99, score - 33), color: "#e8a020" },
-    { label: "News (10%)",       value: Math.min(99, score - 48), color: C.red },
-  ];
+  // Use real contributing signals from API if available, otherwise derive from score
+  const signals = rootCause?.contributing_signals?.length
+    ? rootCause.contributing_signals.map(s => ({
+        label: s.source,
+        value: s.impact === "high" ? Math.min(99, score + 5)
+             : s.impact === "medium" ? Math.min(99, score - 10)
+             : Math.max(20, score - 30),
+        color: s.impact === "high" ? C.green : s.impact === "medium" ? "#e8a020" : C.red,
+        description: s.description,
+      }))
+    : [
+        { label: "Social (25%)",     value: Math.min(99, score + 6),  color: C.green, description: "" },
+        { label: "Search (20%)",     value: Math.min(99, score - 6),  color: C.green, description: "" },
+        { label: "Internal (30%)",   value: Math.min(99, score - 17), color: "#e8a020", description: "" },
+        { label: "Competitor (15%)", value: Math.min(99, score - 33), color: "#e8a020", description: "" },
+        { label: "News (10%)",       value: Math.min(99, score - 48), color: C.red, description: "" },
+      ];
 
   const stockItems = [
     { label: "Units in stock",  value: String(item.current_stock) },
     { label: "Daily velocity",  value: `~${dailyVelocity} units` },
     { label: "Days cover",      value: `${daysCover} days` },
-    { label: "Next delivery",   value: "12 May" },
-    { label: "Lead time",       value: "4 days" },
     { label: "Reorder rec.",    value: `${reorderRec} units` },
   ];
 
@@ -172,7 +217,7 @@ export default function ProductPage() {
           <AlertPill label={alertLabel} />
         </div>
         <div style={{ fontSize: 13, color: C.sub }}>
-          SKU: {item.sku} · {item.category} · intelligence from today 6:04 am
+          SKU: {item.sku} · {item.category} · intelligence updated {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
         </div>
       </div>
 
@@ -187,11 +232,14 @@ export default function ProductPage() {
         </div>
         <div style={{ flex: 1 }}>
           <p style={{ fontSize: 14, color: C.ink, lineHeight: 1.8, margin: "0 0 16px" }}>
-            {alert?.description ?? `${item.product_name} is showing ${isSpike ? "elevated demand signals" : "normal activity"}. At current sales velocity of approximately ${dailyVelocity} units per day, your remaining stock of ${item.current_stock} units covers roughly ${daysCover} days.`}
+            {rootCause
+              ? rootCause.recommended_action
+              : alert?.description ?? `${item.product_name} is showing ${isSpike ? "elevated demand signals" : "normal activity"}. At current sales velocity of approximately ${dailyVelocity} units per day, your remaining stock of ${item.current_stock} units covers roughly ${daysCover} days.`}
           </p>
           {isSpike && (
             <div style={{ background: "#fff8e8", border: "1px solid #f5d76e", borderRadius: 8, padding: "12px 16px", fontSize: 13.5, color: "#7a5000", lineHeight: 1.6 }}>
-              <strong>Suggested action:</strong> Place an emergency reorder of {reorderRec} units with your supplier by end of day today.
+              <strong>Suggested action:</strong>{" "}
+              {rootCause?.recommended_action ?? `Place an emergency reorder of ${reorderRec} units with your supplier by end of day today.`}
             </div>
           )}
         </div>
@@ -212,12 +260,12 @@ export default function ProductPage() {
           <div style={{ fontSize: 16, fontWeight: 800, color: C.ink, marginBottom: 4 }}>
             Demand spike — High confidence
           </div>
-          <div style={{ fontSize: 12.5, color: C.sub, marginBottom: 10 }}>Detected today 6:04 am</div>
+          <div style={{ fontSize: 12.5, color: C.sub, marginBottom: 10 }}>Detected {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short" })}</div>
           <div style={{ display: "inline-block", background: "#fbeaea", color: C.red, borderRadius: 999, padding: "3px 12px", fontSize: 12.5, fontWeight: 700, border: "1px solid #f0cccc", marginBottom: 14 }}>
             High
           </div>
           <p style={{ fontSize: 14, color: C.ink, lineHeight: 1.7, margin: "0 0 18px" }}>
-            TikTok trend + rising search. {daysCover} days cover remaining at current velocity.
+            Demand spike detected. {daysCover} days cover remaining at current velocity.
           </p>
           <div style={{ display: "flex", gap: 10 }}>
             <button style={{ background: C.ink, color: C.white, border: "none", borderRadius: 7, padding: "9px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "Gilroy, system-ui, sans-serif" }}>

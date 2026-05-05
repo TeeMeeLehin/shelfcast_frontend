@@ -7,11 +7,15 @@ import {
   fetchInventory,
   fetchSalesHistory,
   fetchDemandSignals,
+  fetchDashboardIntelligence,
   hasAnyActiveBatch,
   type InventoryItem,
   type SaleRecord,
   type DemandSignals,
+  type DemandAlert,
+  type DashboardIntelligence,
 } from "@/lib/store";
+import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 
@@ -287,16 +291,32 @@ export default function DemandTrendsPage() {
   const [noBatch,       setNoBatch]       = useState(false);
   const [selectedCat,   setSelectedCat]   = useState<string>("");
   const [signalTab,     setSignalTab]     = useState<"social" | "blogs" | "events">("social");
+  const [liveIntel,     setLiveIntel]     = useState<DashboardIntelligence | null>(null);
 
   useEffect(() => {
-    if (!hasAnyActiveBatch()) { setNoBatch(true); setLoading(false); return; }
-    Promise.all([fetchInventory(), fetchSalesHistory(), fetchDemandSignals()])
-      .then(([inv, sales, signals]) => {
-        const cats = buildCategoryData(sales, inv, signals);
-        setCategories(cats);
-        if (cats.length > 0) setSelectedCat(cats[0].name);
-        setLoading(false);
-      });
+    if (DEMO_MODE) {
+      if (!hasAnyActiveBatch()) { setNoBatch(true); setLoading(false); return; }
+      Promise.all([fetchInventory(), fetchSalesHistory(), fetchDemandSignals()])
+        .then(([inv, sales, signals]) => {
+          const cats = buildCategoryData(sales, inv, signals);
+          setCategories(cats);
+          if (cats.length > 0) setSelectedCat(cats[0].name);
+          setLoading(false);
+        });
+    } else {
+      fetchDashboardIntelligence()
+        .then(intel => {
+          const hasData =
+            intel.composite_demand_alerts.length > 0 ||
+            (intel.social_signals as unknown[]).length > 0 ||
+            (intel.blog_signals as unknown[]).length > 0 ||
+            (intel.event_calendar as unknown[]).length > 0;
+          if (!hasData) { setNoBatch(true); setLoading(false); return; }
+          setLiveIntel(intel);
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    }
   }, []);
 
   const selected = useMemo(() => categories.find(c => c.name === selectedCat), [categories, selectedCat]);
@@ -328,6 +348,86 @@ export default function DemandTrendsPage() {
       Loading demand trends…
     </div>
   );
+
+  // ── Live-mode signal view (no sales history available from API) ────────────
+  if (!DEMO_MODE && liveIntel) {
+    const soc   = liveIntel.social_signals as SocialSignal[];
+    const blogs = liveIntel.blog_signals  as BlogSignal[];
+    const evts  = liveIntel.event_calendar as EventSignal[];
+    const alerts = liveIntel.composite_demand_alerts;
+    return (
+      <div style={{ padding: "24px 32px", width: "100%", boxSizing: "border-box", ...gilroy }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 22 }}>
+          <div>
+            <h1 style={{ fontSize: 18, fontWeight: 800, color: C.ink, margin: 0 }}>Demand Trends</h1>
+            <p style={{ fontSize: 13, color: C.sub, margin: "4px 0 0" }}>
+              Live market intelligence — social signals, blog mentions, and upcoming events.
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: 10 }}>
+            <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "10px 18px", textAlign: "center" }}>
+              <p style={{ fontSize: 10, fontWeight: 700, color: C.sub, margin: "0 0 2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Alerts</p>
+              <p style={{ fontSize: 22, fontWeight: 800, color: C.red, margin: 0 }}>{alerts.length}</p>
+            </div>
+            <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "10px 18px", textAlign: "center" }}>
+              <p style={{ fontSize: 10, fontWeight: 700, color: C.sub, margin: "0 0 2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Signals</p>
+              <p style={{ fontSize: 22, fontWeight: 800, color: C.green, margin: 0 }}>{soc.length + blogs.length + evts.length}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Demand alerts */}
+        {alerts.length > 0 && (
+          <div style={{ marginBottom: 24 }}>
+            <h2 style={{ fontSize: 14, fontWeight: 700, color: C.ink, margin: "0 0 12px" }}>Active Demand Alerts</h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {alerts.map(a => (
+                <div key={a.alert_id} style={{ background: C.white, border: `1px solid ${C.border}`, borderLeft: `4px solid ${a.priority === "high" ? C.red : a.priority === "medium" ? C.amber : C.green}`, borderRadius: 8, padding: "14px 18px" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                    <span style={{ fontSize: 14, fontWeight: 700, color: C.ink }}>{a.title}</span>
+                    <span style={{ fontSize: 11, fontWeight: 700, color: a.priority === "high" ? C.red : a.priority === "medium" ? C.amber : C.green, background: a.priority === "high" ? "#fbeaea" : a.priority === "medium" ? "#fef3c7" : C.tint, border: `1px solid ${a.priority === "high" ? "#f0cccc" : a.priority === "medium" ? "#fde68a" : "#c6e6c8"}`, borderRadius: 999, padding: "2px 9px" }}>
+                      {a.priority} priority
+                    </span>
+                  </div>
+                  <p style={{ fontSize: 13, color: C.sub, margin: "0 0 8px", lineHeight: 1.6 }}>{a.description}</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12, color: C.sub }}>
+                    <span>Est. lift: <strong style={{ color: C.green }}>+{Math.round(a.combined_estimated_lift * 100)}%</strong></span>
+                    <span>SKUs: {a.affected_skus.slice(0, 4).join(", ")}{a.affected_skus.length > 4 ? ` +${a.affected_skus.length - 4} more` : ""}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Signal tabs */}
+        <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: 8, padding: "18px 20px" }}>
+          <h2 style={{ fontSize: 14, fontWeight: 700, color: C.ink, margin: "0 0 4px" }}>Market Signals</h2>
+          <p style={{ fontSize: 12, color: C.sub, margin: "0 0 14px" }}>External signals driving demand changes across your product categories</p>
+          <div style={{ display: "flex", borderBottom: `1px solid ${C.border}`, marginBottom: 16 }}>
+            <TabBtn label={`Social (${soc.length})`}   active={signalTab === "social"} onClick={() => setSignalTab("social")} />
+            <TabBtn label={`Blogs (${blogs.length})`}  active={signalTab === "blogs"}  onClick={() => setSignalTab("blogs")} />
+            <TabBtn label={`Events (${evts.length})`}  active={signalTab === "events"} onClick={() => setSignalTab("events")} />
+          </div>
+          {signalTab === "social" && (
+            soc.length === 0
+              ? <p style={{ fontSize: 13, color: C.sub, margin: 0 }}>No social signals at this time.</p>
+              : <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>{soc.map(s => <SignalCard key={s.signal_id} signal={s} />)}</div>
+          )}
+          {signalTab === "blogs" && (
+            blogs.length === 0
+              ? <p style={{ fontSize: 13, color: C.sub, margin: 0 }}>No blog signals at this time.</p>
+              : <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>{blogs.map(b => <BlogCard key={b.signal_id} blog={b} />)}</div>
+          )}
+          {signalTab === "events" && (
+            evts.length === 0
+              ? <p style={{ fontSize: 13, color: C.sub, margin: 0 }}>No upcoming events detected.</p>
+              : <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>{evts.map(e => <EventCard key={e.event_id} event={e} />)}</div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   if (noBatch) return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flex: 1, gap: 16, ...gilroy }}>
@@ -420,7 +520,11 @@ export default function DemandTrendsPage() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
               <div>
                 <h2 style={{ fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>{selected.name} — Daily Units Sold</h2>
-                <p style={{ fontSize: 12, color: C.sub, margin: "3px 0 0" }}>April 4 – May 4, 2026 · Dashed = 7-day linear projection</p>
+                <p style={{ fontSize: 12, color: C.sub, margin: "3px 0 0" }}>
+                  {selected.daily.length > 0
+                    ? `${selected.daily[0].date} – ${selected.daily[selected.daily.length - 1].date}`
+                    : "—"} · Dashed = 7-day linear projection
+                </p>
               </div>
               <div style={{ display: "flex", gap: 16 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>

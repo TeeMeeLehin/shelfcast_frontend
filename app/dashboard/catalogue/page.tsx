@@ -3,7 +3,11 @@ import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { Package, ArrowRight } from "@phosphor-icons/react";
 import Button from "../components/Button";
-import { fetchInventory, fetchDemandSignals, hasAnyActiveBatch, type InventoryItem } from "@/lib/store";
+import {
+  fetchInventory, fetchDemandSignals, fetchCatalogueApi,
+  hasAnyActiveBatch, type InventoryItem,
+} from "@/lib/store";
+import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 
@@ -114,29 +118,55 @@ export default function CataloguePage() {
   const [page, setPage]                 = useState(1);
 
   useEffect(() => {
-    if (!hasAnyActiveBatch()) {
-      setNoBatch(true);
-      setLoading(false);
-      return;
-    }
-    Promise.all([fetchInventory(), fetchDemandSignals()]).then(([inv, signals]) => {
-      const alertedSkus = new Set<string>(
-        signals.composite_demand_alerts.flatMap(a => a.affected_skus)
-      );
-      const enriched: EnrichedProduct[] = inv.map(item => {
-        const alertType = deriveAlert(item, alertedSkus);
-        const score = deriveScore(item, alertedSkus);
-        const trend = deriveTrend(item, alertedSkus);
-        const advice = score >= 70
-          ? "Increase current stock to meet demand"
-          : alertType === "Slow Mover"
-            ? "Items have lost traction — take action to move them (promotions, etc)"
-            : "Monitor stock levels closely";
-        return { ...item, alertType, score, trend, advice };
+    if (DEMO_MODE) {
+      if (!hasAnyActiveBatch()) { setNoBatch(true); setLoading(false); return; }
+      Promise.all([fetchInventory(), fetchDemandSignals()]).then(([inv, signals]) => {
+        const alertedSkus = new Set<string>(
+          signals.composite_demand_alerts.flatMap(a => a.affected_skus)
+        );
+        const enriched: EnrichedProduct[] = inv.map(item => {
+          const alertType = deriveAlert(item, alertedSkus);
+          const score = deriveScore(item, alertedSkus);
+          const trend = deriveTrend(item, alertedSkus);
+          const advice = score >= 70
+            ? "Increase current stock to meet demand"
+            : alertType === "Slow Mover"
+              ? "Items have lost traction — take action to move them (promotions, etc)"
+              : "Monitor stock levels closely";
+          return { ...item, alertType, score, trend, advice };
+        });
+        setProducts(enriched);
+        setLoading(false);
       });
-      setProducts(enriched);
-      setLoading(false);
-    });
+    } else {
+      fetchCatalogueApi({ limit: 1000 })
+        .then(({ items }) => {
+          if (items.length === 0) { setNoBatch(true); setLoading(false); return; }
+          const enriched: EnrichedProduct[] = items.map(item => {
+            const score = item.score ?? 60;
+            const alertType = item.alert_type ?? "Stable";
+            const trend = item.trend_pct !== undefined
+              ? `${item.trend_pct >= 0 ? "+" : ""}${Math.round(item.trend_pct)}%`
+              : "+0%";
+            const advice = score >= 70
+              ? "Increase current stock to meet demand"
+              : alertType === "Slow Mover" || alertType === "slow_mover"
+                ? "Items have lost traction — take action to move them (promotions, etc)"
+                : "Monitor stock levels closely";
+            return {
+              sku: item.sku,
+              product_name: item.product_name,
+              category: item.category,
+              unit_price_ghs: item.unit_price_ghs,
+              current_stock: item.current_stock,
+              alertType, score, trend, advice,
+            };
+          });
+          setProducts(enriched);
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    }
   }, []);
 
   const categories = useMemo(() => {

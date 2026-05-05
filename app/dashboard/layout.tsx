@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -36,13 +36,26 @@ const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-ser
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const [userLabel, setUserLabel] = useState<string>("");
+  const [storeLabel, setStoreLabel] = useState<string>("");
 
   useEffect(() => {
     if (DEMO_MODE) return;
     const token = localStorage.getItem("sc_token");
     if (!token) {
       window.location.replace("/auth");
+      return;
     }
+    // Populate header from stored values (set during onboarding / login)
+    const storedEmail = (() => {
+      try {
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        return (payload.email as string) ?? "";
+      } catch { return ""; }
+    })();
+    setUserLabel(storedEmail);
+    const storedName = localStorage.getItem("sc_retailer_name") ?? "";
+    setStoreLabel(storedName);
   }, []);
 
   return (
@@ -75,18 +88,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        {(userLabel || storeLabel) && (
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: "#000", ...gilroy }}>Makafui Gley</div>
-            <div style={{ fontSize: 10, color: "#555", fontWeight: 400, ...gilroy }}>Melcom, Tema Branch</div>
+            {storeLabel && <div style={{ fontSize: 12, fontWeight: 700, color: "#000", ...gilroy }}>{storeLabel}</div>}
+            {userLabel && <div style={{ fontSize: 10, color: "#555", fontWeight: 400, ...gilroy }}>{userLabel}</div>}
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt="Makafui Gley"
-            style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover" }}
-          />
-        </div>
+        )}
       </header>
 
       {/* Scrollable content */}

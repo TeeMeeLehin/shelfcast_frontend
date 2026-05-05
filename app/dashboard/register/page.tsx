@@ -20,8 +20,11 @@ import {
   getActiveBatchIds,
   toggleBatch,
   setActiveBatchIds,
+  uploadCsv,
+  pollIngestStatus,
   type Batch,
 } from "@/lib/store";
+import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 const ALLOWED = [".csv", ".xlsx", ".xls"];
@@ -76,13 +79,42 @@ export default function RegisterDataPage() {
     setPhase("analysing");
     setStepIndex(0);
 
-    // Run through analysis steps
-    for (let i = 1; i < ANALYSIS_STEPS.length; i++) {
-      await new Promise(r => setTimeout(r, i === ANALYSIS_STEPS.length - 1 ? 1200 : 900));
-      setStepIndex(i);
+    if (DEMO_MODE) {
+      // Demo: simulate analysis steps
+      for (let i = 1; i < ANALYSIS_STEPS.length; i++) {
+        await new Promise(r => setTimeout(r, i === ANALYSIS_STEPS.length - 1 ? 1200 : 900));
+        setStepIndex(i);
+      }
+    } else {
+      // Live: upload each file to the backend and poll for completion
+      try {
+        for (let fi = 0; fi < files.length; fi++) {
+          setStepIndex(fi === 0 ? 1 : 2);
+          const { job_id } = await uploadCsv(files[fi]);
+
+          // Poll until done or error
+          let attempts = 0;
+          while (attempts < 120) {
+            await new Promise(r => setTimeout(r, 2000));
+            const status = await pollIngestStatus(job_id);
+            const stepMap: Record<string, number> = {
+              queued: 1, processing: 2, done: 4, error: 4,
+            };
+            setStepIndex(stepMap[status.status] ?? 2);
+            if (status.status === "done") break;
+            if (status.status === "error") throw new Error(status.message ?? "Ingestion failed");
+            attempts++;
+          }
+        }
+        setStepIndex(ANALYSIS_STEPS.length - 1);
+        await new Promise(r => setTimeout(r, 800));
+      } catch {
+        setPhase("idle");
+        return;
+      }
     }
 
-    // Save batch
+    // Save batch record locally
     const existing = getBatches();
     const batch: Batch = {
       id: `batch-${Date.now()}`,
@@ -92,7 +124,6 @@ export default function RegisterDataPage() {
     };
     saveBatch(batch);
 
-    // Auto-activate this batch
     const newActive = [...getActiveBatchIds(), batch.id];
     setActiveBatchIds(newActive);
 

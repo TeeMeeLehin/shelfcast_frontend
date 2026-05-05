@@ -7,10 +7,15 @@ import { ChartBar, ArrowRight } from "@phosphor-icons/react";
 import {
   fetchInventory,
   fetchDemandSignals,
+  fetchDashboardSummary,
+  fetchDashboardAlerts,
   hasAnyActiveBatch,
   type InventoryItem,
   type DemandAlert,
+  type DashboardSummary,
+  type DashboardAlertRow,
 } from "@/lib/store";
+import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 
@@ -112,16 +117,42 @@ function KpiCard({ title, value, label, accent, compact }: { title: string; valu
 
 export default function CommandCenter() {
   const router = useRouter();
-  const [rows, setRows]         = useState<TableRow[]>([]);
-  const [alerts, setAlerts]     = useState<DemandAlert[]>([]);
+  const [rows, setRows]           = useState<TableRow[]>([]);
+  const [alerts, setAlerts]       = useState<DemandAlert[]>([]);
   const [inventory, setInventory] = useState<InventoryItem[]>([]);
-  const [loading, setLoading]   = useState(true);
-  const [noBatch, setNoBatch]   = useState(false);
-  const [search, setSearch]     = useState("");
+  const [summary, setSummary]     = useState<DashboardSummary | null>(null);
+  const [loading, setLoading]     = useState(true);
+  const [noBatch, setNoBatch]     = useState(false);
+  const [search, setSearch]       = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
   const [filterAlert, setFilterAlert]       = useState("All");
 
   useEffect(() => {
+    if (!DEMO_MODE) {
+      // ── Live API mode ──────────────────────────────────────────────
+      Promise.all([fetchDashboardSummary(), fetchDashboardAlerts()])
+        .then(([sum, apiRows]) => {
+          setSummary(sum);
+          const tableRows: TableRow[] = apiRows.map(r => ({
+            sku: r.sku,
+            product: r.product_name,
+            category: r.category,
+            score: r.score,
+            trend: r.trend_pct >= 0 ? `+${r.trend_pct}%` : `${r.trend_pct}%`,
+            alert: r.alert_type,
+            stock: 0,
+            unitPrice: 0,
+            advice: r.score >= 70 ? "Increase current stock to meet demand" : "Monitor stock levels closely",
+            insight: r.intelligence_snapshot,
+          }));
+          setRows(tableRows);
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+      return;
+    }
+
+    // ── Demo mode ──────────────────────────────────────────────────
     if (!hasAnyActiveBatch()) {
       setNoBatch(true);
       setLoading(false);
@@ -172,11 +203,13 @@ export default function CommandCenter() {
       && (filterAlert === "All" || row.alert === filterAlert);
   }), [rows, search, filterCategory, filterAlert]);
 
-  const alertCount    = rows.filter(r => r.alert === "Demand Spike" || r.alert === "Low Stock").length;
-  const highSignal    = rows.filter(r => r.score >= 70).length;
-  const capitalAtRisk = inventory
+  // KPI values: use API summary when in live mode, derive from demo data otherwise
+  const alertCount    = summary ? summary.active_alerts    : rows.filter(r => r.alert === "Demand Spike" || r.alert === "Low Stock").length;
+  const highSignal    = summary ? summary.high_signal_products : rows.filter(r => r.score >= 70).length;
+  const capitalAtRisk = summary ? summary.capital_at_risk_ghs  : inventory
     .filter(i => rows.find(r => r.sku === i.sku && (r.alert === "Demand Spike" || r.alert === "Low Stock")))
     .reduce((s, i) => s + i.unit_price_ghs * i.current_stock, 0);
+  const productsTracked = summary ? summary.products_tracked : rows.length;
 
   const revenueChange = 20500;
 
