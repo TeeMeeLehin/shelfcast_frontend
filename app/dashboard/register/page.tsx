@@ -12,6 +12,7 @@ import {
   ToggleLeft,
   ToggleRight,
   ArrowRight,
+  WarningCircle,
 } from "@phosphor-icons/react";
 import Button from "../components/Button";
 import {
@@ -23,21 +24,23 @@ import {
   uploadCsv,
   pollIngestStatus,
   type Batch,
+  type IngestJobStatus,
 } from "@/lib/store";
 import { DEMO_MODE } from "@/lib/config";
 
 const gilroy: React.CSSProperties = { fontFamily: "'Gilroy', system-ui, sans-serif" };
 const ALLOWED = [".csv", ".xlsx", ".xls"];
 
-type Phase = "idle" | "analysing" | "done";
+type Phase = "idle" | "analysing" | "done" | "error";
 
-const ANALYSIS_STEPS = [
-  "Parsing uploaded files…",
-  "Cleaning & deduplicating records…",
-  "Matching SKUs to product catalogue…",
-  "Watching demand signals…",
-  "Generating ShelfCast scores…",
-  "Analysis complete",
+const DEMO_STEPS = [
+  { pipeline_stage: "pending", stage_label: "Uploading data...", progress: 5 },
+  { pipeline_stage: "processing", stage_label: "Cleaning & validating data...", progress: 20 },
+  { pipeline_stage: "classifying", stage_label: "Classifying products...", progress: 40 },
+  { pipeline_stage: "tagging_signals", stage_label: "Extracting market signals...", progress: 55 },
+  { pipeline_stage: "scoring_skus", stage_label: "Scoring your catalogue...", progress: 70 },
+  { pipeline_stage: "generating_insights", stage_label: "Generating AI insights...", progress: 85 },
+  { pipeline_stage: "complete", stage_label: "Intelligence ready!", progress: 100 },
 ];
 
 function formatDate(iso: string) {
@@ -49,9 +52,11 @@ function formatDate(iso: string) {
 
 export default function RegisterDataPage() {
   const router = useRouter();
-  const [files, setFiles] = useState<File[]>([]);
+  const [file, setFile] = useState<File | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
-  const [stepIndex, setStepIndex] = useState(0);
+  const [pollData, setPollData] = useState<IngestJobStatus | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
   const [batches, setBatches] = useState<Batch[]>([]);
   const [activeBatchIds, setLocalActive] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -61,55 +66,77 @@ export default function RegisterDataPage() {
     setLocalActive(getActiveBatchIds());
   }, []);
 
-  const addFiles = useCallback((incoming: FileList | File[]) => {
-    const valid = Array.from(incoming).filter(f =>
+  const handleFileSelect = useCallback((incoming: FileList | File[]) => {
+    const valid = Array.from(incoming).find(f =>
       ALLOWED.some(ext => f.name.toLowerCase().endsWith(ext))
     );
-    setFiles(prev => {
-      const existing = new Set(prev.map(f => f.name));
-      return [...prev, ...valid.filter(f => !existing.has(f.name))];
-    });
+    if (valid) {
+      setFile(valid);
+    }
   }, []);
 
-  const removeFile = (name: string) =>
-    setFiles(prev => prev.filter(f => f.name !== name));
+  const removeFile = () => setFile(null);
 
   const handleSubmit = useCallback(async () => {
-    if (!files.length) return;
+    if (!file) return;
     setPhase("analysing");
-    setStepIndex(0);
+    setErrorMsg(null);
+    setPollData({
+      id: "init",
+      status: "pending",
+      pipeline_stage: "pending",
+      stage_label: "Preparing upload...",
+      progress: 0,
+      is_complete: false,
+      is_failed: false,
+    });
 
     if (DEMO_MODE) {
       // Demo: simulate analysis steps
-      for (let i = 1; i < ANALYSIS_STEPS.length; i++) {
-        await new Promise(r => setTimeout(r, i === ANALYSIS_STEPS.length - 1 ? 1200 : 900));
-        setStepIndex(i);
+      for (let i = 0; i < DEMO_STEPS.length; i++) {
+        const step = DEMO_STEPS[i];
+        setPollData({
+          id: "demo-uuid",
+          status: "processing",
+          pipeline_stage: step.pipeline_stage,
+          stage_label: step.stage_label,
+          progress: step.progress,
+          is_complete: step.pipeline_stage === "complete",
+          is_failed: false,
+        });
+        if (step.pipeline_stage === "complete") break;
+        await new Promise(r => setTimeout(r, 2000));
       }
     } else {
-      // Live: upload each file to the backend and poll for completion
+      // Live: upload the file and poll for completion
       try {
-        for (let fi = 0; fi < files.length; fi++) {
-          setStepIndex(fi === 0 ? 1 : 2);
-          const { job_id } = await uploadCsv(files[fi]);
+        setPollData(prev => prev ? { ...prev, progress: 5, stage_label: "Uploading data..." } : null);
+        const { job_id } = await uploadCsv(file);
 
-          // Poll until done or error
-          let attempts = 0;
-          while (attempts < 120) {
-            await new Promise(r => setTimeout(r, 2000));
-            const status = await pollIngestStatus(job_id);
-            const stepMap: Record<string, number> = {
-              queued: 1, processing: 2, done: 4, error: 4,
-            };
-            setStepIndex(stepMap[status.status] ?? 2);
-            if (status.status === "done") break;
-            if (status.status === "error") throw new Error(status.message ?? "Ingestion failed");
-            attempts++;
+        // Poll until done or error
+        let attempts = 0;
+        let isDone = false;
+        
+        while (attempts < 120 && !isDone) {
+          await new Promise(r => setTimeout(r, 2500)); // Poll every 2.5 seconds
+          const status = await pollIngestStatus(job_id);
+          
+          setPollData(status);
+
+          if (status.is_complete) {
+            isDone = true;
+          } else if (status.is_failed) {
+            throw new Error("Processing failed. Please try again.");
           }
+          attempts++;
         }
-        setStepIndex(ANALYSIS_STEPS.length - 1);
-        await new Promise(r => setTimeout(r, 800));
-      } catch {
-        setPhase("idle");
+        
+        if (!isDone) {
+          throw new Error("Processing timed out. Please try again.");
+        }
+      } catch (err) {
+        setPhase("error");
+        setErrorMsg((err as Error).message || "An unexpected error occurred.");
         return;
       }
     }
@@ -120,7 +147,7 @@ export default function RegisterDataPage() {
       id: `batch-${Date.now()}`,
       label: `Batch #${existing.length + 1} — ${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}`,
       uploadedAt: new Date().toISOString(),
-      files: files.map(f => f.name),
+      files: [file.name],
     };
     saveBatch(batch);
 
@@ -131,9 +158,9 @@ export default function RegisterDataPage() {
     setBatches(getBatches());
     setLocalActive(newActive);
 
-    await new Promise(r => setTimeout(r, 1200));
+    await new Promise(r => setTimeout(r, 1500));
     router.push("/dashboard");
-  }, [files, router]);
+  }, [file, router]);
 
   const handleToggle = (id: string, currentlyActive: boolean) => {
     toggleBatch(id, !currentlyActive);
@@ -147,65 +174,90 @@ export default function RegisterDataPage() {
   };
 
   const onFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) addFiles(e.target.files);
+    if (e.target.files) handleFileSelect(e.target.files);
     e.target.value = "";
   };
 
   const onDrop = (e: React.DragEvent) => {
     e.preventDefault();
-    if (e.dataTransfer.files) addFiles(e.dataTransfer.files);
+    if (e.dataTransfer.files) handleFileSelect(e.dataTransfer.files);
   };
 
   // ── Analysis screen ────────────────────────────────────────────────
-  if (phase === "analysing" || phase === "done") {
+  if (phase === "analysing" || phase === "done" || phase === "error") {
     const complete = phase === "done";
+    const failed = phase === "error";
+    const progress = pollData?.progress ?? 0;
+    
     return (
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1, background: "#f3ebda" }}>
         <div style={{ width: 520, background: "#fff", borderRadius: 12, padding: "48px 44px", boxShadow: "0 4px 32px rgba(0,0,0,0.08)", ...gilroy }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 32 }}>
-            <Database size={28} color="#17931f" weight="duotone" />
+            <Database size={28} color={failed ? "#e74c3c" : "#17931f"} weight="duotone" />
             <div>
-              <div style={{ fontSize: 18, fontWeight: 700, color: "#0D1F0D" }}>Processing your data</div>
-              <div style={{ fontSize: 13, color: "#666", marginTop: 2 }}>ShelfCast is analysing your upload</div>
+              <div style={{ fontSize: 18, fontWeight: 700, color: "#0D1F0D" }}>
+                {failed ? "Processing failed" : "Processing your data"}
+              </div>
+              <div style={{ fontSize: 13, color: "#666", marginTop: 2 }}>
+                {failed ? "There was an issue processing your upload" : "ShelfCast is analysing your upload"}
+              </div>
             </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {ANALYSIS_STEPS.map((step, i) => {
-              const done = i < stepIndex || complete;
-              const active = i === stepIndex && !complete;
-              const pending = i > stepIndex && !complete;
-              const isLast = i === ANALYSIS_STEPS.length - 1;
-              return (
-                <div key={step} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <div style={{ width: 28, height: 28, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, background: done ? "#e7ffe2" : active ? "#fff8e6" : "#f5f5f5", border: `1.5px solid ${done ? "#17931f" : active ? "#E8A205" : "#ddd"}`, transition: "all 0.3s" }}>
-                    {done
+          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+            {/* Progress Bar Container */}
+            <div style={{ background: "#f0f0f0", borderRadius: 8, height: 12, width: "100%", overflow: "hidden" }}>
+              <div style={{
+                background: failed ? "#e74c3c" : complete ? "#17931f" : "#E8A205",
+                width: `${progress}%`,
+                height: "100%",
+                transition: "width 0.5s ease-in-out, background-color 0.3s",
+              }} />
+            </div>
+
+            {/* Status Information */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={{ 
+                  width: 28, height: 28, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, 
+                  background: failed ? "#fff0f0" : complete ? "#e7ffe2" : "#fff8e6", 
+                  border: `1.5px solid ${failed ? "#e74c3c" : complete ? "#17931f" : "#E8A205"}` 
+                }}>
+                  {failed 
+                    ? <WarningCircle size={16} color="#e74c3c" weight="bold" />
+                    : complete
                       ? <CheckCircle size={16} color="#17931f" weight="fill" />
-                      : active
-                        ? <SpinnerGap size={16} color="#E8A205" style={{ animation: "spin 0.8s linear infinite" }} />
-                        : <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#ddd", display: "block" }} />
-                    }
-                  </div>
-                  <span style={{
-                    fontSize: 14,
-                    fontWeight: (done || active) ? 600 : 400,
-                    color: done ? "#17931f" : active ? "#E8A205" : "#999",
-                    transition: "color 0.3s",
-                  }}>
-                    {isLast && done ? (
-                      <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                        {step} <CheckCircle size={15} color="#17931f" weight="fill" />
-                      </span>
-                    ) : step}
-                  </span>
+                      : <SpinnerGap size={16} color="#E8A205" style={{ animation: "spin 0.8s linear infinite" }} />
+                  }
                 </div>
-              );
-            })}
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <span style={{ fontSize: 15, fontWeight: 600, color: failed ? "#e74c3c" : complete ? "#17931f" : "#0D1F0D" }}>
+                    {failed ? (errorMsg || "Error processing file") : pollData?.stage_label || "Preparing..."}
+                  </span>
+                  {(!complete && !failed) && (
+                    <span style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
+                      Processing...
+                    </span>
+                  )}
+                </div>
+              </div>
+              <span style={{ fontSize: 16, fontWeight: 700, color: failed ? "#e74c3c" : complete ? "#17931f" : "#E8A205" }}>
+                {progress}%
+              </span>
+            </div>
           </div>
 
           {complete && (
             <div style={{ marginTop: 32, textAlign: "center" }}>
               <div style={{ fontSize: 13, color: "#666" }}>Redirecting to Command Center…</div>
+            </div>
+          )}
+
+          {failed && (
+            <div style={{ marginTop: 32, display: "flex", justifyContent: "center" }}>
+              <Button variant="yellow" onClick={() => setPhase("idle")}>
+                Retry Upload
+              </Button>
             </div>
           )}
         </div>
@@ -230,7 +282,6 @@ export default function RegisterDataPage() {
           ref={fileInputRef}
           type="file"
           accept=".csv,.xlsx,.xls"
-          multiple
           style={{ display: "none" }}
           onChange={onFileInput}
         />
@@ -243,7 +294,7 @@ export default function RegisterDataPage() {
             border: "2px dashed #30A444",
             background: "#EBF1EA",
             borderRadius: 4,
-            height: files.length ? 100 : 220,
+            height: file ? 100 : 220,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -255,29 +306,27 @@ export default function RegisterDataPage() {
         >
           <CloudArrowUp size={34} color="#1A9E32" weight="regular" />
           <div style={{ color: "#1A9E32", fontSize: 13, fontWeight: 500, textAlign: "center", lineHeight: 1.5 }}>
-            {files.length ? "Add more files" : "drag & drop or click to upload"}
+            {file ? "Change file" : "drag & drop or click to upload"}
             <br />
             <span style={{ fontSize: 11, color: "#555", fontWeight: 400 }}>CSV or Excel (.xlsx) supported</span>
           </div>
         </div>
 
-        {files.length > 0 && (
+        {file && (
           <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-            {files.map(f => (
-              <div key={f.name} style={{ display: "flex", alignItems: "center", gap: 12, background: "#fff", border: "1px solid #d4dec4", borderRadius: 6, padding: "10px 14px" }}>
-                <FileIcon size={20} color="#1A9E32" />
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "#000", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.name}</div>
-                  <div style={{ fontSize: 11, color: "#666" }}>{f.size < 1024 * 1024 ? `${(f.size / 1024).toFixed(1)} KB` : `${(f.size / (1024 * 1024)).toFixed(1)} MB`}</div>
-                </div>
-                <button onClick={() => removeFile(f.name)} style={{ background: "none", border: "none", cursor: "pointer", color: "#999", padding: 4, display: "flex" }}>
-                  <X size={16} />
-                </button>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, background: "#fff", border: "1px solid #d4dec4", borderRadius: 6, padding: "10px 14px" }}>
+              <FileIcon size={20} color="#1A9E32" />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#000", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{file.name}</div>
+                <div style={{ fontSize: 11, color: "#666" }}>{file.size < 1024 * 1024 ? `${(file.size / 1024).toFixed(1)} KB` : `${(file.size / (1024 * 1024)).toFixed(1)} MB`}</div>
               </div>
-            ))}
+              <button onClick={(e) => { e.stopPropagation(); removeFile(); }} style={{ background: "none", border: "none", cursor: "pointer", color: "#999", padding: 4, display: "flex" }}>
+                <X size={16} />
+              </button>
+            </div>
             <div style={{ marginTop: 8, display: "flex", justifyContent: "center" }}>
               <Button variant="yellow" onClick={handleSubmit} style={{ minWidth: 200 }}>
-                Upload {files.length} file{files.length !== 1 ? "s" : ""} <ArrowRight size={16} weight="bold" style={{ marginLeft: 6 }} />
+                Upload file <ArrowRight size={16} weight="bold" style={{ marginLeft: 6 }} />
               </Button>
             </div>
           </div>

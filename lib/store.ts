@@ -121,11 +121,13 @@ export type RootCause = {
 };
 
 export type IngestJobStatus = {
-  job_id: string;
-  status: "queued" | "processing" | "done" | "error";
-  progress?: number;
-  message?: string;
-  rows_processed?: number;
+  id: string;
+  status: string;
+  pipeline_stage: string;
+  stage_label: string;
+  progress: number;
+  is_complete: boolean;
+  is_failed: boolean;
 };
 
 export type IntelligenceJobStatus = {

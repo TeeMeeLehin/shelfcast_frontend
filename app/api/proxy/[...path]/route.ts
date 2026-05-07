@@ -4,14 +4,15 @@ const BACKEND = process.env.NEXT_PUBLIC_API_BASE ?? "";
 
 // Skip headers that must not be forwarded to the upstream server
 const SKIP_REQ = new Set(["host", "connection", "transfer-encoding", "content-length"]);
-const SKIP_RES = new Set(["transfer-encoding", "connection"]);
+const SKIP_RES = new Set(["transfer-encoding", "connection", "content-encoding", "content-length"]);
 
 async function handler(
   req: NextRequest,
   { params }: { params: Promise<{ path: string[] }> },
 ) {
   const { path } = await params;
-  const targetUrl = `${BACKEND}/${path.join("/")}${req.nextUrl.search}`;
+  const cleanBackend = BACKEND.endsWith("/") ? BACKEND.slice(0, -1) : BACKEND;
+  const targetUrl = `${cleanBackend}/${path.join("/")}${req.nextUrl.search}`;
 
   const headers = new Headers();
   req.headers.forEach((value, key) => {
